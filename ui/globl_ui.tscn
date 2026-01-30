@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://t43p64se4nw2"]
 
 [ext_resource type="LabelSettings" uid="uid://cic6vrjqf8i0d" path="res://ui/level_font.tres" id="1_v3oc8"]
-[ext_resource type="Script" uid="uid://cphvsgl0xmoaa" path="res://ui/globl_ui.gd" id="1_xtvba"]
+[ext_resource type="Script" uid="uid://cphvsgl0xmoaa" path="res://ui/global_ui.gd" id="1_xtvba"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_85gms"]
 
@@ -20,7 +20,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="BlackRect" type="TextureRect" parent="LevelEndPrompt" unique_id=279354583]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(0, 0, 0, 0.627451)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

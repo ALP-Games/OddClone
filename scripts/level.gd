@@ -1,7 +1,8 @@
 class_name Level extends Node
 
-signal level_won
-signal level_lost
+signal level_end(won: bool)
+#signal level_won
+#signal level_lost
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,10 +11,14 @@ func _ready() -> void:
 	var npcs := get_tree().get_nodes_in_group(Constants.NPC_GROUP)
 	var bad_npc_index := randi_range(0, npcs.size() - 1)
 	(npcs[bad_npc_index] as NPC).convert_to_target()
+	
+	var player: Player = get_tree().get_first_node_in_group(Constants.PLAYER_GROUP)
+	level_end.connect(player.on_level_end)
 
 
 func npc_shot(enemy: bool) -> void:
-	if enemy:
-		level_won.emit()
-	else:
-		level_lost.emit()
+	level_end.emit(enemy)
+	#if enemy:
+		#level_won.emit()
+	#else:
+		#level_lost.emit()

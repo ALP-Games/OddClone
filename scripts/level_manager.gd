@@ -8,7 +8,9 @@ var _current_level: Level = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	GlobalUi.button_next_level.pressed.connect(_next_level)
+	GlobalUi.button_restart.pressed.connect(_restart_level)
+	pass
 
 
 func _enter_tree() -> void:
@@ -19,21 +21,30 @@ func _enter_tree() -> void:
 
 
 func _level_init() -> void:
-	_current_level.level_won.connect(_level_won)
-	_current_level.level_lost.connect(_level_lost)
+	GlobalUi.disable_level_end()
+	_current_level.level_end.connect(_on_level_end)
 
 
-func _on_level_end() -> void:
-	#get_tree().unload_current_scene()
-	# need to pause level or load some intermediate scene or something
+func _next_level() -> void:
+	_current_level_id = wrapi(_current_level_id + 1, 0, levels.size() - 1)
+	get_tree().change_scene_to_packed(levels[_current_level_id])
+
+
+func _restart_level() -> void:
+	get_tree().reload_current_scene()
+
+
+func _on_level_end(won: bool) -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if won:
+		_level_won()
+	else:
+		_level_lost()
 
 
 func _level_won() -> void:
-	_on_level_end()
-	GloblUi.enable_level_won()
+	GlobalUi.enable_level_won()
 
 
 func _level_lost() -> void:
-	_on_level_end()
-	GloblUi.enable_level_lost()
+	GlobalUi.enable_level_lost()
