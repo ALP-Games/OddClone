@@ -1,8 +1,30 @@
 extends CharacterBody3D
 
+@export var head: Node3D
+@export_range(0, 180, 0.001, "radians_as_degrees") var max_pitch_degrees: float = deg_to_rad(60)
+@export var head_max_rotation_units: Vector2 = Vector2.ZERO
 
-const SPEED = 5.0
-#const JUMP_VELOCITY = 4.5
+@export var move_speed = 5.0
+@export var sensitivity: float = 0.003
+
+
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		var rotation = -event.relative * sensitivity
+		
+		if head_max_rotation_units.x > 0:
+			# rotate the body
+			rotate_y(clamp(rotation.x, -head_max_rotation_units.x, head_max_rotation_units.x))
+		else:
+			rotate_y(rotation.x)
+		if head_max_rotation_units.y > 0:
+			head.rotate_x(clamp(rotation.y, -head_max_rotation_units.y, head_max_rotation_units.y))
+		else:
+			head.rotate_x(rotation.y)
+		self.rotation.x = clamp(self.rotation.x, -max_pitch_degrees, max_pitch_degrees)
 
 
 func _physics_process(delta: float) -> void:
@@ -19,10 +41,10 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * move_speed
+		velocity.z = direction.z * move_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, move_speed)
+		velocity.z = move_toward(velocity.z, 0, move_speed)
 
 	move_and_slide()
