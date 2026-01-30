@@ -7,31 +7,37 @@ extends CharacterBody3D
 @export var move_speed = 5.0
 @export var sensitivity: float = 0.003
 
+var rotation_accumulation := Vector2.ZERO
+
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		var rotation = -event.relative * sensitivity
-		
-		if head_max_rotation_units.x > 0:
+		rotation_accumulation -= event.relative * sensitivity
+
+
+func _head_rotation() -> void:
+	if head_max_rotation_units.x > 0:
 			# rotate the body
-			rotate_y(clamp(rotation.x, -head_max_rotation_units.x, head_max_rotation_units.x))
-		else:
-			rotate_y(rotation.x)
-		if head_max_rotation_units.y > 0:
-			head.rotate_x(clamp(rotation.y, -head_max_rotation_units.y, head_max_rotation_units.y))
-		else:
-			head.rotate_x(rotation.y)
-		self.rotation.x = clamp(self.rotation.x, -max_pitch_degrees, max_pitch_degrees)
+		rotate_y(clamp(rotation_accumulation.x, -head_max_rotation_units.x, head_max_rotation_units.x))
+	else:
+		rotate_y(rotation_accumulation.x)
+	if head_max_rotation_units.y > 0:
+		head.rotate_x(clamp(rotation_accumulation.y, -head_max_rotation_units.y, head_max_rotation_units.y))
+	else:
+		head.rotate_x(rotation_accumulation.y)
+		head.rotation.x = clamp(head.rotation.x, -max_pitch_degrees, max_pitch_degrees)
+	rotation_accumulation = Vector2.ZERO
 
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
+	_head_rotation()
 	# Handle jump.
 	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		#velocity.y = JUMP_VELOCITY

@@ -43,3 +43,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0450444, 4.7683716e-07, -3.
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=796080809]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5997498, 0, -7.0720806)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1102878]
+transform = Transform3D(0.73992467, -0.49652168, -0.45384765, 0.67268974, 0.5461487, 0.49920946, 0, -0.67467606, 0.73811394, 0.2525344, 2.7763596, 3.0205896)
