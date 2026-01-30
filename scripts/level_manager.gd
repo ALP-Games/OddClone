@@ -23,9 +23,17 @@ func _level_init() -> void:
 	_current_level.level_lost.connect(_level_lost)
 
 
+func _on_level_end() -> void:
+	#get_tree().unload_current_scene()
+	# need to pause level or load some intermediate scene or something
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
 func _level_won() -> void:
+	_on_level_end()
 	GloblUi.enable_level_won()
 
 
 func _level_lost() -> void:
+	_on_level_end()
 	GloblUi.enable_level_lost()
