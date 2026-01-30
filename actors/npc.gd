@@ -11,6 +11,9 @@ func convert_to_target() -> void:
 	_is_clanker = true
 
 
+func get_shot() -> void:
+	var level: Level = get_tree().get_first_node_in_group(Constants.LEVEL_GROUP)
+	level.npc_shot(_is_clanker)
 #func _physics_process(delta: float) -> void:
 	## Add the gravity.
 	#if not is_on_floor():

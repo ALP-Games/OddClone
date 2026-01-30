@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://datbdcuw2mst8"]
 
+[ext_resource type="Script" uid="uid://bl8i4po5akrxq" path="res://ui/gameplay_ui.gd" id="1_hlshe"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_85gms"]
 font_size = 32
 
@@ -11,8 +13,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("1_hlshe")
 
-[node name="Label" type="Label" parent="." unique_id=1049629186]
+[node name="Croshair" type="Label" parent="." unique_id=1049629186]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

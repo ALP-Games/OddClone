@@ -44,7 +44,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		raycast.force_raycast_update()
 		var collider := raycast.get_collider()
-		print("Shot - ", collider.name)
+		(collider as NPC).get_shot()
+		#print("Shot - ", collider.name)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
