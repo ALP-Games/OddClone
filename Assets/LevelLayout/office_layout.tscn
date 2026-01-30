@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://ngmr7ceqer17"]
+
+[ext_resource type="PackedScene" uid="uid://cveuq6ftxmcy7" path="res://Assets/LevelLayout/office_layout.glb" id="1_h6xu2"]
+
+[sub_resource type="Environment" id="Environment_pksf0"]
+background_mode = 1
+background_color = Color(0.46403712, 0.5032348, 0.62538654, 1)
+background_energy_multiplier = 0.34
+ssao_enabled = true
+ssao_radius = 6.22
+ssao_intensity = 8.41
+
+[node name="Node3D" type="Node3D" unique_id=1610315983]
+
+[node name="office_layout" parent="." unique_id=1420670602 instance=ExtResource("1_h6xu2")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1417747881]
+environment = SubResource("Environment_pksf0")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment" unique_id=1068689272]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.8942504, 0)
+light_energy = 3.095
+spot_angle = 78.66998
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="WorldEnvironment" unique_id=2006169177]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.8942504, -6.944724)
+light_energy = 3.095
+spot_angle = 78.66998
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="WorldEnvironment" unique_id=755750676]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4, 3.8942504, -6.944724)
+light_energy = 3.095
+spot_angle = 78.66998
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="WorldEnvironment" unique_id=265439658]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4, 3.8942504, -5.5311856)
+light_energy = 3.095
+spot_angle = 78.66998
+
+[editable path="office_layout"]

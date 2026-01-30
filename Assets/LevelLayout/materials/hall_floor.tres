@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://366iaadboqxv"]
+
+[resource]
+resource_name = "hall_floor"
+albedo_color = Color(0.9063355, 0.75028795, 0.6929986, 1)
+roughness = 0.5
