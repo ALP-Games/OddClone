@@ -1,4 +1,4 @@
-class_name Level extends Node
+class_name Level extends Node3D
 
 signal level_end(won: bool)
 #signal level_won
