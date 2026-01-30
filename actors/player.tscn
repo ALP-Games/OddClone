@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://yxhc6df3321x"]
 
 [ext_resource type="Script" uid="uid://d2xek2q8p5rqg" path="res://actors/player.gd" id="1_niuxy"]
+[ext_resource type="PackedScene" uid="uid://datbdcuw2mst8" path="res://ui/gameplay_ui.tscn" id="2_mvpqy"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_cp522"]
 
@@ -17,3 +18,8 @@ current = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=122466643]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_cp522")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=139447608]
+
+[node name="GameplayUI" parent="CanvasLayer" unique_id=1439478381 instance=ExtResource("2_mvpqy")]
+mouse_filter = 2
