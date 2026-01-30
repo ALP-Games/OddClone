@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @export var head: Node3D
+@export var raycast: RayCast3D
 @export_range(0, 180, 0.001, "radians_as_degrees") var max_pitch_degrees: float = deg_to_rad(60)
 @export var head_max_rotation_units: Vector2 = Vector2.ZERO
 
@@ -12,6 +13,7 @@ var rotation_accumulation := Vector2.ZERO
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	raycast.enabled = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -38,9 +40,11 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	_head_rotation()
-	# Handle jump.
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
+	
+	if Input.is_action_just_pressed("shoot"):
+		raycast.force_raycast_update()
+		var collider := raycast.get_collider()
+		print("Shot - ", collider.name)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
