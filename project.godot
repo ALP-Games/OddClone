@@ -15,6 +15,10 @@ run/main_scene="uid://c2d81jrwyb1k2"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Constants="*uid://cmppmr01umjv5"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -24,6 +28,10 @@ window/stretch/mode="canvas_items"
 folder_colors={
 "res://ui/": "green"
 }
+
+[global_group]
+
+NPC=""
 
 [input]
 
