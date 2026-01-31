@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://sfp75l8gvwb5" path="res://scripts/office_layout.gd" id="1_7pim8"]
 [ext_resource type="PackedScene" uid="uid://cveuq6ftxmcy7" path="res://Assets/LevelLayout/office_layout.glb" id="2_6prn3"]
+[ext_resource type="AudioStream" uid="uid://c1b3nu8shvg4y" path="res://audio/elevator/elevator-ding.ogg" id="2_thv7k"]
 [ext_resource type="Material" uid="uid://b1nydjhb77upj" path="res://Assets/LevelLayout/materials/metal.tres" id="3_7rv5h"]
+[ext_resource type="AudioStream" uid="uid://86hmjennh7k2" path="res://audio/elevator/elevator_sound-open3.ogg" id="3_f3h27"]
 [ext_resource type="Texture2D" uid="uid://dsy3753k4vp11" path="res://Assets/Textures/floornoise/floor_noise_lite.tres" id="3_kdu4h"]
 [ext_resource type="PackedScene" uid="uid://robktqvn7o0f" path="res://Assets/decor/chair-col.glb" id="3_l7f45"]
 [ext_resource type="PackedScene" uid="uid://l4fepv6o30jd" path="res://Assets/decor/clock.glb" id="4_hl4s0"]
@@ -23,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dhjkyef0b1tb0" path="res://Assets/decor/toilet_room_door-col.glb" id="21_lcpmh"]
 [ext_resource type="PackedScene" uid="uid://cwgej05drnx7d" path="res://Assets/decor/doorl_frame-col.glb" id="22_m6ibb"]
 [ext_resource type="Material" uid="uid://bptbfowat2jve" path="res://Assets/LevelLayout/materials/office_wal.tres" id="23_thv7k"]
+[ext_resource type="PackedScene" uid="uid://b26rqwp7bd675" path="res://actors/lamp_buzz.tscn" id="26_f8qqm"]
 
 [sub_resource type="Environment" id="Environment_pksf0"]
 background_mode = 1
@@ -188,6 +191,16 @@ texture_filter = 1
 [node name="Node3D" type="Node3D" unique_id=1610315983]
 script = ExtResource("1_7pim8")
 
+[node name="ElevatorJingle" type="AudioStreamPlayer3D" parent="." unique_id=35435527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0295508, 4.2670255)
+stream = ExtResource("2_thv7k")
+volume_db = -17.0
+
+[node name="ElevatorDoorOpen" type="AudioStreamPlayer3D" parent="." unique_id=45262485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5095298, 3.090458)
+stream = ExtResource("3_f3h27")
+volume_db = -17.0
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1417747881]
 environment = SubResource("Environment_pksf0")
 
@@ -219,17 +232,17 @@ spot_angle = 78.66998
 [node name="office_layout" parent="." unique_id=1408482873 instance=ExtResource("2_6prn3")]
 metadata/_edit_lock_ = true
 
-[node name="Office_layout" parent="office_layout" index="0" unique_id=1534242322]
+[node name="Office_layout" parent="office_layout" index="0" unique_id=891137876]
 surface_material_override/7 = ExtResource("3_7rv5h")
 metadata/_edit_lock_ = true
 
-[node name="StaticBody3D" parent="office_layout/Office_layout" index="0" unique_id=1268298116]
+[node name="StaticBody3D" parent="office_layout/Office_layout" index="0" unique_id=1755491238]
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D" parent="office_layout/Office_layout/StaticBody3D" index="0" unique_id=245575062]
+[node name="CollisionShape3D" parent="office_layout/Office_layout/StaticBody3D" index="0" unique_id=855058220]
 metadata/_edit_lock_ = true
 
-[node name="Lift" parent="office_layout" index="1" unique_id=2030038256]
+[node name="Lift" parent="office_layout" index="1" unique_id=1812678162]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.061842203, 0, 3.0633216)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="office_layout/Lift" index="2" unique_id=2100630159]
@@ -241,49 +254,49 @@ libraries/ = SubResource("AnimationLibrary_f3h27")
 [node name="chair-col2" parent="decor" unique_id=128633864 instance=ExtResource("3_l7f45")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1526937, 0, -2.6943395)
 
-[node name="chair" parent="decor/chair-col2" index="0" unique_id=1621540486]
+[node name="chair" parent="decor/chair-col2" index="0" unique_id=1941741338]
 surface_material_override/0 = SubResource("StandardMaterial3D_a5sfx")
 surface_material_override/1 = SubResource("StandardMaterial3D_qaq6i")
 
 [node name="chair-col3" parent="decor" unique_id=967259176 instance=ExtResource("3_l7f45")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1526937, 0, -3.73361)
 
-[node name="chair" parent="decor/chair-col3" index="0" unique_id=1621540486]
+[node name="chair" parent="decor/chair-col3" index="0" unique_id=1941741338]
 surface_material_override/0 = SubResource("StandardMaterial3D_a5sfx")
 surface_material_override/1 = SubResource("StandardMaterial3D_qaq6i")
 
 [node name="chair-col4" parent="decor" unique_id=1840197150 instance=ExtResource("3_l7f45")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1526937, 0, -4.763936)
 
-[node name="chair" parent="decor/chair-col4" index="0" unique_id=1621540486]
+[node name="chair" parent="decor/chair-col4" index="0" unique_id=1941741338]
 surface_material_override/0 = SubResource("StandardMaterial3D_a5sfx")
 surface_material_override/1 = SubResource("StandardMaterial3D_qaq6i")
 
 [node name="chair-col5" parent="decor" unique_id=1710551498 instance=ExtResource("3_l7f45")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.1751187, 0, -4.766917)
 
-[node name="chair" parent="decor/chair-col5" index="0" unique_id=1621540486]
+[node name="chair" parent="decor/chair-col5" index="0" unique_id=1941741338]
 surface_material_override/0 = SubResource("StandardMaterial3D_a5sfx")
 surface_material_override/1 = SubResource("StandardMaterial3D_qaq6i")
 
 [node name="chair-col6" parent="decor" unique_id=1932329190 instance=ExtResource("3_l7f45")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.1751187, 0, -3.7276466)
 
-[node name="chair" parent="decor/chair-col6" index="0" unique_id=1621540486]
+[node name="chair" parent="decor/chair-col6" index="0" unique_id=1941741338]
 surface_material_override/0 = SubResource("StandardMaterial3D_a5sfx")
 surface_material_override/1 = SubResource("StandardMaterial3D_qaq6i")
 
 [node name="chair-col7" parent="decor" unique_id=1011551502 instance=ExtResource("3_l7f45")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.1751187, 0, -2.6973205)
 
-[node name="chair" parent="decor/chair-col7" index="0" unique_id=1621540486]
+[node name="chair" parent="decor/chair-col7" index="0" unique_id=1941741338]
 surface_material_override/0 = SubResource("StandardMaterial3D_a5sfx")
 surface_material_override/1 = SubResource("StandardMaterial3D_qaq6i")
 
 [node name="clock2" parent="decor" unique_id=1919749140 instance=ExtResource("4_hl4s0")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.20634907, 2.4885783, -11.022001)
 
-[node name="clock" parent="decor/clock2" index="0" unique_id=162366450]
+[node name="clock" parent="decor/clock2" index="0" unique_id=1830893581]
 transform = Transform3D(-2.8193845e-08, 0, 0.6449999, 0, 0.6449999, 0, -0.6449999, 0, -2.8193845e-08, 3.5092573, 0.2533481, -7.009854)
 surface_material_override/1 = SubResource("StandardMaterial3D_t24is")
 surface_material_override/2 = ExtResource("3_7rv5h")
@@ -291,116 +304,116 @@ surface_material_override/2 = ExtResource("3_7rv5h")
 [node name="mirror_frame2" parent="decor" unique_id=565202422 instance=ExtResource("14_b71pw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0814877, 1.9964056, -4.358739)
 
-[node name="mirror_frame" parent="decor/mirror_frame2" index="0" unique_id=1607646269]
+[node name="mirror_frame" parent="decor/mirror_frame2" index="0" unique_id=121607322]
 material_override = ExtResource("3_7rv5h")
 
 [node name="mirror2" parent="decor/mirror_frame2" unique_id=1091566213 instance=ExtResource("13_h3th1")]
 
-[node name="mirror" parent="decor/mirror_frame2/mirror2" index="0" unique_id=1122538949]
+[node name="mirror" parent="decor/mirror_frame2/mirror2" index="0" unique_id=860918603]
 surface_material_override/0 = SubResource("StandardMaterial3D_hr1ii")
 
 [node name="picture_frame" parent="decor" unique_id=344532187 instance=ExtResource("7_5w48u")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.64405495, 1.5712974, -13.596176)
 
-[node name="picture frame" parent="decor/picture_frame" index="0" unique_id=470957943]
+[node name="picture frame" parent="decor/picture_frame" index="0" unique_id=611337021]
 material_override = ExtResource("3_7rv5h")
 
 [node name="picure2" parent="decor/picture_frame" unique_id=287860325 instance=ExtResource("8_nh6cx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014731646, 0.5798068, 0)
 
-[node name="picure" parent="decor/picture_frame/picure2" index="0" unique_id=584873540]
+[node name="picure" parent="decor/picture_frame/picure2" index="0" unique_id=1218763519]
 material_override = SubResource("StandardMaterial3D_n2o0x")
 
 [node name="pot-col2" parent="decor" unique_id=205050740 instance=ExtResource("11_m6ibb")]
 transform = Transform3D(0.9010316, 0, 0.43375343, 0, 1, 0, -0.43375343, 0, 0.9010316, -4.7767434, 0, -4.0576115)
 
-[node name="pot" parent="decor/pot-col2" index="0" unique_id=1210234655]
+[node name="pot" parent="decor/pot-col2" index="0" unique_id=543786511]
 surface_material_override/0 = SubResource("StandardMaterial3D_86v2a")
 surface_material_override/1 = SubResource("StandardMaterial3D_b0jtc")
 
 [node name="plant2" parent="decor/pot-col2" unique_id=560571322 instance=ExtResource("4_ulrd6")]
 
-[node name="plant" parent="decor/pot-col2/plant2" index="0" unique_id=2080269221]
+[node name="plant" parent="decor/pot-col2/plant2" index="0" unique_id=1307287269]
 surface_material_override/0 = SubResource("StandardMaterial3D_d3jui")
 
 [node name="pot-col5" parent="decor" unique_id=2019956554 instance=ExtResource("11_m6ibb")]
 transform = Transform3D(0.9719076, 0, -0.23536268, 0, 1, 0, 0.23536268, 0, 0.9719076, 1.9601033, 4.7683716e-07, -1.4357464)
 
-[node name="pot" parent="decor/pot-col5" index="0" unique_id=1210234655]
+[node name="pot" parent="decor/pot-col5" index="0" unique_id=543786511]
 surface_material_override/0 = SubResource("StandardMaterial3D_86v2a")
 surface_material_override/1 = SubResource("StandardMaterial3D_b0jtc")
 
 [node name="plant2" parent="decor/pot-col5" unique_id=279380810 instance=ExtResource("4_ulrd6")]
 
-[node name="plant" parent="decor/pot-col5/plant2" index="0" unique_id=2080269221]
+[node name="plant" parent="decor/pot-col5/plant2" index="0" unique_id=1307287269]
 surface_material_override/0 = SubResource("StandardMaterial3D_d3jui")
 
 [node name="pot-col6" parent="decor" unique_id=1563389770 instance=ExtResource("11_m6ibb")]
 transform = Transform3D(0.9719076, 0, -0.23536268, 0, 1, 0, 0.23536268, 0, 0.9719076, -2.9543278, 4.7683716e-07, 2.3879824)
 
-[node name="pot" parent="decor/pot-col6" index="0" unique_id=1210234655]
+[node name="pot" parent="decor/pot-col6" index="0" unique_id=543786511]
 surface_material_override/0 = SubResource("StandardMaterial3D_86v2a")
 surface_material_override/1 = SubResource("StandardMaterial3D_b0jtc")
 
 [node name="plant2" parent="decor/pot-col6" unique_id=1208528250 instance=ExtResource("4_ulrd6")]
 
-[node name="plant" parent="decor/pot-col6/plant2" index="0" unique_id=2080269221]
+[node name="plant" parent="decor/pot-col6/plant2" index="0" unique_id=1307287269]
 surface_material_override/0 = SubResource("StandardMaterial3D_d3jui")
 
 [node name="pot-col7" parent="decor" unique_id=299709848 instance=ExtResource("11_m6ibb")]
 transform = Transform3D(0.9604737, 0, 0.27837092, 0, 1, 0, -0.27837092, 0, 0.9604737, 1.9291, 4.7683716e-07, 2.320841)
 
-[node name="pot" parent="decor/pot-col7" index="0" unique_id=1210234655]
+[node name="pot" parent="decor/pot-col7" index="0" unique_id=543786511]
 surface_material_override/0 = SubResource("StandardMaterial3D_86v2a")
 surface_material_override/1 = SubResource("StandardMaterial3D_b0jtc")
 
 [node name="plant2" parent="decor/pot-col7" unique_id=356601553 instance=ExtResource("4_ulrd6")]
 
-[node name="plant" parent="decor/pot-col7/plant2" index="0" unique_id=2080269221]
+[node name="plant" parent="decor/pot-col7/plant2" index="0" unique_id=1307287269]
 surface_material_override/0 = SubResource("StandardMaterial3D_d3jui")
 
 [node name="pot-col3" parent="decor" unique_id=54875389 instance=ExtResource("11_m6ibb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.881762, 0, -12.578638)
 
-[node name="pot" parent="decor/pot-col3" index="0" unique_id=1210234655]
+[node name="pot" parent="decor/pot-col3" index="0" unique_id=543786511]
 surface_material_override/0 = SubResource("StandardMaterial3D_86v2a")
 surface_material_override/1 = SubResource("StandardMaterial3D_b0jtc")
 
 [node name="plant2" parent="decor/pot-col3" unique_id=999817254 instance=ExtResource("4_ulrd6")]
 
-[node name="plant" parent="decor/pot-col3/plant2" index="0" unique_id=2080269221]
+[node name="plant" parent="decor/pot-col3/plant2" index="0" unique_id=1307287269]
 transform = Transform3D(-0.3554496, 0, 0.9346955, 0, 1, 0, -0.9346955, 0, -0.3554496, 0, 0, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_d3jui")
 
 [node name="pot-col4" parent="decor" unique_id=1983078419 instance=ExtResource("11_m6ibb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8959515, 0, -12.575945)
 
-[node name="pot" parent="decor/pot-col4" index="0" unique_id=1210234655]
+[node name="pot" parent="decor/pot-col4" index="0" unique_id=543786511]
 surface_material_override/0 = SubResource("StandardMaterial3D_86v2a")
 surface_material_override/1 = SubResource("StandardMaterial3D_b0jtc")
 
 [node name="plant2" parent="decor/pot-col4" unique_id=552468691 instance=ExtResource("4_ulrd6")]
 
-[node name="plant" parent="decor/pot-col4/plant2" index="0" unique_id=2080269221]
+[node name="plant" parent="decor/pot-col4/plant2" index="0" unique_id=1307287269]
 surface_material_override/0 = SubResource("StandardMaterial3D_d3jui")
 
 [node name="rug2" parent="decor" unique_id=1833968117 instance=ExtResource("6_j0fwr")]
 transform = Transform3D(0.723148, 0, 0.6906931, 0, 1, 0, -0.6906931, 0, 0.723148, -5.4563355, 0, -7.126837)
 
-[node name="rug" parent="decor/rug2" index="0" unique_id=1509264608]
+[node name="rug" parent="decor/rug2" index="0" unique_id=894682519]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3572493, 0, -0.3469925)
 material_override = ExtResource("5_kdu4h")
 
 [node name="sink-col2" parent="decor" unique_id=1870409794 instance=ExtResource("16_thv7k")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.425974, 0, -4.3118978)
 
-[node name="sink" parent="decor/sink-col2" index="0" unique_id=1216573995]
+[node name="sink" parent="decor/sink-col2" index="0" unique_id=1901991911]
 surface_material_override/1 = ExtResource("3_7rv5h")
 
 [node name="sofa-col2" parent="decor" unique_id=1704882272 instance=ExtResource("17_f3h27")]
 transform = Transform3D(-0.9426823, 0, -0.3336917, 0, 1, 0, 0.3336917, 0, -0.9426823, -5.97208, 0, -9.855101)
 
-[node name="sofa" parent="decor/sofa-col2" index="0" unique_id=1188713833]
+[node name="sofa" parent="decor/sofa-col2" index="0" unique_id=1664755886]
 transform = Transform3D(1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1, 1.3352904, 0, 0.181324)
 material_override = ExtResource("18_f8qqm")
 
@@ -425,10 +438,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0060066, 0.6759683, -0.702
 [node name="doorl_frame-col2" parent="." unique_id=509070108 instance=ExtResource("22_m6ibb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8578227, -9.536743e-07, -7.188591)
 
-[node name="doorl_frame" parent="doorl_frame-col2" index="0" unique_id=978226510]
+[node name="doorl_frame" parent="doorl_frame-col2" index="0" unique_id=1653466359]
 surface_material_override/0 = ExtResource("23_thv7k")
 
-[node name="door" parent="doorl_frame-col2/doorl_frame" index="0" unique_id=134045481]
+[node name="door" parent="doorl_frame-col2/doorl_frame" index="0" unique_id=1345700607]
 surface_material_override/0 = ExtResource("3_7rv5h")
 surface_material_override/1 = SubResource("StandardMaterial3D_qikqs")
 surface_material_override/2 = SubResource("StandardMaterial3D_lcpmh")
@@ -436,13 +449,49 @@ surface_material_override/2 = SubResource("StandardMaterial3D_lcpmh")
 [node name="doorl_frame-col3" parent="." unique_id=1152720201 instance=ExtResource("22_m6ibb")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.8672075, -9.536743e-07, -7.188591)
 
-[node name="doorl_frame" parent="doorl_frame-col3" index="0" unique_id=978226510]
+[node name="doorl_frame" parent="doorl_frame-col3" index="0" unique_id=1653466359]
 surface_material_override/0 = ExtResource("23_thv7k")
 
-[node name="door" parent="doorl_frame-col3/doorl_frame" index="0" unique_id=134045481]
+[node name="door" parent="doorl_frame-col3/doorl_frame" index="0" unique_id=1345700607]
 surface_material_override/0 = ExtResource("3_7rv5h")
 surface_material_override/1 = SubResource("StandardMaterial3D_qikqs")
 surface_material_override/2 = SubResource("StandardMaterial3D_lcpmh")
+
+[node name="LampBuzz" parent="." unique_id=949132078 instance=ExtResource("26_f8qqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6765776, 3.460124, -0.21753061)
+
+[node name="LampBuzz2" parent="." unique_id=1610424949 instance=ExtResource("26_f8qqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.498949, 3.460124, -0.21222508)
+
+[node name="LampBuzz3" parent="." unique_id=1145437947 instance=ExtResource("26_f8qqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50956, 3.460124, -4.393058)
+
+[node name="LampBuzz4" parent="." unique_id=1865971313 instance=ExtResource("26_f8qqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6659665, 3.460124, -4.4036694)
+
+[node name="LampBuzz5" parent="." unique_id=831022315 instance=ExtResource("26_f8qqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.655355, 3.460124, -8.52614)
+
+[node name="LampBuzz6" parent="." unique_id=749637461 instance=ExtResource("26_f8qqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5148664, 3.460124, -8.595114)
+
+[node name="LampBuzz7" parent="." unique_id=847003178 instance=ExtResource("26_f8qqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.509561, 3.460124, -12.669834)
+
+[node name="LampBuzz8" parent="." unique_id=615617842 instance=ExtResource("26_f8qqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6606598, 3.460124, -12.744113)
+
+[node name="LampBuzz9" parent="." unique_id=1358974098 instance=ExtResource("26_f8qqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7937407, 3.460124, -8.573892)
+
+[node name="LampBuzz10" parent="." unique_id=785683184 instance=ExtResource("26_f8qqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.809658, 3.460124, -4.3718367)
+
+[node name="LampBuzz11" parent="." unique_id=1851399254 instance=ExtResource("26_f8qqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.653254, 3.460124, -4.3983645)
+
+[node name="LampBuzz12" parent="." unique_id=1652074244 instance=ExtResource("26_f8qqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.653254, 3.460124, -8.56328)
 
 [editable path="office_layout"]
 [editable path="decor/chair-col2"]
