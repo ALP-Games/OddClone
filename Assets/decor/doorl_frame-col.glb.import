@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cyy0agsaixk88"
-path="res://.godot/imported/picture_frame.glb-1ebdd79058244436f0b961b5dec7cd4f.scn"
+uid="uid://cwgej05drnx7d"
+path="res://.godot/imported/doorl_frame-col.glb-2886add92be40cd626d09cf16a7b32a1.scn"
 
 [deps]
 
-source_file="res://Assets/decor/picture_frame.glb"
-dest_files=["res://.godot/imported/picture_frame.glb-1ebdd79058244436f0b961b5dec7cd4f.scn"]
+source_file="res://Assets/decor/doorl_frame-col.glb"
+dest_files=["res://.godot/imported/doorl_frame-col.glb-2886add92be40cd626d09cf16a7b32a1.scn"]
 
 [params]
 

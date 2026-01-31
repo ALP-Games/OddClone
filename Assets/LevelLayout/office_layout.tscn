@@ -1,22 +1,28 @@
-[gd_scene format=4 uid="uid://ngmr7ceqer17"]
+[gd_scene format=3 uid="uid://ngmr7ceqer17"]
 
 [ext_resource type="Script" uid="uid://sfp75l8gvwb5" path="res://scripts/office_layout.gd" id="1_7pim8"]
-[ext_resource type="PackedScene" uid="uid://b7q0u3r25qljk" path="res://Assets/decor/toilet.glb" id="1_66ngc"]
-[ext_resource type="PackedScene" uid="uid://dnegvv88ea6ws" path="res://Assets/decor/sofa.glb" id="2_5knd0"]
 [ext_resource type="PackedScene" uid="uid://cveuq6ftxmcy7" path="res://Assets/LevelLayout/office_layout.glb" id="2_6prn3"]
-[ext_resource type="PackedScene" uid="uid://frlqf2w6ikk2" path="res://Assets/decor/sink.glb" id="2_7pim8"]
 [ext_resource type="Material" uid="uid://b1nydjhb77upj" path="res://Assets/LevelLayout/materials/metal.tres" id="3_7rv5h"]
 [ext_resource type="Texture2D" uid="uid://dsy3753k4vp11" path="res://Assets/Textures/floornoise/floor_noise_lite.tres" id="3_kdu4h"]
-[ext_resource type="PackedScene" uid="uid://cooujlgu4p834" path="res://Assets/decor/plant.glb" id="4_ulrd6"]
+[ext_resource type="PackedScene" uid="uid://robktqvn7o0f" path="res://Assets/decor/chair-col.glb" id="3_l7f45"]
+[ext_resource type="PackedScene" uid="uid://l4fepv6o30jd" path="res://Assets/decor/clock.glb" id="4_hl4s0"]
+[ext_resource type="PackedScene" uid="uid://bqwf0cjgsxmqs" path="res://Assets/decor/plant.glb" id="4_ulrd6"]
 [ext_resource type="Material" uid="uid://bxdoao21bm02" path="res://Assets/LevelLayout/materials/toilet_floor.tres" id="5_kdu4h"]
-[ext_resource type="PackedScene" uid="uid://cc4dcxbt60b83" path="res://Assets/decor/rug.glb" id="6_j0fwr"]
-[ext_resource type="PackedScene" uid="uid://cqbgtm7p4v3ej" path="res://Assets/decor/picture_frame.glb" id="7_5w48u"]
-[ext_resource type="PackedScene" uid="uid://bkwskm1bpwqv2" path="res://Assets/decor/picure.glb" id="8_nh6cx"]
+[ext_resource type="PackedScene" uid="uid://cp76y3t7lpfys" path="res://Assets/decor/rug.glb" id="6_j0fwr"]
+[ext_resource type="PackedScene" uid="uid://cyy0agsaixk88" path="res://Assets/decor/picture_frame.glb" id="7_5w48u"]
+[ext_resource type="PackedScene" uid="uid://dl7c4uqnuadvu" path="res://Assets/decor/picure.glb" id="8_nh6cx"]
 [ext_resource type="Texture2D" uid="uid://dmyg5pde4uju7" path="res://Assets/Textures/game_ilustration.jpg" id="8_ulrd6"]
-[ext_resource type="PackedScene" uid="uid://cgfke8u6oimti" path="res://Assets/decor/mirror.glb" id="13_h3th1"]
-[ext_resource type="PackedScene" uid="uid://d0mdkfo5i5wb3" path="res://Assets/decor/mirror_frame.glb" id="14_b71pw"]
-[ext_resource type="PackedScene" uid="uid://b4kcuqb7a1tt7" path="res://Assets/decor/toilet_room.glb" id="15_l7f45"]
-[ext_resource type="PackedScene" uid="uid://qjc1imcynv7r" path="res://Assets/decor/toilet_room_door.glb" id="16_hl4s0"]
+[ext_resource type="PackedScene" uid="uid://cn6evyk00wx3q" path="res://Assets/decor/pot-col.glb" id="11_m6ibb"]
+[ext_resource type="PackedScene" uid="uid://bvfbu8v4jrb6" path="res://Assets/decor/mirror.glb" id="13_h3th1"]
+[ext_resource type="PackedScene" uid="uid://dfdbgi4x7q75a" path="res://Assets/decor/mirror_frame.glb" id="14_b71pw"]
+[ext_resource type="PackedScene" uid="uid://cxaw3rphftlbf" path="res://Assets/decor/sink-col.glb" id="16_thv7k"]
+[ext_resource type="PackedScene" uid="uid://buxsltjmcin5c" path="res://Assets/decor/sofa-col.glb" id="17_f3h27"]
+[ext_resource type="Material" uid="uid://366iaadboqxv" path="res://Assets/LevelLayout/materials/hall_floor.tres" id="18_f8qqm"]
+[ext_resource type="PackedScene" uid="uid://djkcn2xkts725" path="res://Assets/decor/toilet-col.glb" id="19_vb6ii"]
+[ext_resource type="PackedScene" uid="uid://dhjda6mj4gu8q" path="res://Assets/decor/toilet_room-col.glb" id="20_qikqs"]
+[ext_resource type="PackedScene" uid="uid://dhjkyef0b1tb0" path="res://Assets/decor/toilet_room_door-col.glb" id="21_lcpmh"]
+[ext_resource type="PackedScene" uid="uid://cwgej05drnx7d" path="res://Assets/decor/doorl_frame-col.glb" id="22_m6ibb"]
+[ext_resource type="Material" uid="uid://bptbfowat2jve" path="res://Assets/LevelLayout/materials/office_wal.tres" id="23_thv7k"]
 
 [sub_resource type="Environment" id="Environment_pksf0"]
 background_mode = 1
@@ -27,12 +33,12 @@ ssao_radius = 6.22
 ssao_intensity = 8.41
 glow_enabled = true
 
-[sub_resource type="Animation" id="Animation_pksf0"]
+[sub_resource type="Animation" id="Animation_f3h27"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("office_layout/Lift/Lift_left:position")
+tracks/0/path = NodePath("@SubViewport@9108/Node3D/office_layout/Lift/Lift_left:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -44,7 +50,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("office_layout/Lift/Lift_right:position")
+tracks/1/path = NodePath("@SubViewport@9108/Node3D/office_layout/Lift/Lift_right:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -54,49 +60,39 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_6prn3"]
+[sub_resource type="Animation" id="Animation_f8qqm"]
 resource_name = "lift_door"
-length = 3.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("office_layout/Lift/Lift_left:position")
+tracks/0/path = NodePath("@SubViewport@9108/Node3D/office_layout/Lift/Lift_left:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.01, 3),
+"times": PackedFloat32Array(0, 1.2666667, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-1.0192422, 0, 0), Vector3(-1.0192422, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(-1.0336924, 0, 0), Vector3(-1.0336924, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("office_layout/Lift/Lift_right:position")
+tracks/1/path = NodePath("@SubViewport@9108/Node3D/office_layout/Lift/Lift_right:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.02, 3),
+"times": PackedFloat32Array(0.001, 1.2666667, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(1.0865647, 0, 0), Vector3(1.0865647, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(1.0859957, 0, 0), Vector3(1.0859957, 0, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4c6lv"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vb6ii"]
 _data = {
-&"RESET": SubResource("Animation_pksf0"),
-&"lift_door": SubResource("Animation_6prn3")
+&"RESET": SubResource("Animation_f3h27"),
+&"lift_door": SubResource("Animation_f8qqm")
 }
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vnh36"]
-resource_name = "room_floor"
-albedo_color = Color(0.77417535, 0.59101516, 0.42430726, 1)
-albedo_texture = ExtResource("3_kdu4h")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55tj8"]
-resource_name = "room_floor"
-albedo_color = Color(0.51025647, 0.31573892, 0.3207258, 1)
-albedo_texture = ExtResource("3_kdu4h")
 
 [sub_resource type="Gradient" id="Gradient_2yrj0"]
 interpolation_mode = 1
@@ -115,120 +111,79 @@ noise = SubResource("FastNoiseLite_vht15")
 color_ramp = SubResource("Gradient_2yrj0")
 seamless = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0fwr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5sfx"]
 resource_name = "metal"
 diffuse_mode = 1
-albedo_texture = ExtResource("8_ulrd6")
+albedo_color = Color(0.3741394, 0.37413925, 0.37413913, 1)
 roughness_texture = SubResource("NoiseTexture2D_00j6u")
-uv1_scale = Vector3(0.865, 0.865, 0.865)
-texture_filter = 1
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_872kf"]
-resource_name = "room_wall"
-albedo_color = Color(0.40476966, 0.58950126, 0.23843256, 1)
-roughness = 0.73
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05xgu"]
-resource_name = "pot"
-cull_mode = 2
-albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
-roughness = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ce3xk"]
-resource_name = "dirt"
-cull_mode = 2
-albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
-roughness = 0.5
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_4uy2i"]
-_surfaces = [{
-"aabb": AABB(-0.30566135, -0.0035002604, -0.29037678, 0.60302424, 0.6730435, 0.60302424),
-"format": 34896613377,
-"index_count": 150,
-"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAAAAQABAAAAAIAAwAEAAUABAACAAYABQAEAAYAAwAFAAcAAwAHAAEABQAGAAcACAACAAEACQAGAAIACQACAAgACgAHAAYACgAGAAkACwABAAcACwAHAAoACAABAAsADAAKAAkADQAJAAgADAAJAA0ADgAIAAsADQAIAA4ADwALAAoADwAKAAwADgALAA8ADQAQAAwADgARAA0ADQARABAADwASAA4ADgASABEADAATAA8ADAAQABMADwATABIAFAAQABEAFQATABAAFQAQABQAFgASABMAFgATABUAFwARABIAFwASABYAFAARABcAFQAYABYAFgAYABkAFgAZABcAFQAaABgAFAAaABUAFwAZABsAFAAbABoAFwAbABQA"),
-"name": "pot",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 28,
-"vertex_data": PackedByteArray("HS4AAOHRAABiD1XaYg8AAGIPVdqc8AAAHS4AAB0uAADh0QAA4dEAAOHRAAAdLgAAnPBV2pzwAACc8FXaYg8AAFUZ+9mp5gAAqeb72anmAACp5vvZVRkAAFUZ+9lVGQAA///72QAAAAD///vZ//8AAAAA+9n//wAAAAD72QAAAAD///7/AAAAAP/////+/wAAAAD+////AAAAAP//AAAAAN/Y/v8fJwAAHyf+/x8nAAAfJ/7/39gAAN/Y/v/f2AAAHyf61d/YAADf2PrV39gAAB8n+tUfJwAA39j61R8nAAA=")
-}, {
-"aabb": AABB(-0.21350767, 0.5590756, -0.19822311, 0.4187169, 1e-05, 0.41871688),
-"format": 34896613377,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"name": "dirt",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("//+GAQAAAAAAAIYB//8AAAAADQMAAAAA//8AAP7/AAA=")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_sjv4i"]
-resource_name = "pot_Cube_026"
-_surfaces = [{
-"aabb": AABB(-0.30566135, -0.0035002604, -0.29037678, 0.60302424, 0.6730435, 0.60302424),
-"attribute_data": PackedByteArray("C7H+/zX6Hrl7pR65pe7//7KfgZh39t+f//+BmHf2mNs5qd+f///24rKf9uI5qZjbsp87uf//5Kz//zu5sp/krGmu5KxH8Yi6R/HkrGmuiLr//zu5sp/krLKfO7n//+Sssp87uf//5Kz//zu5sp/krP//O7myn+Sssp87uf//5KxprpXXsp+BmGmu4qP//4GYsp/24kfx4qNH8ZXX///24kfx5Kxproi6aa7krEfxiLppruSsR/GIukfx5Kxproi6R/HkrGmuiLppruSsR/GIunf2mNt7pXzeOamY23ul+5w1+nzeOanfn3f23581+vucC7H//zX6Hrl7pR65pe7//6Xu//97pR65NfoeuQux//+l7v//e6UeuTX6HrkLsf7/C7HrpaXujNWl7uulC7GM1Q=="),
-"format": 34896613399,
-"index_count": 150,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABgAFAAcABAAIAAUABgAHAAkACgAIAAQACQAHAAsACgALAAgACQALAAoADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIgAhACMAIAAkACEAIgAjACUAJgAkACAAJQAjACcAJgAnACQAJQAnACYAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANgA1ADcANAA4ADUANgA3ADkAOgA4ADQAOQA3ADsAOgA7ADgAOQA7ADoAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkA"),
-"material": SubResource("StandardMaterial3D_05xgu"),
-"name": "pot",
-"primitive": 3,
-"uv_scale": Vector4(1.6030242, 2.0733032, 0, 0),
-"vertex_count": 76,
-"vertex_data": PackedByteArray("HS4AAOHRnANiD1XaYg+cA2IPVdqc8JwDHS4AAB0unAMAAPvZAAD/P6nm+9lVGf8////72QAA/z+p5vvZqeb/P1UZ+9lVGf8////72f///z8AAPvZ////P1UZ+9mp5v8////72f///7////7/AAD/v///+9kAAP+///////7//78fJ/7/39gAAN/Y+tXf2AAA39j+/9/YAAAfJ/rV39gAAAAA+9kAAAAAAAD+////AAAAAPvZ//8AAAAA//8AAAAAAAD72f//AID//////v8AgP//+9n//wCAAAD+////AID///vZAAAAAAAA//8AAAAAAAD72QAAAAD///7/AAAAAB8n/v/f2P+/AAD//wAA/78fJ/7/Hyf/v////v8AAP+/AAD+/////7/f2P7/Hyf/v9/Y/v/f2P+///////7//7/f2P7/HycAgB8n+tUfJwCAHyf+/x8nAIDf2PrVHycAgN/Y/v/f2AAA39j61R8nAADf2P7/HycAAN/Y+tXf2AAAHyf+/x8n/78fJ/rV39j/vx8n/v/f2P+/Hyf61R8n/7+p5vvZqebNwGIPVdqc8M3AVRn72anmzcBiD1XaYg8yv5zwVdqc8M3AVRn72VUZMr+p5vvZVRkyv5zwVdpiDzK/HS4AAB0uHAWc8FXaYg8cBWIPVdpiDxwF4dEAAB0uHAXh0QAAHS4owJzwVdqc8CjAnPBV2mIPKMDh0QAA4dEowOHRAADh0RuFYg9V2pzwG4Wc8FXanPAbhR0uAADh0RuFHS4AAB0u/z/h0QAA4dH/P+HRAAAdLv8/HS4AAOHR/z/yQRl88kEZfPJBGXzyQRl8AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/3//fwAA/38AAP9/AAD/fwAA////f////3////9/////f/8//3//P/9//z//f/8//3//f////3////9/////f///////f////3////9/////f////3////9/////f////3////9/////f/7//3/+//9//3////9/////f////3////8//3//P/9//z//f/8//3//fwAA/38AAP9/AAD/fwAAwv5ygov9wn6L/cJ+f/3CfsL+coJ//cJ+wv5+gsL+foIAAP9/AAD/fwAA/38AAP9/23hIDtt4SA7beEgO23hIDgAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/")
-}, {
-"aabb": AABB(-0.21350767, 0.5590756, -0.19822311, 0.4187169, 1e-05, 0.41871688),
-"attribute_data": PackedByteArray("l7VnSmdKl7VnSmdKl7WXtQ=="),
-"format": 34896613399,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"material": SubResource("StandardMaterial3D_ce3xk"),
-"name": "dirt",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("//+GAQAA/78AAIYB////vwAADQMAAP+///8AAP7//7////9/////f////3////9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_4uy2i")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5knd0"]
-resource_name = "room_floor"
-albedo_color = Color(0.86501646, 0.84668976, 0.8463832, 1)
-albedo_texture = ExtResource("3_kdu4h")
-roughness = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdu4h"]
-resource_name = "room_floor"
-albedo_color = Color(0.3344255, 0.30215105, 0.12212231, 1)
-albedo_texture = ExtResource("3_kdu4h")
-
-[sub_resource type="Gradient" id="Gradient_m6ibb"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_thv7k"]
-frequency = 0.0562
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_f3h27"]
-width = 128
-height = 128
-noise = SubResource("FastNoiseLite_thv7k")
-color_ramp = SubResource("Gradient_m6ibb")
-seamless = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8qqm"]
-resource_name = "metal"
-diffuse_mode = 1
-albedo_color = Color(0.7882775, 0.81968385, 0.86055404, 1)
-roughness_texture = SubResource("NoiseTexture2D_f3h27")
 uv1_scale = Vector3(0.51, 0.51, 0.51)
 texture_filter = 1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vb6ii"]
-resource_name = "room_wall"
-albedo_color = Color(0.9237517, 0.9011724, 0.8831353, 1)
-roughness = 0.5
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qaq6i"]
+resource_name = "metal"
+diffuse_mode = 1
+albedo_color = Color(0.654232, 0.6542321, 0.65423197, 1)
+uv1_scale = Vector3(0.51, 0.51, 0.51)
+texture_filter = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t24is"]
+resource_name = "metal"
+diffuse_mode = 1
+albedo_color = Color(0.12225226, 0.12225223, 0.12225217, 1)
+roughness_texture = SubResource("NoiseTexture2D_00j6u")
+uv1_scale = Vector3(0.51, 0.51, 0.51)
+texture_filter = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6iajb"]
+width = 178
+height = 13
+noise = SubResource("FastNoiseLite_vht15")
+color_ramp = SubResource("Gradient_2yrj0")
+seamless = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hr1ii"]
+resource_name = "metal"
+diffuse_mode = 1
+albedo_color = Color(0.7796871, 0.79046696, 0.79066867, 1)
+roughness = 0.35
+roughness_texture = SubResource("NoiseTexture2D_6iajb")
+uv1_scale = Vector3(0.51, 0.51, 0.51)
+texture_filter = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2o0x"]
+albedo_texture = ExtResource("8_ulrd6")
+roughness = 0.26
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_86v2a"]
+resource_name = "room_floor"
+albedo_color = Color(0.8102894, 0.81589615, 0.84768236, 1)
+albedo_texture = ExtResource("3_kdu4h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b0jtc"]
+resource_name = "room_floor"
+albedo_color = Color(0.22163644, 0.12520185, 0.047779314, 1)
+albedo_texture = ExtResource("3_kdu4h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d3jui"]
+resource_name = "room_floor"
+albedo_color = Color(0.5458777, 0.96501166, 0.5843581, 1)
+albedo_texture = ExtResource("3_kdu4h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qikqs"]
+resource_name = "metal"
+diffuse_mode = 1
+albedo_color = Color(0.4296025, 0.6781145, 0.7468685, 1)
+roughness_texture = SubResource("NoiseTexture2D_00j6u")
+uv1_scale = Vector3(0.51, 0.51, 0.51)
+texture_filter = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lcpmh"]
+resource_name = "metal"
+diffuse_mode = 1
+albedo_color = Color(0.96448666, 0.89193773, 0.80434054, 1)
+roughness_texture = SubResource("NoiseTexture2D_00j6u")
+uv1_scale = Vector3(0.51, 0.51, 0.51)
+texture_filter = 1
 
 [node name="Node3D" type="Node3D" unique_id=1610315983]
 script = ExtResource("1_7pim8")
@@ -237,22 +192,22 @@ script = ExtResource("1_7pim8")
 environment = SubResource("Environment_pksf0")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment" unique_id=1068689272]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.6674175, 3.2361846, 1.6612141)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.57893217, 3.2361846, 1.6612141)
 light_energy = 3.095
 spot_angle = 78.66998
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="WorldEnvironment" unique_id=2006169177]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.6674175, 3.183139, -4.5078344)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.57893217, 3.183139, -4.5078344)
 light_energy = 3.095
 spot_angle = 78.66998
 
 [node name="SpotLight3D5" type="SpotLight3D" parent="WorldEnvironment" unique_id=70480531]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.6674175, 3.183139, -9.966419)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.57893217, 3.183139, -9.966419)
 light_energy = 3.095
 spot_angle = 78.66998
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="WorldEnvironment" unique_id=755750676]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4, 3.2361846, -6.944724)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -6.097447, 3.2361846, -6.944724)
 light_energy = 3.095
 spot_angle = 78.66998
 
@@ -261,108 +216,260 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.49
 light_energy = 3.095
 spot_angle = 78.66998
 
-[node name="toilet2" parent="WorldEnvironment" unique_id=1708377030 instance=ExtResource("1_66ngc")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.372951, 2.3543835e-06, -2.3431754)
+[node name="office_layout" parent="." unique_id=1408482873 instance=ExtResource("2_6prn3")]
+metadata/_edit_lock_ = true
 
-[node name="toilet3" parent="WorldEnvironment" unique_id=1395937070 instance=ExtResource("1_66ngc")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.342564, 2.3543835e-06, -2.3431754)
+[node name="Office_layout" parent="office_layout" index="0" unique_id=1534242322]
+surface_material_override/7 = ExtResource("3_7rv5h")
+metadata/_edit_lock_ = true
 
-[node name="sink2" parent="WorldEnvironment" unique_id=1219254178 instance=ExtResource("2_7pim8")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 3.3726742, 0, -3.663111)
+[node name="StaticBody3D" parent="office_layout/Office_layout" index="0" unique_id=1268298116]
+metadata/_edit_lock_ = true
 
-[node name="sink" parent="WorldEnvironment/sink2" index="0" unique_id=264769977]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3841858e-07, 0.5738083, 1.1516953)
+[node name="CollisionShape3D" parent="office_layout/Office_layout/StaticBody3D" index="0" unique_id=245575062]
+metadata/_edit_lock_ = true
+
+[node name="Lift" parent="office_layout" index="1" unique_id=2030038256]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.061842203, 0, 3.0633216)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1833476160]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_vb6ii")
+
+[node name="decor" type="Node3D" parent="." unique_id=1324599343]
+
+[node name="chair-col2" parent="decor" unique_id=128633864 instance=ExtResource("3_l7f45")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1526937, 0, -2.6943395)
+
+[node name="chair" parent="decor/chair-col2" index="0" unique_id=1621540486]
+surface_material_override/0 = SubResource("StandardMaterial3D_a5sfx")
+surface_material_override/1 = SubResource("StandardMaterial3D_qaq6i")
+
+[node name="chair-col3" parent="decor" unique_id=967259176 instance=ExtResource("3_l7f45")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1526937, 0, -3.73361)
+
+[node name="chair" parent="decor/chair-col3" index="0" unique_id=1621540486]
+surface_material_override/0 = SubResource("StandardMaterial3D_a5sfx")
+surface_material_override/1 = SubResource("StandardMaterial3D_qaq6i")
+
+[node name="chair-col4" parent="decor" unique_id=1840197150 instance=ExtResource("3_l7f45")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1526937, 0, -4.763936)
+
+[node name="chair" parent="decor/chair-col4" index="0" unique_id=1621540486]
+surface_material_override/0 = SubResource("StandardMaterial3D_a5sfx")
+surface_material_override/1 = SubResource("StandardMaterial3D_qaq6i")
+
+[node name="chair-col5" parent="decor" unique_id=1710551498 instance=ExtResource("3_l7f45")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.1751187, 0, -4.766917)
+
+[node name="chair" parent="decor/chair-col5" index="0" unique_id=1621540486]
+surface_material_override/0 = SubResource("StandardMaterial3D_a5sfx")
+surface_material_override/1 = SubResource("StandardMaterial3D_qaq6i")
+
+[node name="chair-col6" parent="decor" unique_id=1932329190 instance=ExtResource("3_l7f45")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.1751187, 0, -3.7276466)
+
+[node name="chair" parent="decor/chair-col6" index="0" unique_id=1621540486]
+surface_material_override/0 = SubResource("StandardMaterial3D_a5sfx")
+surface_material_override/1 = SubResource("StandardMaterial3D_qaq6i")
+
+[node name="chair-col7" parent="decor" unique_id=1011551502 instance=ExtResource("3_l7f45")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.1751187, 0, -2.6973205)
+
+[node name="chair" parent="decor/chair-col7" index="0" unique_id=1621540486]
+surface_material_override/0 = SubResource("StandardMaterial3D_a5sfx")
+surface_material_override/1 = SubResource("StandardMaterial3D_qaq6i")
+
+[node name="clock2" parent="decor" unique_id=1919749140 instance=ExtResource("4_hl4s0")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.20634907, 2.4885783, -11.022001)
+
+[node name="clock" parent="decor/clock2" index="0" unique_id=162366450]
+transform = Transform3D(-2.8193845e-08, 0, 0.6449999, 0, 0.6449999, 0, -0.6449999, 0, -2.8193845e-08, 3.5092573, 0.2533481, -7.009854)
+surface_material_override/1 = SubResource("StandardMaterial3D_t24is")
+surface_material_override/2 = ExtResource("3_7rv5h")
+
+[node name="mirror_frame2" parent="decor" unique_id=565202422 instance=ExtResource("14_b71pw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0814877, 1.9964056, -4.358739)
+
+[node name="mirror_frame" parent="decor/mirror_frame2" index="0" unique_id=1607646269]
+material_override = ExtResource("3_7rv5h")
+
+[node name="mirror2" parent="decor/mirror_frame2" unique_id=1091566213 instance=ExtResource("13_h3th1")]
+
+[node name="mirror" parent="decor/mirror_frame2/mirror2" index="0" unique_id=1122538949]
+surface_material_override/0 = SubResource("StandardMaterial3D_hr1ii")
+
+[node name="picture_frame" parent="decor" unique_id=344532187 instance=ExtResource("7_5w48u")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.64405495, 1.5712974, -13.596176)
+
+[node name="picture frame" parent="decor/picture_frame" index="0" unique_id=470957943]
+material_override = ExtResource("3_7rv5h")
+
+[node name="picure2" parent="decor/picture_frame" unique_id=287860325 instance=ExtResource("8_nh6cx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014731646, 0.5798068, 0)
+
+[node name="picure" parent="decor/picture_frame/picure2" index="0" unique_id=584873540]
+material_override = SubResource("StandardMaterial3D_n2o0x")
+
+[node name="pot-col2" parent="decor" unique_id=205050740 instance=ExtResource("11_m6ibb")]
+transform = Transform3D(0.9010316, 0, 0.43375343, 0, 1, 0, -0.43375343, 0, 0.9010316, -4.7767434, 0, -4.0576115)
+
+[node name="pot" parent="decor/pot-col2" index="0" unique_id=1210234655]
+surface_material_override/0 = SubResource("StandardMaterial3D_86v2a")
+surface_material_override/1 = SubResource("StandardMaterial3D_b0jtc")
+
+[node name="plant2" parent="decor/pot-col2" unique_id=560571322 instance=ExtResource("4_ulrd6")]
+
+[node name="plant" parent="decor/pot-col2/plant2" index="0" unique_id=2080269221]
+surface_material_override/0 = SubResource("StandardMaterial3D_d3jui")
+
+[node name="pot-col5" parent="decor" unique_id=2019956554 instance=ExtResource("11_m6ibb")]
+transform = Transform3D(0.9719076, 0, -0.23536268, 0, 1, 0, 0.23536268, 0, 0.9719076, 1.9601033, 4.7683716e-07, -1.4357464)
+
+[node name="pot" parent="decor/pot-col5" index="0" unique_id=1210234655]
+surface_material_override/0 = SubResource("StandardMaterial3D_86v2a")
+surface_material_override/1 = SubResource("StandardMaterial3D_b0jtc")
+
+[node name="plant2" parent="decor/pot-col5" unique_id=279380810 instance=ExtResource("4_ulrd6")]
+
+[node name="plant" parent="decor/pot-col5/plant2" index="0" unique_id=2080269221]
+surface_material_override/0 = SubResource("StandardMaterial3D_d3jui")
+
+[node name="pot-col6" parent="decor" unique_id=1563389770 instance=ExtResource("11_m6ibb")]
+transform = Transform3D(0.9719076, 0, -0.23536268, 0, 1, 0, 0.23536268, 0, 0.9719076, -2.9543278, 4.7683716e-07, 2.3879824)
+
+[node name="pot" parent="decor/pot-col6" index="0" unique_id=1210234655]
+surface_material_override/0 = SubResource("StandardMaterial3D_86v2a")
+surface_material_override/1 = SubResource("StandardMaterial3D_b0jtc")
+
+[node name="plant2" parent="decor/pot-col6" unique_id=1208528250 instance=ExtResource("4_ulrd6")]
+
+[node name="plant" parent="decor/pot-col6/plant2" index="0" unique_id=2080269221]
+surface_material_override/0 = SubResource("StandardMaterial3D_d3jui")
+
+[node name="pot-col7" parent="decor" unique_id=299709848 instance=ExtResource("11_m6ibb")]
+transform = Transform3D(0.9604737, 0, 0.27837092, 0, 1, 0, -0.27837092, 0, 0.9604737, 1.9291, 4.7683716e-07, 2.320841)
+
+[node name="pot" parent="decor/pot-col7" index="0" unique_id=1210234655]
+surface_material_override/0 = SubResource("StandardMaterial3D_86v2a")
+surface_material_override/1 = SubResource("StandardMaterial3D_b0jtc")
+
+[node name="plant2" parent="decor/pot-col7" unique_id=356601553 instance=ExtResource("4_ulrd6")]
+
+[node name="plant" parent="decor/pot-col7/plant2" index="0" unique_id=2080269221]
+surface_material_override/0 = SubResource("StandardMaterial3D_d3jui")
+
+[node name="pot-col3" parent="decor" unique_id=54875389 instance=ExtResource("11_m6ibb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.881762, 0, -12.578638)
+
+[node name="pot" parent="decor/pot-col3" index="0" unique_id=1210234655]
+surface_material_override/0 = SubResource("StandardMaterial3D_86v2a")
+surface_material_override/1 = SubResource("StandardMaterial3D_b0jtc")
+
+[node name="plant2" parent="decor/pot-col3" unique_id=999817254 instance=ExtResource("4_ulrd6")]
+
+[node name="plant" parent="decor/pot-col3/plant2" index="0" unique_id=2080269221]
+transform = Transform3D(-0.3554496, 0, 0.9346955, 0, 1, 0, -0.9346955, 0, -0.3554496, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_d3jui")
+
+[node name="pot-col4" parent="decor" unique_id=1983078419 instance=ExtResource("11_m6ibb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8959515, 0, -12.575945)
+
+[node name="pot" parent="decor/pot-col4" index="0" unique_id=1210234655]
+surface_material_override/0 = SubResource("StandardMaterial3D_86v2a")
+surface_material_override/1 = SubResource("StandardMaterial3D_b0jtc")
+
+[node name="plant2" parent="decor/pot-col4" unique_id=552468691 instance=ExtResource("4_ulrd6")]
+
+[node name="plant" parent="decor/pot-col4/plant2" index="0" unique_id=2080269221]
+surface_material_override/0 = SubResource("StandardMaterial3D_d3jui")
+
+[node name="rug2" parent="decor" unique_id=1833968117 instance=ExtResource("6_j0fwr")]
+transform = Transform3D(0.723148, 0, 0.6906931, 0, 1, 0, -0.6906931, 0, 0.723148, -5.4563355, 0, -7.126837)
+
+[node name="rug" parent="decor/rug2" index="0" unique_id=1509264608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3572493, 0, -0.3469925)
+material_override = ExtResource("5_kdu4h")
+
+[node name="sink-col2" parent="decor" unique_id=1870409794 instance=ExtResource("16_thv7k")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.425974, 0, -4.3118978)
+
+[node name="sink" parent="decor/sink-col2" index="0" unique_id=1216573995]
 surface_material_override/1 = ExtResource("3_7rv5h")
 
-[node name="office_layout" parent="." unique_id=1533260105 instance=ExtResource("2_6prn3")]
+[node name="sofa-col2" parent="decor" unique_id=1704882272 instance=ExtResource("17_f3h27")]
+transform = Transform3D(-0.9426823, 0, -0.3336917, 0, 1, 0, 0.3336917, 0, -0.9426823, -5.97208, 0, -9.855101)
 
-[node name="Office_layout" parent="office_layout" index="0" unique_id=560946282]
-surface_material_override/7 = ExtResource("3_7rv5h")
+[node name="sofa" parent="decor/sofa-col2" index="0" unique_id=1188713833]
+transform = Transform3D(1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1, 1.3352904, 0, 0.181324)
+material_override = ExtResource("18_f8qqm")
 
-[node name="Lift" parent="office_layout" index="1" unique_id=262131862]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04642296, 0, 3.0723753)
+[node name="toilet-col2" parent="decor" unique_id=727824446 instance=ExtResource("19_vb6ii")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.1811523, 0, -1.9228452)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="office_layout/Lift" index="2" unique_id=1833476160]
-root_node = NodePath("../../..")
-libraries/ = SubResource("AnimationLibrary_4c6lv")
+[node name="toilet-col3" parent="decor" unique_id=1380516080 instance=ExtResource("19_vb6ii")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.1471047, 0, -1.9228452)
 
-[node name="decor" type="Node3D" parent="." unique_id=1880851388]
-transform = Transform3D(-4.371139e-08, 1, 0, 4.371139e-08, 1.9106855e-15, 1, 1, 4.371139e-08, -4.371139e-08, 3.0725706, 2.5591505, -4.808076)
+[node name="toilet_room-col2" parent="decor" unique_id=387545297 instance=ExtResource("20_qikqs")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.1073546, 0, -1.9321978)
 
-[node name="sofa2" parent="decor" unique_id=1867533960 instance=ExtResource("2_5knd0")]
-transform = Transform3D(0.08616483, 4.371139e-08, -0.9962809, -0.9962809, 1.9106855e-15, -0.08616483, -3.7663823e-09, 1, 4.3548823e-08, -5.3652945, -8.3585825, -2.5199096)
+[node name="toilet_room_door-col2" parent="decor/toilet_room-col2" unique_id=21107811 instance=ExtResource("21_lcpmh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0060065, 0.6759683, -0.7024355)
 
-[node name="sofa" parent="decor/sofa2" index="0" unique_id=1249580832]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8270278, 0, 0.15801334)
-material_override = SubResource("StandardMaterial3D_vnh36")
+[node name="toilet_room-col3" parent="decor" unique_id=205944017 instance=ExtResource("20_qikqs")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.100987, 0, -1.9321978)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="decor/sofa2/sofa" index="0" unique_id=1104556909]
+[node name="toilet_room_door-col2" parent="decor/toilet_room-col3" unique_id=1354513016 instance=ExtResource("21_lcpmh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0060066, 0.6759683, -0.7024355)
 
-[node name="rug2" parent="decor" unique_id=766327834 instance=ExtResource("6_j0fwr")]
-transform = Transform3D(-4.371139e-08, 4.371139e-08, 1, 1, 1.9106855e-15, 4.371139e-08, 0, 1, -4.371139e-08, -2.3778872, -9.501194, -2.5591505)
+[node name="doorl_frame-col2" parent="." unique_id=509070108 instance=ExtResource("22_m6ibb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8578227, -9.536743e-07, -7.188591)
 
-[node name="rug" parent="decor/rug2" index="0" unique_id=1114013472]
-surface_material_override/0 = ExtResource("5_kdu4h")
+[node name="doorl_frame" parent="doorl_frame-col2" index="0" unique_id=978226510]
+surface_material_override/0 = ExtResource("23_thv7k")
 
-[node name="picture_frame" parent="decor" unique_id=793877429 instance=ExtResource("7_5w48u")]
-transform = Transform3D(-1, 4.371139e-08, -8.742278e-08, -8.742278e-08, 1.9106855e-15, 1, 4.371139e-08, 1, 1.9106855e-15, 0.5717125, -0.36782002, -0.99134195)
+[node name="door" parent="doorl_frame-col2/doorl_frame" index="0" unique_id=134045481]
+surface_material_override/0 = ExtResource("3_7rv5h")
+surface_material_override/1 = SubResource("StandardMaterial3D_qikqs")
+surface_material_override/2 = SubResource("StandardMaterial3D_lcpmh")
 
-[node name="picture frame" parent="decor/picture_frame" index="0" unique_id=1082338117]
-surface_material_override/0 = SubResource("StandardMaterial3D_55tj8")
+[node name="doorl_frame-col3" parent="." unique_id=1152720201 instance=ExtResource("22_m6ibb")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.8672075, -9.536743e-07, -7.188591)
 
-[node name="picure2" parent="decor" unique_id=1543319864 instance=ExtResource("8_nh6cx")]
-transform = Transform3D(-1, 4.371139e-08, -8.742278e-08, -8.742278e-08, 1.9106855e-15, 1, 4.371139e-08, 1, 1.9106855e-15, 0.5717125, -0.36782002, -0.40394545)
+[node name="doorl_frame" parent="doorl_frame-col3" index="0" unique_id=978226510]
+surface_material_override/0 = ExtResource("23_thv7k")
 
-[node name="picure" parent="decor/picure2" index="0" unique_id=1304748473]
-surface_material_override/0 = SubResource("StandardMaterial3D_j0fwr")
+[node name="door" parent="doorl_frame-col3/doorl_frame" index="0" unique_id=134045481]
+surface_material_override/0 = ExtResource("3_7rv5h")
+surface_material_override/1 = SubResource("StandardMaterial3D_qikqs")
+surface_material_override/2 = SubResource("StandardMaterial3D_lcpmh")
 
-[node name="plant2" parent="decor" unique_id=2121650628 instance=ExtResource("4_ulrd6")]
-transform = Transform3D(-0.6201352, 4.371139e-08, 0.78449506, 0.78449506, 1.9106855e-15, 0.6201352, 2.7106967e-08, 1, -3.4291368e-08, 0.19828749, -7.9536185, -2.5556502)
-
-[node name="plant" parent="decor/plant2" index="0" unique_id=72828419]
-surface_material_override/0 = SubResource("StandardMaterial3D_872kf")
-
-[node name="pot2" type="Node3D" parent="decor" unique_id=1522850647]
-transform = Transform3D(-0.6201352, 4.371139e-08, 0.78449506, 0.78449506, 1.9106855e-15, 0.6201352, 2.7106967e-08, 1, -3.4291368e-08, 0.23663712, -7.8694777, -2.549379)
-
-[node name="pot" type="MeshInstance3D" parent="decor/pot2" unique_id=2037355551]
-transform = Transform3D(0.9999999, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.9999999, 0, 0, 0)
-mesh = SubResource("ArrayMesh_sjv4i")
-surface_material_override/0 = SubResource("StandardMaterial3D_5knd0")
-surface_material_override/1 = SubResource("StandardMaterial3D_kdu4h")
-
-[node name="mirror2" parent="decor" unique_id=1694550857 instance=ExtResource("13_h3th1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1516953, 0, -0.36886978)
-
-[node name="mirror" parent="decor/mirror2" index="0" unique_id=1245958118]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1516953, 0, 0.38670087)
-surface_material_override/0 = SubResource("StandardMaterial3D_f8qqm")
-
-[node name="mirror_frame2" parent="decor" unique_id=1141417807 instance=ExtResource("14_b71pw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1516953, 0, -0.36886978)
-
-[node name="mirror_frame" parent="decor/mirror_frame2" index="0" unique_id=1963296639]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1516953, 0, 0.36886978)
-surface_material_override/0 = SubResource("StandardMaterial3D_vb6ii")
-
-[node name="toilet_room2" parent="." unique_id=892692684 instance=ExtResource("15_l7f45")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.2954865, 2.3841858e-07, -1.94136)
-
-[node name="toilet_room_door2" parent="toilet_room2" unique_id=1629017692 instance=ExtResource("16_hl4s0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0111661, 0.7283051, -0.7033243)
-
-[node name="toilet_room3" parent="." unique_id=48909045 instance=ExtResource("15_l7f45")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.276944, 2.3841858e-07, -1.94136)
-
-[node name="toilet_room_door2" parent="toilet_room3" unique_id=726994832 instance=ExtResource("16_hl4s0")]
-transform = Transform3D(0.9865807, 0, -0.1632743, 0, 1, 0, 0.1632743, 0, 0.9865807, -1.0111661, 0.7283051, -0.7033243)
-
-[editable path="WorldEnvironment/sink2"]
 [editable path="office_layout"]
-[editable path="decor/sofa2"]
-[editable path="decor/rug2"]
-[editable path="decor/picture_frame"]
-[editable path="decor/picure2"]
-[editable path="decor/plant2"]
-[editable path="decor/mirror2"]
+[editable path="decor/chair-col2"]
+[editable path="decor/chair-col3"]
+[editable path="decor/chair-col4"]
+[editable path="decor/chair-col5"]
+[editable path="decor/chair-col6"]
+[editable path="decor/chair-col7"]
+[editable path="decor/clock2"]
 [editable path="decor/mirror_frame2"]
+[editable path="decor/mirror_frame2/mirror2"]
+[editable path="decor/picture_frame"]
+[editable path="decor/picture_frame/picure2"]
+[editable path="decor/pot-col2"]
+[editable path="decor/pot-col2/plant2"]
+[editable path="decor/pot-col5"]
+[editable path="decor/pot-col5/plant2"]
+[editable path="decor/pot-col6"]
+[editable path="decor/pot-col6/plant2"]
+[editable path="decor/pot-col7"]
+[editable path="decor/pot-col7/plant2"]
+[editable path="decor/pot-col3"]
+[editable path="decor/pot-col3/plant2"]
+[editable path="decor/pot-col4"]
+[editable path="decor/pot-col4/plant2"]
+[editable path="decor/rug2"]
+[editable path="decor/sink-col2"]
+[editable path="decor/sofa-col2"]
+[editable path="doorl_frame-col2"]
+[editable path="doorl_frame-col3"]
