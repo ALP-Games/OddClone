@@ -12,6 +12,7 @@ collision_layer = 3
 script = ExtResource("1_qbes0")
 head = NodePath("Head")
 body = NodePath("Body")
+animation_cycle_speed = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=696306462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
