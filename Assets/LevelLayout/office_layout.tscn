@@ -63,6 +63,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_f8qqm"]
 resource_name = "lift_door"
 length = 2.0
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -232,8 +233,8 @@ metadata/_edit_lock_ = true
 [node name="Lift" parent="office_layout" index="1" unique_id=2030038256]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.061842203, 0, 3.0633216)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1833476160]
-root_node = NodePath("../../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="office_layout/Lift" index="2" unique_id=1833476160]
+root_node = NodePath("../../../../..")
 libraries/ = SubResource("AnimationLibrary_vb6ii")
 
 [node name="decor" type="Node3D" parent="." unique_id=1324599343]
