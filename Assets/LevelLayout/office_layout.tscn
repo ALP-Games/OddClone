@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://ngmr7ceqer17"]
 
+[ext_resource type="Script" uid="uid://bhyag86gihwcy" path="res://Assets/LevelLayout/office_layout.gd" id="1_5knd0"]
 [ext_resource type="PackedScene" uid="uid://dnegvv88ea6ws" path="res://Assets/decor/sofa.glb" id="2_5knd0"]
 [ext_resource type="PackedScene" uid="uid://cveuq6ftxmcy7" path="res://Assets/LevelLayout/office_layout.glb" id="2_6prn3"]
 [ext_resource type="Texture2D" uid="uid://dsy3753k4vp11" path="res://Assets/Textures/floornoise/floor_noise_lite.tres" id="3_kdu4h"]
@@ -166,6 +167,7 @@ albedo_color = Color(0.3344255, 0.30215105, 0.12212231, 1)
 albedo_texture = ExtResource("3_kdu4h")
 
 [node name="Node3D" type="Node3D" unique_id=1610315983]
+script = ExtResource("1_5knd0")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1417747881]
 environment = SubResource("Environment_pksf0")
@@ -197,7 +199,7 @@ spot_angle = 78.66998
 
 [node name="office_layout" parent="." unique_id=2002971986 instance=ExtResource("2_6prn3")]
 
-[node name="Lift" parent="office_layout" index="1" unique_id=1640473336]
+[node name="Lift" parent="office_layout" index="1" unique_id=812654329]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04642296, 0, 3.0723753)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="office_layout/Lift" index="2" unique_id=1833476160]
@@ -207,7 +209,7 @@ libraries/ = SubResource("AnimationLibrary_4c6lv")
 [node name="sofa2" parent="." unique_id=1867533960 instance=ExtResource("2_5knd0")]
 transform = Transform3D(-0.9962809, 0, -0.08616479, 0, 1, 0, 0.08616479, 0, -0.9962809, -5.2860117, 0.039240737, -10.17337)
 
-[node name="sofa" parent="sofa2" index="0" unique_id=796424234]
+[node name="sofa" parent="sofa2" index="0" unique_id=1249580832]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8270278, 0, 0.15801334)
 material_override = SubResource("StandardMaterial3D_vnh36")
 
@@ -225,7 +227,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.21
 [node name="plant2" parent="." unique_id=2121650628 instance=ExtResource("4_ulrd6")]
 transform = Transform3D(0.78449506, 0, 0.6201351, 0, 1, 0, -0.6201351, 0, 0.78449506, -4.881048, 0.0035002604, -4.6097884)
 
-[node name="plant" parent="plant2" index="0" unique_id=1112791882]
+[node name="plant" parent="plant2" index="0" unique_id=72828419]
 surface_material_override/0 = SubResource("StandardMaterial3D_872kf")
 
 [node name="pot2" type="Node3D" parent="." unique_id=1522850647]

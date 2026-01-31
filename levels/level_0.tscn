@@ -12,7 +12,7 @@ metadata/_custom_type_script = "uid://csb0fe7ebci5h"
 [node name="Node3D" parent="." unique_id=1610315983 instance=ExtResource("2_yhi02")]
 
 [node name="Player" parent="." unique_id=757401328 instance=ExtResource("3_ae7oe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38144422, 1.2316098)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08353874, 0.38144445, 4.1822124)
 
 [node name="NPC" parent="." unique_id=778123170 instance=ExtResource("4_ae7oe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.452, 0, -2.228)
