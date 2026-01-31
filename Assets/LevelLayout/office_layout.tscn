@@ -1,12 +1,22 @@
 [gd_scene format=4 uid="uid://ngmr7ceqer17"]
 
+[ext_resource type="Script" uid="uid://sfp75l8gvwb5" path="res://scripts/office_layout.gd" id="1_7pim8"]
+[ext_resource type="PackedScene" uid="uid://b7q0u3r25qljk" path="res://Assets/decor/toilet.glb" id="1_66ngc"]
 [ext_resource type="PackedScene" uid="uid://dnegvv88ea6ws" path="res://Assets/decor/sofa.glb" id="2_5knd0"]
 [ext_resource type="PackedScene" uid="uid://cveuq6ftxmcy7" path="res://Assets/LevelLayout/office_layout.glb" id="2_6prn3"]
+[ext_resource type="PackedScene" uid="uid://frlqf2w6ikk2" path="res://Assets/decor/sink.glb" id="2_7pim8"]
+[ext_resource type="Material" uid="uid://b1nydjhb77upj" path="res://Assets/LevelLayout/materials/metal.tres" id="3_7rv5h"]
 [ext_resource type="Texture2D" uid="uid://dsy3753k4vp11" path="res://Assets/Textures/floornoise/floor_noise_lite.tres" id="3_kdu4h"]
 [ext_resource type="PackedScene" uid="uid://cooujlgu4p834" path="res://Assets/decor/plant.glb" id="4_ulrd6"]
+[ext_resource type="Material" uid="uid://bxdoao21bm02" path="res://Assets/LevelLayout/materials/toilet_floor.tres" id="5_kdu4h"]
 [ext_resource type="PackedScene" uid="uid://cc4dcxbt60b83" path="res://Assets/decor/rug.glb" id="6_j0fwr"]
 [ext_resource type="PackedScene" uid="uid://cqbgtm7p4v3ej" path="res://Assets/decor/picture_frame.glb" id="7_5w48u"]
 [ext_resource type="PackedScene" uid="uid://bkwskm1bpwqv2" path="res://Assets/decor/picure.glb" id="8_nh6cx"]
+[ext_resource type="Texture2D" uid="uid://dmyg5pde4uju7" path="res://Assets/Textures/game_ilustration.jpg" id="8_ulrd6"]
+[ext_resource type="PackedScene" uid="uid://cgfke8u6oimti" path="res://Assets/decor/mirror.glb" id="13_h3th1"]
+[ext_resource type="PackedScene" uid="uid://d0mdkfo5i5wb3" path="res://Assets/decor/mirror_frame.glb" id="14_b71pw"]
+[ext_resource type="PackedScene" uid="uid://b4kcuqb7a1tt7" path="res://Assets/decor/toilet_room.glb" id="15_l7f45"]
+[ext_resource type="PackedScene" uid="uid://qjc1imcynv7r" path="res://Assets/decor/toilet_room_door.glb" id="16_hl4s0"]
 
 [sub_resource type="Environment" id="Environment_pksf0"]
 background_mode = 1
@@ -82,6 +92,36 @@ _data = {
 resource_name = "room_floor"
 albedo_color = Color(0.77417535, 0.59101516, 0.42430726, 1)
 albedo_texture = ExtResource("3_kdu4h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55tj8"]
+resource_name = "room_floor"
+albedo_color = Color(0.51025647, 0.31573892, 0.3207258, 1)
+albedo_texture = ExtResource("3_kdu4h")
+
+[sub_resource type="Gradient" id="Gradient_2yrj0"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.20833333, 0.46130952, 0.6931818)
+colors = PackedColorArray(0.64602923, 0.6460289, 0.6460289, 1, 1, 1, 1, 1, 0.5163941, 0.5163937, 0.51639354, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vht15"]
+noise_type = 3
+seed = 6
+frequency = 0.614
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_00j6u"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_vht15")
+color_ramp = SubResource("Gradient_2yrj0")
+seamless = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0fwr"]
+resource_name = "metal"
+diffuse_mode = 1
+albedo_texture = ExtResource("8_ulrd6")
+roughness_texture = SubResource("NoiseTexture2D_00j6u")
+uv1_scale = Vector3(0.865, 0.865, 0.865)
+texture_filter = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_872kf"]
 resource_name = "room_wall"
@@ -165,23 +205,49 @@ resource_name = "room_floor"
 albedo_color = Color(0.3344255, 0.30215105, 0.12212231, 1)
 albedo_texture = ExtResource("3_kdu4h")
 
+[sub_resource type="Gradient" id="Gradient_m6ibb"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_thv7k"]
+frequency = 0.0562
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_f3h27"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_thv7k")
+color_ramp = SubResource("Gradient_m6ibb")
+seamless = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8qqm"]
+resource_name = "metal"
+diffuse_mode = 1
+albedo_color = Color(0.7882775, 0.81968385, 0.86055404, 1)
+roughness_texture = SubResource("NoiseTexture2D_f3h27")
+uv1_scale = Vector3(0.51, 0.51, 0.51)
+texture_filter = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vb6ii"]
+resource_name = "room_wall"
+albedo_color = Color(0.9237517, 0.9011724, 0.8831353, 1)
+roughness = 0.5
+
 [node name="Node3D" type="Node3D" unique_id=1610315983]
+script = ExtResource("1_7pim8")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1417747881]
 environment = SubResource("Environment_pksf0")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment" unique_id=1068689272]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.2361846, 1.6612141)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.6674175, 3.2361846, 1.6612141)
 light_energy = 3.095
 spot_angle = 78.66998
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="WorldEnvironment" unique_id=2006169177]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.183139, -2.642256)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.6674175, 3.183139, -4.5078344)
 light_energy = 3.095
 spot_angle = 78.66998
 
 [node name="SpotLight3D5" type="SpotLight3D" parent="WorldEnvironment" unique_id=70480531]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.183139, -7.321642)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.6674175, 3.183139, -9.966419)
 light_energy = 3.095
 spot_angle = 78.66998
 
@@ -195,48 +261,108 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.49
 light_energy = 3.095
 spot_angle = 78.66998
 
-[node name="office_layout" parent="." unique_id=2002971986 instance=ExtResource("2_6prn3")]
+[node name="toilet2" parent="WorldEnvironment" unique_id=1708377030 instance=ExtResource("1_66ngc")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.372951, 2.3543835e-06, -2.3431754)
 
-[node name="Lift" parent="office_layout" index="1" unique_id=1640473336]
+[node name="toilet3" parent="WorldEnvironment" unique_id=1395937070 instance=ExtResource("1_66ngc")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.342564, 2.3543835e-06, -2.3431754)
+
+[node name="sink2" parent="WorldEnvironment" unique_id=1219254178 instance=ExtResource("2_7pim8")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 3.3726742, 0, -3.663111)
+
+[node name="sink" parent="WorldEnvironment/sink2" index="0" unique_id=264769977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3841858e-07, 0.5738083, 1.1516953)
+surface_material_override/1 = ExtResource("3_7rv5h")
+
+[node name="office_layout" parent="." unique_id=1533260105 instance=ExtResource("2_6prn3")]
+
+[node name="Office_layout" parent="office_layout" index="0" unique_id=560946282]
+surface_material_override/7 = ExtResource("3_7rv5h")
+
+[node name="Lift" parent="office_layout" index="1" unique_id=262131862]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04642296, 0, 3.0723753)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="office_layout/Lift" index="2" unique_id=1833476160]
 root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_4c6lv")
 
-[node name="sofa2" parent="." unique_id=1867533960 instance=ExtResource("2_5knd0")]
-transform = Transform3D(-0.9962809, 0, -0.08616479, 0, 1, 0, 0.08616479, 0, -0.9962809, -5.2860117, 0.039240737, -10.17337)
+[node name="decor" type="Node3D" parent="." unique_id=1880851388]
+transform = Transform3D(-4.371139e-08, 1, 0, 4.371139e-08, 1.9106855e-15, 1, 1, 4.371139e-08, -4.371139e-08, 3.0725706, 2.5591505, -4.808076)
 
-[node name="sofa" parent="sofa2" index="0" unique_id=796424234]
+[node name="sofa2" parent="decor" unique_id=1867533960 instance=ExtResource("2_5knd0")]
+transform = Transform3D(0.08616483, 4.371139e-08, -0.9962809, -0.9962809, 1.9106855e-15, -0.08616483, -3.7663823e-09, 1, 4.3548823e-08, -5.3652945, -8.3585825, -2.5199096)
+
+[node name="sofa" parent="decor/sofa2" index="0" unique_id=1249580832]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8270278, 0, 0.15801334)
 material_override = SubResource("StandardMaterial3D_vnh36")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sofa2/sofa" index="0" unique_id=1104556909]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="decor/sofa2/sofa" index="0" unique_id=1104556909]
 
-[node name="rug2" parent="." unique_id=766327834 instance=ExtResource("6_j0fwr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4286237, 0, -7.1859636)
+[node name="rug2" parent="decor" unique_id=766327834 instance=ExtResource("6_j0fwr")]
+transform = Transform3D(-4.371139e-08, 4.371139e-08, 1, 1, 1.9106855e-15, 4.371139e-08, 0, 1, -4.371139e-08, -2.3778872, -9.501194, -2.5591505)
 
-[node name="picture_frame" parent="." unique_id=793877429 instance=ExtResource("7_5w48u")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.2183986, 1.5678085, -4.2363634)
+[node name="rug" parent="decor/rug2" index="0" unique_id=1114013472]
+surface_material_override/0 = ExtResource("5_kdu4h")
 
-[node name="picure2" parent="." unique_id=1618908097 instance=ExtResource("8_nh6cx")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.2183986, 2.155205, -4.2363634)
+[node name="picture_frame" parent="decor" unique_id=793877429 instance=ExtResource("7_5w48u")]
+transform = Transform3D(-1, 4.371139e-08, -8.742278e-08, -8.742278e-08, 1.9106855e-15, 1, 4.371139e-08, 1, 1.9106855e-15, 0.5717125, -0.36782002, -0.99134195)
 
-[node name="plant2" parent="." unique_id=2121650628 instance=ExtResource("4_ulrd6")]
-transform = Transform3D(0.78449506, 0, 0.6201351, 0, 1, 0, -0.6201351, 0, 0.78449506, -4.881048, 0.0035002604, -4.6097884)
+[node name="picture frame" parent="decor/picture_frame" index="0" unique_id=1082338117]
+surface_material_override/0 = SubResource("StandardMaterial3D_55tj8")
 
-[node name="plant" parent="plant2" index="0" unique_id=1112791882]
+[node name="picure2" parent="decor" unique_id=1543319864 instance=ExtResource("8_nh6cx")]
+transform = Transform3D(-1, 4.371139e-08, -8.742278e-08, -8.742278e-08, 1.9106855e-15, 1, 4.371139e-08, 1, 1.9106855e-15, 0.5717125, -0.36782002, -0.40394545)
+
+[node name="picure" parent="decor/picure2" index="0" unique_id=1304748473]
+surface_material_override/0 = SubResource("StandardMaterial3D_j0fwr")
+
+[node name="plant2" parent="decor" unique_id=2121650628 instance=ExtResource("4_ulrd6")]
+transform = Transform3D(-0.6201352, 4.371139e-08, 0.78449506, 0.78449506, 1.9106855e-15, 0.6201352, 2.7106967e-08, 1, -3.4291368e-08, 0.19828749, -7.9536185, -2.5556502)
+
+[node name="plant" parent="decor/plant2" index="0" unique_id=72828419]
 surface_material_override/0 = SubResource("StandardMaterial3D_872kf")
 
-[node name="pot2" type="Node3D" parent="." unique_id=1522850647]
-transform = Transform3D(0.78449506, 0, 0.6201351, 0, 1, 0, -0.6201351, 0, 0.78449506, -4.7969074, 0.009771347, -4.571439)
+[node name="pot2" type="Node3D" parent="decor" unique_id=1522850647]
+transform = Transform3D(-0.6201352, 4.371139e-08, 0.78449506, 0.78449506, 1.9106855e-15, 0.6201352, 2.7106967e-08, 1, -3.4291368e-08, 0.23663712, -7.8694777, -2.549379)
 
-[node name="pot" type="MeshInstance3D" parent="pot2" unique_id=2037355551]
+[node name="pot" type="MeshInstance3D" parent="decor/pot2" unique_id=2037355551]
 transform = Transform3D(0.9999999, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.9999999, 0, 0, 0)
 mesh = SubResource("ArrayMesh_sjv4i")
 surface_material_override/0 = SubResource("StandardMaterial3D_5knd0")
 surface_material_override/1 = SubResource("StandardMaterial3D_kdu4h")
 
+[node name="mirror2" parent="decor" unique_id=1694550857 instance=ExtResource("13_h3th1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1516953, 0, -0.36886978)
+
+[node name="mirror" parent="decor/mirror2" index="0" unique_id=1245958118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1516953, 0, 0.38670087)
+surface_material_override/0 = SubResource("StandardMaterial3D_f8qqm")
+
+[node name="mirror_frame2" parent="decor" unique_id=1141417807 instance=ExtResource("14_b71pw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1516953, 0, -0.36886978)
+
+[node name="mirror_frame" parent="decor/mirror_frame2" index="0" unique_id=1963296639]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1516953, 0, 0.36886978)
+surface_material_override/0 = SubResource("StandardMaterial3D_vb6ii")
+
+[node name="toilet_room2" parent="." unique_id=892692684 instance=ExtResource("15_l7f45")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.2954865, 2.3841858e-07, -1.94136)
+
+[node name="toilet_room_door2" parent="toilet_room2" unique_id=1629017692 instance=ExtResource("16_hl4s0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0111661, 0.7283051, -0.7033243)
+
+[node name="toilet_room3" parent="." unique_id=48909045 instance=ExtResource("15_l7f45")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.276944, 2.3841858e-07, -1.94136)
+
+[node name="toilet_room_door2" parent="toilet_room3" unique_id=726994832 instance=ExtResource("16_hl4s0")]
+transform = Transform3D(0.9865807, 0, -0.1632743, 0, 1, 0, 0.1632743, 0, 0.9865807, -1.0111661, 0.7283051, -0.7033243)
+
+[editable path="WorldEnvironment/sink2"]
 [editable path="office_layout"]
-[editable path="sofa2"]
-[editable path="plant2"]
+[editable path="decor/sofa2"]
+[editable path="decor/rug2"]
+[editable path="decor/picture_frame"]
+[editable path="decor/picure2"]
+[editable path="decor/plant2"]
+[editable path="decor/mirror2"]
+[editable path="decor/mirror_frame2"]

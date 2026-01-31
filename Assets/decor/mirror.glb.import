@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dnegvv88ea6ws"
-path="res://.godot/imported/sofa.glb-8dde1f7ab9b9b9e59f46bbec730c1a76.scn"
+uid="uid://cgfke8u6oimti"
+path="res://.godot/imported/mirror.glb-3399425f0a1a2d4ce0b3750d3004e2fe.scn"
 
 [deps]
 
-source_file="res://Assets/decor/sofa.glb"
-dest_files=["res://.godot/imported/sofa.glb-8dde1f7ab9b9b9e59f46bbec730c1a76.scn"]
+source_file="res://Assets/decor/mirror.glb"
+dest_files=["res://.godot/imported/mirror.glb-3399425f0a1a2d4ce0b3750d3004e2fe.scn"]
 
 [params]
 

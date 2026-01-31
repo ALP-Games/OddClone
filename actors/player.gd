@@ -72,5 +72,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, move_speed)
 			velocity.z = move_toward(velocity.z, 0, move_speed)
+	else:
+		velocity = Vector3.ZERO
 
 	move_and_slide()
