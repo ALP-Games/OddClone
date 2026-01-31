@@ -11,6 +11,7 @@ class_name Player extends CharacterBody3D
 
 
 @onready var gameplay_ui: Control = $CanvasLayer/GameplayUI
+@onready var AnimP: AnimationPlayer = $CanvasLayer/GameplayUI/AnimationPlayer
 
 var controls_disabled := false
 var rotation_accumulation := Vector2.ZERO
@@ -57,6 +58,7 @@ func _physics_process(delta: float) -> void:
 			raycast.force_raycast_update()
 			var collider := raycast.get_collider()
 			(collider as NPC).get_shot()
+			#AnimP.play("shoot")
 			#print("Shot - ", collider.name)
 
 		# Get the input direction and handle the movement/deceleration.
