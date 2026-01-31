@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://yxhc6df3321x"]
 
 [ext_resource type="Script" uid="uid://d2xek2q8p5rqg" path="res://actors/player.gd" id="1_niuxy"]
+[ext_resource type="PackedScene" uid="uid://datbdcuw2mst8" path="res://ui/gameplay_ui.tscn" id="2_mvpqy"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_cp522"]
 
-[node name="Player" type="CharacterBody3D" unique_id=757401328 node_paths=PackedStringArray("head")]
+[node name="Player" type="CharacterBody3D" unique_id=757401328 node_paths=PackedStringArray("head", "raycast") groups=["Player"]]
 script = ExtResource("1_niuxy")
 head = NodePath("Head")
+raycast = NodePath("Head/RayCast3D")
 
 [node name="Head" type="Node3D" parent="." unique_id=1792088025]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4676719, 0)
@@ -14,6 +16,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4676719, 0)
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1581286432]
 current = true
 
+[node name="RayCast3D" type="RayCast3D" parent="Head" unique_id=612811798]
+target_position = Vector3(0, 0, -100)
+collision_mask = 2
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=122466643]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_cp522")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=139447608]
+
+[node name="GameplayUI" parent="CanvasLayer" unique_id=1439478381 instance=ExtResource("2_mvpqy")]

@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://ngmr7ceqer17"]
+
+[ext_resource type="PackedScene" uid="uid://cveuq6ftxmcy7" path="res://Assets/LevelLayout/office_layout.glb" id="2_6prn3"]
+[ext_resource type="PackedScene" uid="uid://yxhc6df3321x" path="res://actors/player.tscn" id="2_pksf0"]
+
+[sub_resource type="Environment" id="Environment_pksf0"]
+background_mode = 1
+background_color = Color(0.46403712, 0.5032348, 0.62538654, 1)
+background_energy_multiplier = 0.34
+ssao_enabled = true
+ssao_radius = 6.22
+ssao_intensity = 8.41
+glow_enabled = true
+
+[sub_resource type="Animation" id="Animation_pksf0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Lift_left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Lift_left")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6prn3"]
+resource_name = "lift_door"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Lift_left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.93333334, 1.6666666, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.0320424, 0, 0), Vector3(-1.0320424, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Lift_left")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0.93333334, 1, 1, 1, 1, 1.6666666, 1, 1, 1, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.93333334, 1, 1, 1, 1, 1.6666666, 1, 1, 1, 1, 2, 1, 1, 1, 1)
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.93333334, 1.6666666, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.0861995, 0, 0), Vector3(1.0861995, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4c6lv"]
+_data = {
+&"RESET": SubResource("Animation_pksf0"),
+&"lift_door": SubResource("Animation_6prn3")
+}
+
+[node name="Node3D" type="Node3D" unique_id=1610315983]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1417747881]
+environment = SubResource("Environment_pksf0")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment" unique_id=1068689272]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.2361846, 1.6612141)
+light_energy = 3.095
+spot_angle = 78.66998
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="WorldEnvironment" unique_id=2006169177]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.183139, -2.642256)
+light_energy = 3.095
+spot_angle = 78.66998
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="WorldEnvironment" unique_id=70480531]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.183139, -7.321642)
+light_energy = 3.095
+spot_angle = 78.66998
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="WorldEnvironment" unique_id=755750676]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4, 3.2361846, -6.944724)
+light_energy = 3.095
+spot_angle = 78.66998
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="WorldEnvironment" unique_id=265439658]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.4958906, 3.2361846, -5.5311856)
+light_energy = 3.095
+spot_angle = 78.66998
+
+[node name="Player" parent="." unique_id=757401328 instance=ExtResource("2_pksf0")]
+
+[node name="office_layout" parent="." unique_id=672266106 instance=ExtResource("2_6prn3")]
+
+[node name="Lift" parent="office_layout" index="1" unique_id=1053130497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04642296, 0, 3.0723753)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="office_layout/Lift" index="2" unique_id=1833476160]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_4c6lv")
+
+[editable path="office_layout"]

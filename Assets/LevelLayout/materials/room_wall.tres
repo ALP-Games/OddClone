@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cpvlrnjtirw5l"]
+
+[resource]
+resource_name = "room_wall"
+albedo_color = Color(0.9063355, 0.5068386, 0.3614343, 1)
+roughness = 0.5

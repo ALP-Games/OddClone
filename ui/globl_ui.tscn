@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://t43p64se4nw2"]
+
+[ext_resource type="LabelSettings" uid="uid://cic6vrjqf8i0d" path="res://ui/level_font.tres" id="1_v3oc8"]
+[ext_resource type="Script" uid="uid://cphvsgl0xmoaa" path="res://ui/global_ui.gd" id="1_xtvba"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_85gms"]
+
+[node name="GlobalUI" type="CanvasLayer" unique_id=352080034]
+layer = 10
+script = ExtResource("1_xtvba")
+
+[node name="LevelEndPrompt" type="Control" parent="." unique_id=1572148619]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BlackRect" type="TextureRect" parent="LevelEndPrompt" unique_id=279354583]
+modulate = Color(0, 0, 0, 0.627451)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_85gms")
+
+[node name="LevelWonText" type="Label" parent="LevelEndPrompt" unique_id=703043525]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -22.5
+offset_right = 118.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You found him!"
+label_settings = ExtResource("1_v3oc8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelLost" type="Label" parent="LevelEndPrompt" unique_id=2052057929]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = -22.5
+offset_right = 231.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You got the wrong target fool!"
+label_settings = ExtResource("1_v3oc8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonNextLevel" type="Button" parent="LevelEndPrompt" unique_id=1348541048]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = 35.0
+offset_right = 35.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Next Level"
+
+[node name="ButtonRestart" type="Button" parent="LevelEndPrompt" unique_id=1378352551]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = 35.0
+offset_right = 35.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
