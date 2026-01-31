@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://c2d81jrwyb1k2"]
+
+[ext_resource type="PackedScene" uid="uid://yxhc6df3321x" path="res://actors/player.tscn" id="1_dsqel"]
+[ext_resource type="Script" uid="uid://csb0fe7ebci5h" path="res://scripts/level.gd" id="1_w72v2"]
+[ext_resource type="PackedScene" uid="uid://ctgu2mirtg7f2" path="res://actors/npc.tscn" id="2_s65ib"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_amuej"]
+size = Vector2(20, 20)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dsqel"]
+
+[sub_resource type="Sky" id="Sky_s65ib"]
+sky_material = SubResource("ProceduralSkyMaterial_dsqel")
+
+[sub_resource type="Environment" id="Environment_w72v2"]
+background_mode = 2
+sky = SubResource("Sky_s65ib")
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_amuej"]
+
+[node name="TestLevel" type="Node3D" unique_id=1564627260]
+script = ExtResource("1_w72v2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1275825014]
+mesh = SubResource("PlaneMesh_amuej")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1380566490]
+environment = SubResource("Environment_w72v2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1892494076]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=236945992]
+shape = SubResource("WorldBoundaryShape3D_amuej")
+
+[node name="Player" parent="." unique_id=757401328 instance=ExtResource("1_dsqel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=858956235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2707753, 0, -4.940141)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1444483404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9079127, 0, -5.237398)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=269647938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0450444, 4.7683716e-07, -3.7379446)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=796080809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5997498, 0, -7.0720806)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1102878]
+transform = Transform3D(0.73992467, -0.49652168, -0.45384765, 0.67268974, 0.5461487, 0.49920946, 0, -0.67467606, 0.73811394, 0.2525344, 2.7763596, 3.0205896)
+
+[node name="NPC" parent="." unique_id=778123170 instance=ExtResource("2_s65ib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1033077, 0.13999999, -6.467546)
+
+[node name="NPC2" parent="." unique_id=451349135 instance=ExtResource("2_s65ib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0091553, 0.13999999, -5.243324)
+
+[node name="NPC3" parent="." unique_id=1631385999 instance=ExtResource("2_s65ib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0066047, 0.13999999, -7.4627886)
+
+[node name="NPC4" parent="." unique_id=1739960307 instance=ExtResource("2_s65ib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2371097, 0.13999999, -3.6316135)

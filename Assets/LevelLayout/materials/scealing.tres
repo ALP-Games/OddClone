@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://2ddxmlufk40l"]
+
+[ext_resource type="Texture2D" uid="uid://d28qq5xxaqyuj" path="res://Assets/Textures/Scealing/Plane.001 Color.png" id="1_vn0hl"]
+[ext_resource type="Texture2D" uid="uid://ci43nkfkxaouw" path="res://Assets/Textures/Scealing/Plane.001 Emission Strength.png" id="2_c2740"]
+[ext_resource type="Texture2D" uid="uid://dgvs663vtnf8x" path="res://Assets/Textures/Scealing/Plane.001 Roughness.png" id="3_lvwwf"]
+
+[resource]
+resource_name = "scealing"
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+albedo_texture = ExtResource("1_vn0hl")
+roughness_texture = ExtResource("3_lvwwf")
+emission_enabled = true
+emission_texture = ExtResource("2_c2740")
+uv1_scale = Vector3(0.465, 0.465, 0.465)
+uv1_offset = Vector3(-0.15, 1.19, 0)

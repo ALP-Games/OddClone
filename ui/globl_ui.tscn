@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://t43p64se4nw2"]
 
 [ext_resource type="LabelSettings" uid="uid://cic6vrjqf8i0d" path="res://ui/level_font.tres" id="1_v3oc8"]
-[ext_resource type="Script" uid="uid://cphvsgl0xmoaa" path="res://ui/globl_ui.gd" id="1_xtvba"]
+[ext_resource type="Script" uid="uid://cphvsgl0xmoaa" path="res://ui/global_ui.gd" id="1_xtvba"]
+[ext_resource type="Theme" uid="uid://bkewb5tsxb15v" path="res://Assets/UI_Style/TestTheme.tres" id="2_mth86"]
+[ext_resource type="Material" uid="uid://d2taim5ynxyw5" path="res://Assets/UI_Style/VignetteMaterial.tres" id="3_csxbd"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_85gms"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_csxbd"]
 
 [node name="GlobalUI" type="CanvasLayer" unique_id=352080034]
 layer = 10
@@ -17,9 +21,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("2_mth86")
 
 [node name="BlackRect" type="TextureRect" parent="LevelEndPrompt" unique_id=279354583]
-modulate = Color(0, 0, 0, 1)
+visible = false
+modulate = Color(0, 0, 0, 0.627451)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,7 +48,7 @@ offset_right = 118.0
 offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "You found him!"
+text = "Good work, Officer, you've found the target."
 label_settings = ExtResource("1_v3oc8")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -60,7 +66,53 @@ offset_right = 231.0
 offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "You got the wrong target fool!"
+text = "PICK ONLY THE CLANKERS! DON'T MESS UP!"
 label_settings = ExtResource("1_v3oc8")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ButtonNextLevel" type="Button" parent="LevelEndPrompt" unique_id=1348541048]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = 35.0
+offset_right = 60.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "Next Level"
+
+[node name="ButtonRestart" type="Button" parent="LevelEndPrompt" unique_id=1378352551]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 35.0
+offset_right = 50.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("2_mth86")
+text = "Restart"
+
+[node name="TextureRect" type="TextureRect" parent="LevelEndPrompt" unique_id=193947369]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+material = ExtResource("3_csxbd")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_csxbd")

@@ -1,0 +1,242 @@
+[gd_scene format=4 uid="uid://ngmr7ceqer17"]
+
+[ext_resource type="PackedScene" uid="uid://dnegvv88ea6ws" path="res://Assets/decor/sofa.glb" id="2_5knd0"]
+[ext_resource type="PackedScene" uid="uid://cveuq6ftxmcy7" path="res://Assets/LevelLayout/office_layout.glb" id="2_6prn3"]
+[ext_resource type="Texture2D" uid="uid://dsy3753k4vp11" path="res://Assets/Textures/floornoise/floor_noise_lite.tres" id="3_kdu4h"]
+[ext_resource type="PackedScene" uid="uid://cooujlgu4p834" path="res://Assets/decor/plant.glb" id="4_ulrd6"]
+[ext_resource type="PackedScene" uid="uid://cc4dcxbt60b83" path="res://Assets/decor/rug.glb" id="6_j0fwr"]
+[ext_resource type="PackedScene" uid="uid://cqbgtm7p4v3ej" path="res://Assets/decor/picture_frame.glb" id="7_5w48u"]
+[ext_resource type="PackedScene" uid="uid://bkwskm1bpwqv2" path="res://Assets/decor/picure.glb" id="8_nh6cx"]
+
+[sub_resource type="Environment" id="Environment_pksf0"]
+background_mode = 1
+background_color = Color(0.46403712, 0.5032348, 0.62538654, 1)
+background_energy_multiplier = 0.34
+ssao_enabled = true
+ssao_radius = 6.22
+ssao_intensity = 8.41
+glow_enabled = true
+
+[sub_resource type="Animation" id="Animation_pksf0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("office_layout/Lift/Lift_left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("office_layout/Lift/Lift_right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6prn3"]
+resource_name = "lift_door"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("office_layout/Lift/Lift_left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.01, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.0192422, 0, 0), Vector3(-1.0192422, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("office_layout/Lift/Lift_right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.02, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.0865647, 0, 0), Vector3(1.0865647, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4c6lv"]
+_data = {
+&"RESET": SubResource("Animation_pksf0"),
+&"lift_door": SubResource("Animation_6prn3")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vnh36"]
+resource_name = "room_floor"
+albedo_color = Color(0.77417535, 0.59101516, 0.42430726, 1)
+albedo_texture = ExtResource("3_kdu4h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_872kf"]
+resource_name = "room_wall"
+albedo_color = Color(0.40476966, 0.58950126, 0.23843256, 1)
+roughness = 0.73
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05xgu"]
+resource_name = "pot"
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ce3xk"]
+resource_name = "dirt"
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4uy2i"]
+_surfaces = [{
+"aabb": AABB(-0.30566135, -0.0035002604, -0.29037678, 0.60302424, 0.6730435, 0.60302424),
+"format": 34896613377,
+"index_count": 150,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAAAAQABAAAAAIAAwAEAAUABAACAAYABQAEAAYAAwAFAAcAAwAHAAEABQAGAAcACAACAAEACQAGAAIACQACAAgACgAHAAYACgAGAAkACwABAAcACwAHAAoACAABAAsADAAKAAkADQAJAAgADAAJAA0ADgAIAAsADQAIAA4ADwALAAoADwAKAAwADgALAA8ADQAQAAwADgARAA0ADQARABAADwASAA4ADgASABEADAATAA8ADAAQABMADwATABIAFAAQABEAFQATABAAFQAQABQAFgASABMAFgATABUAFwARABIAFwASABYAFAARABcAFQAYABYAFgAYABkAFgAZABcAFQAaABgAFAAaABUAFwAZABsAFAAbABoAFwAbABQA"),
+"name": "pot",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("HS4AAOHRAABiD1XaYg8AAGIPVdqc8AAAHS4AAB0uAADh0QAA4dEAAOHRAAAdLgAAnPBV2pzwAACc8FXaYg8AAFUZ+9mp5gAAqeb72anmAACp5vvZVRkAAFUZ+9lVGQAA///72QAAAAD///vZ//8AAAAA+9n//wAAAAD72QAAAAD///7/AAAAAP/////+/wAAAAD+////AAAAAP//AAAAAN/Y/v8fJwAAHyf+/x8nAAAfJ/7/39gAAN/Y/v/f2AAAHyf61d/YAADf2PrV39gAAB8n+tUfJwAA39j61R8nAAA=")
+}, {
+"aabb": AABB(-0.21350767, 0.5590756, -0.19822311, 0.4187169, 1e-05, 0.41871688),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "dirt",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//+GAQAAAAAAAIYB//8AAAAADQMAAAAA//8AAP7/AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_sjv4i"]
+resource_name = "pot_Cube_026"
+_surfaces = [{
+"aabb": AABB(-0.30566135, -0.0035002604, -0.29037678, 0.60302424, 0.6730435, 0.60302424),
+"attribute_data": PackedByteArray("C7H+/zX6Hrl7pR65pe7//7KfgZh39t+f//+BmHf2mNs5qd+f///24rKf9uI5qZjbsp87uf//5Kz//zu5sp/krGmu5KxH8Yi6R/HkrGmuiLr//zu5sp/krLKfO7n//+Sssp87uf//5Kz//zu5sp/krP//O7myn+Sssp87uf//5KxprpXXsp+BmGmu4qP//4GYsp/24kfx4qNH8ZXX///24kfx5Kxproi6aa7krEfxiLppruSsR/GIukfx5Kxproi6R/HkrGmuiLppruSsR/GIunf2mNt7pXzeOamY23ul+5w1+nzeOanfn3f23581+vucC7H//zX6Hrl7pR65pe7//6Xu//97pR65NfoeuQux//+l7v//e6UeuTX6HrkLsf7/C7HrpaXujNWl7uulC7GM1Q=="),
+"format": 34896613399,
+"index_count": 150,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABgAFAAcABAAIAAUABgAHAAkACgAIAAQACQAHAAsACgALAAgACQALAAoADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIgAhACMAIAAkACEAIgAjACUAJgAkACAAJQAjACcAJgAnACQAJQAnACYAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANgA1ADcANAA4ADUANgA3ADkAOgA4ADQAOQA3ADsAOgA7ADgAOQA7ADoAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkA"),
+"material": SubResource("StandardMaterial3D_05xgu"),
+"name": "pot",
+"primitive": 3,
+"uv_scale": Vector4(1.6030242, 2.0733032, 0, 0),
+"vertex_count": 76,
+"vertex_data": PackedByteArray("HS4AAOHRnANiD1XaYg+cA2IPVdqc8JwDHS4AAB0unAMAAPvZAAD/P6nm+9lVGf8////72QAA/z+p5vvZqeb/P1UZ+9lVGf8////72f///z8AAPvZ////P1UZ+9mp5v8////72f///7////7/AAD/v///+9kAAP+///////7//78fJ/7/39gAAN/Y+tXf2AAA39j+/9/YAAAfJ/rV39gAAAAA+9kAAAAAAAD+////AAAAAPvZ//8AAAAA//8AAAAAAAD72f//AID//////v8AgP//+9n//wCAAAD+////AID///vZAAAAAAAA//8AAAAAAAD72QAAAAD///7/AAAAAB8n/v/f2P+/AAD//wAA/78fJ/7/Hyf/v////v8AAP+/AAD+/////7/f2P7/Hyf/v9/Y/v/f2P+///////7//7/f2P7/HycAgB8n+tUfJwCAHyf+/x8nAIDf2PrVHycAgN/Y/v/f2AAA39j61R8nAADf2P7/HycAAN/Y+tXf2AAAHyf+/x8n/78fJ/rV39j/vx8n/v/f2P+/Hyf61R8n/7+p5vvZqebNwGIPVdqc8M3AVRn72anmzcBiD1XaYg8yv5zwVdqc8M3AVRn72VUZMr+p5vvZVRkyv5zwVdpiDzK/HS4AAB0uHAWc8FXaYg8cBWIPVdpiDxwF4dEAAB0uHAXh0QAAHS4owJzwVdqc8CjAnPBV2mIPKMDh0QAA4dEowOHRAADh0RuFYg9V2pzwG4Wc8FXanPAbhR0uAADh0RuFHS4AAB0u/z/h0QAA4dH/P+HRAAAdLv8/HS4AAOHR/z/yQRl88kEZfPJBGXzyQRl8AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/3//fwAA/38AAP9/AAD/fwAA////f////3////9/////f/8//3//P/9//z//f/8//3//f////3////9/////f///////f////3////9/////f////3////9/////f////3////9/////f/7//3/+//9//3////9/////f////3////8//3//P/9//z//f/8//3//fwAA/38AAP9/AAD/fwAAwv5ygov9wn6L/cJ+f/3CfsL+coJ//cJ+wv5+gsL+foIAAP9/AAD/fwAA/38AAP9/23hIDtt4SA7beEgO23hIDgAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/")
+}, {
+"aabb": AABB(-0.21350767, 0.5590756, -0.19822311, 0.4187169, 1e-05, 0.41871688),
+"attribute_data": PackedByteArray("l7VnSmdKl7VnSmdKl7WXtQ=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_ce3xk"),
+"name": "dirt",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//+GAQAA/78AAIYB////vwAADQMAAP+///8AAP7//7////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_4uy2i")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5knd0"]
+resource_name = "room_floor"
+albedo_color = Color(0.86501646, 0.84668976, 0.8463832, 1)
+albedo_texture = ExtResource("3_kdu4h")
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdu4h"]
+resource_name = "room_floor"
+albedo_color = Color(0.3344255, 0.30215105, 0.12212231, 1)
+albedo_texture = ExtResource("3_kdu4h")
+
+[node name="Node3D" type="Node3D" unique_id=1610315983]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1417747881]
+environment = SubResource("Environment_pksf0")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment" unique_id=1068689272]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.2361846, 1.6612141)
+light_energy = 3.095
+spot_angle = 78.66998
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="WorldEnvironment" unique_id=2006169177]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.183139, -2.642256)
+light_energy = 3.095
+spot_angle = 78.66998
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="WorldEnvironment" unique_id=70480531]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.183139, -7.321642)
+light_energy = 3.095
+spot_angle = 78.66998
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="WorldEnvironment" unique_id=755750676]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4, 3.2361846, -6.944724)
+light_energy = 3.095
+spot_angle = 78.66998
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="WorldEnvironment" unique_id=265439658]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.4958906, 3.2361846, -5.5311856)
+light_energy = 3.095
+spot_angle = 78.66998
+
+[node name="office_layout" parent="." unique_id=2002971986 instance=ExtResource("2_6prn3")]
+
+[node name="Lift" parent="office_layout" index="1" unique_id=1640473336]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04642296, 0, 3.0723753)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="office_layout/Lift" index="2" unique_id=1833476160]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_4c6lv")
+
+[node name="sofa2" parent="." unique_id=1867533960 instance=ExtResource("2_5knd0")]
+transform = Transform3D(-0.9962809, 0, -0.08616479, 0, 1, 0, 0.08616479, 0, -0.9962809, -5.2860117, 0.039240737, -10.17337)
+
+[node name="sofa" parent="sofa2" index="0" unique_id=796424234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8270278, 0, 0.15801334)
+material_override = SubResource("StandardMaterial3D_vnh36")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sofa2/sofa" index="0" unique_id=1104556909]
+
+[node name="rug2" parent="." unique_id=766327834 instance=ExtResource("6_j0fwr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4286237, 0, -7.1859636)
+
+[node name="picture_frame" parent="." unique_id=793877429 instance=ExtResource("7_5w48u")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.2183986, 1.5678085, -4.2363634)
+
+[node name="picure2" parent="." unique_id=1618908097 instance=ExtResource("8_nh6cx")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.2183986, 2.155205, -4.2363634)
+
+[node name="plant2" parent="." unique_id=2121650628 instance=ExtResource("4_ulrd6")]
+transform = Transform3D(0.78449506, 0, 0.6201351, 0, 1, 0, -0.6201351, 0, 0.78449506, -4.881048, 0.0035002604, -4.6097884)
+
+[node name="plant" parent="plant2" index="0" unique_id=1112791882]
+surface_material_override/0 = SubResource("StandardMaterial3D_872kf")
+
+[node name="pot2" type="Node3D" parent="." unique_id=1522850647]
+transform = Transform3D(0.78449506, 0, 0.6201351, 0, 1, 0, -0.6201351, 0, 0.78449506, -4.7969074, 0.009771347, -4.571439)
+
+[node name="pot" type="MeshInstance3D" parent="pot2" unique_id=2037355551]
+transform = Transform3D(0.9999999, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.9999999, 0, 0, 0)
+mesh = SubResource("ArrayMesh_sjv4i")
+surface_material_override/0 = SubResource("StandardMaterial3D_5knd0")
+surface_material_override/1 = SubResource("StandardMaterial3D_kdu4h")
+
+[editable path="office_layout"]
+[editable path="sofa2"]
+[editable path="plant2"]
