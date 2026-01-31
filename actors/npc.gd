@@ -28,9 +28,11 @@ func _ready() -> void:
 
 func _select_random_frame() -> void:
 	var max_index := normal_frame_last
+	var frame_index := body.frame
 	if _is_clanker:
 		max_index += 1
-	var frame_index := randi_range(normal_frame_first, max_index)
+	while frame_index == body.frame:
+		frame_index = randi_range(normal_frame_first, max_index)
 	if frame_index > normal_frame_last:
 		body.frame = bad_animation_frame
 	else:
