@@ -57,7 +57,8 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("shoot"):
 			raycast.force_raycast_update()
 			var collider := raycast.get_collider()
-			(collider as NPC).get_shot()
+			if collider:
+				(collider as NPC).get_shot()
 			#AnimP.play("shoot")
 			#print("Shot - ", collider.name)
 
