@@ -11,5 +11,5 @@ albedo_texture = ExtResource("1_vn0hl")
 roughness_texture = ExtResource("3_lvwwf")
 emission_enabled = true
 emission_texture = ExtResource("2_c2740")
-uv1_scale = Vector3(0.375, 0.375, 0.375)
-uv1_offset = Vector3(0.31, 1.35, 0)
+uv1_scale = Vector3(0.465, 0.465, 0.465)
+uv1_offset = Vector3(-0.15, 1.19, 0)
