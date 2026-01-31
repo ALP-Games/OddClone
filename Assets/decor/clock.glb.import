@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cyy0agsaixk88"
-path="res://.godot/imported/picture_frame.glb-1ebdd79058244436f0b961b5dec7cd4f.scn"
+uid="uid://l4fepv6o30jd"
+path="res://.godot/imported/clock.glb-d86b7f0327c40bf8671910147b8cc74f.scn"
 
 [deps]
 
-source_file="res://Assets/decor/picture_frame.glb"
-dest_files=["res://.godot/imported/picture_frame.glb-1ebdd79058244436f0b961b5dec7cd4f.scn"]
+source_file="res://Assets/decor/clock.glb"
+dest_files=["res://.godot/imported/clock.glb-d86b7f0327c40bf8671910147b8cc74f.scn"]
 
 [params]
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cyy0agsaixk88"
-path="res://.godot/imported/picture_frame.glb-1ebdd79058244436f0b961b5dec7cd4f.scn"
+uid="uid://cxaw3rphftlbf"
+path="res://.godot/imported/sink-col.glb-70120ef013e861d4ce6061103a31c375.scn"
 
 [deps]
 
-source_file="res://Assets/decor/picture_frame.glb"
-dest_files=["res://.godot/imported/picture_frame.glb-1ebdd79058244436f0b961b5dec7cd4f.scn"]
+source_file="res://Assets/decor/sink-col.glb"
+dest_files=["res://.godot/imported/sink-col.glb-70120ef013e861d4ce6061103a31c375.scn"]
 
 [params]
 

@@ -6,4 +6,3 @@
 resource_name = "room_floor"
 albedo_color = Color(0.9063355, 0.85944074, 0.59550196, 1)
 albedo_texture = ExtResource("1_qnnij")
-roughness = 0.5
