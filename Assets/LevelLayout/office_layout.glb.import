@@ -47,7 +47,7 @@ _subresources={
 "metal": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://Assets/LevelLayout/materials/metal.tres",
-"use_external/path": "uid://6rm1o3yt1kw4"
+"use_external/path": "uid://b1nydjhb77upj"
 },
 "office_wal": {
 "use_external/enabled": true,

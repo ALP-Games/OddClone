@@ -3,8 +3,11 @@
 [ext_resource type="LabelSettings" uid="uid://cic6vrjqf8i0d" path="res://ui/level_font.tres" id="1_v3oc8"]
 [ext_resource type="Script" uid="uid://cphvsgl0xmoaa" path="res://ui/global_ui.gd" id="1_xtvba"]
 [ext_resource type="Theme" uid="uid://bkewb5tsxb15v" path="res://Assets/UI_Style/TestTheme.tres" id="2_mth86"]
+[ext_resource type="Material" uid="uid://d2taim5ynxyw5" path="res://Assets/UI_Style/VignetteMaterial.tres" id="3_csxbd"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_85gms"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_csxbd"]
 
 [node name="GlobalUI" type="CanvasLayer" unique_id=352080034]
 layer = 10
@@ -21,6 +24,7 @@ mouse_filter = 2
 theme = ExtResource("2_mth86")
 
 [node name="BlackRect" type="TextureRect" parent="LevelEndPrompt" unique_id=279354583]
+visible = false
 modulate = Color(0, 0, 0, 0.627451)
 layout_mode = 1
 anchors_preset = 15
@@ -44,7 +48,7 @@ offset_right = 118.0
 offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "You found him!"
+text = "Good work, Officer, you've found the target."
 label_settings = ExtResource("1_v3oc8")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -62,7 +66,7 @@ offset_right = 231.0
 offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "You got the wrong target fool!"
+text = "PICK ONLY THE CLANKERS! DON'T MESS UP!"
 label_settings = ExtResource("1_v3oc8")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -100,3 +104,15 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme = ExtResource("2_mth86")
 text = "Restart"
+
+[node name="TextureRect" type="TextureRect" parent="LevelEndPrompt" unique_id=193947369]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+material = ExtResource("3_csxbd")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_csxbd")

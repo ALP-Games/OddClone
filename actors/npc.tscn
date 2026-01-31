@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://ctgu2mirtg7f2"]
 
-[ext_resource type="Texture2D" uid="uid://crb5mo8fc3518" path="res://icon.svg" id="1_louo0"]
 [ext_resource type="Script" uid="uid://d4ax3xntynw2k" path="res://actors/npc.gd" id="1_qbes0"]
+[ext_resource type="Texture2D" uid="uid://bvubnjksluaj7" path="res://Assets/npc/head.png" id="2_yjbk2"]
+[ext_resource type="Texture2D" uid="uid://bni287wyepxjg" path="res://Assets/npc/body.png" id="3_mmwbd"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qbes0"]
 
@@ -16,11 +17,16 @@ shape = SubResource("CylinderShape3D_qbes0")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
 [node name="Head" type="Sprite3D" parent="." unique_id=242429550]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8312495, 0)
+pixel_size = 0.00065
 billboard = 2
-texture = ExtResource("1_louo0")
+texture = ExtResource("2_yjbk2")
 
 [node name="Body" type="Sprite3D" parent="." unique_id=2099446628]
-transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.828, 0)
+offset = Vector2(25.16, 0)
+pixel_size = 0.0018
 billboard = 2
-texture = ExtResource("1_louo0")
+texture = ExtResource("3_mmwbd")
+hframes = 4
+vframes = 2
