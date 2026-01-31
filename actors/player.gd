@@ -9,11 +9,18 @@ class_name Player extends CharacterBody3D
 @export var move_speed: float = 5.0
 @export var sensitivity: float = 0.003
 
+@export_group("Footsteps")
+@export var footstep_interval: float = 2.5
+@export var footstep_sounds: Array[AudioStreamOggVorbis]
+
 
 @onready var gameplay_ui: Control = $CanvasLayer/GameplayUI
+@onready var footstep_player: AudioStreamPlayer3D = $FootstepPlayer
+
 
 var controls_disabled := false
 var rotation_accumulation := Vector2.ZERO
+var _elapsed_footstep	: float = 0.0
 
 
 func _ready() -> void:
@@ -69,5 +76,14 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, move_speed)
 			velocity.z = move_toward(velocity.z, 0, move_speed)
-
+	
+	var xz_plane_velocity := velocity
+	xz_plane_velocity -= xz_plane_velocity.project(Vector3.UP)
+	_elapsed_footstep += xz_plane_velocity.length() * delta
+	if _elapsed_footstep >= footstep_interval:
+		_elapsed_footstep -= footstep_interval
+		var footstep_sound_index := randi_range(0, footstep_sounds.size() - 1)
+		footstep_player.stream = footstep_sounds[footstep_sound_index]
+		footstep_player.play()
+	
 	move_and_slide()
