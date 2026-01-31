@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://ngmr7ceqer17"]
 
+[ext_resource type="PackedScene" uid="uid://dnegvv88ea6ws" path="res://Assets/decor/sofa.glb" id="2_5knd0"]
 [ext_resource type="PackedScene" uid="uid://cveuq6ftxmcy7" path="res://Assets/LevelLayout/office_layout.glb" id="2_6prn3"]
+[ext_resource type="Texture2D" uid="uid://dsy3753k4vp11" path="res://Assets/Textures/floornoise/floor_noise_lite.tres" id="3_kdu4h"]
+[ext_resource type="PackedScene" uid="uid://cooujlgu4p834" path="res://Assets/decor/plant.glb" id="4_ulrd6"]
+[ext_resource type="PackedScene" uid="uid://rjvk65i7l1bs" path="res://Assets/decor/pot.glb" id="5_55tj8"]
+[ext_resource type="PackedScene" uid="uid://cc4dcxbt60b83" path="res://Assets/decor/rug.glb" id="6_j0fwr"]
+[ext_resource type="PackedScene" uid="uid://cqbgtm7p4v3ej" path="res://Assets/decor/picture_frame.glb" id="7_5w48u"]
+[ext_resource type="PackedScene" uid="uid://bkwskm1bpwqv2" path="res://Assets/decor/picure.glb" id="8_nh6cx"]
 
 [sub_resource type="Environment" id="Environment_pksf0"]
 background_mode = 1
@@ -72,6 +79,11 @@ _data = {
 &"lift_door": SubResource("Animation_6prn3")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vnh36"]
+resource_name = "room_floor"
+albedo_color = Color(0.77417535, 0.59101516, 0.42430726, 1)
+albedo_texture = ExtResource("3_kdu4h")
+
 [node name="Node3D" type="Node3D" unique_id=1610315983]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1417747881]
@@ -104,11 +116,33 @@ spot_angle = 78.66998
 
 [node name="office_layout" parent="." unique_id=672266106 instance=ExtResource("2_6prn3")]
 
-[node name="Lift" parent="office_layout" index="1" unique_id=1053130497]
+[node name="Lift" parent="office_layout" index="1" unique_id=984449894]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04642296, 0, 3.0723753)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="office_layout/Lift" index="2" unique_id=1833476160]
 root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_4c6lv")
 
+[node name="sofa2" parent="." unique_id=1867533960 instance=ExtResource("2_5knd0")]
+transform = Transform3D(-0.9962809, 0, -0.08616479, 0, 1, 0, 0.08616479, 0, -0.9962809, -5.2860117, 0.039240737, -10.17337)
+
+[node name="sofa" parent="sofa2" index="0" unique_id=796424234]
+material_override = SubResource("StandardMaterial3D_vnh36")
+
+[node name="plant2" parent="." unique_id=2121650628 instance=ExtResource("4_ulrd6")]
+transform = Transform3D(0.7832705, 0, -0.6216811, 0, 1, 0, 0.6216811, 0, 0.7832705, -3.538807, 0.0035007372, -4.257715)
+
+[node name="pot2" parent="." unique_id=1522850647 instance=ExtResource("5_55tj8")]
+transform = Transform3D(0.7832705, 0, -0.6216811, 0, 1, 0, 0.6216811, 0, 0.7832705, -3.538807, 0.0035007372, -4.257715)
+
+[node name="rug2" parent="." unique_id=766327834 instance=ExtResource("6_j0fwr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.177011, 0, -7.1859636)
+
+[node name="picture_frame" parent="." unique_id=793877429 instance=ExtResource("7_5w48u")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.2183986, 1.5678085, -4.2363634)
+
+[node name="picure2" parent="." unique_id=1618908097 instance=ExtResource("8_nh6cx")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.2183986, 2.155205, -4.2363634)
+
 [editable path="office_layout"]
+[editable path="sofa2"]
