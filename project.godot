@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Constants="*uid://cmppmr01umjv5"
-GloblUi="*uid://t43p64se4nw2"
+GlobalUi="*uid://t43p64se4nw2"
 LevelManager="*uid://bk7wjxyq14o6t"
 
 [display]
@@ -35,6 +35,7 @@ folder_colors={
 
 NPC=""
 Level=""
+Player=""
 
 [input]
 

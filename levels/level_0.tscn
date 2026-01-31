@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://diq4v2lj6n18g"]
+
+[ext_resource type="Script" uid="uid://csb0fe7ebci5h" path="res://scripts/level.gd" id="1_qq80x"]
+[ext_resource type="PackedScene" uid="uid://ngmr7ceqer17" path="res://Assets/LevelLayout/office_layout.tscn" id="2_yhi02"]
+[ext_resource type="PackedScene" uid="uid://yxhc6df3321x" path="res://actors/player.tscn" id="3_ae7oe"]
+[ext_resource type="PackedScene" uid="uid://ctgu2mirtg7f2" path="res://actors/npc.tscn" id="4_ae7oe"]
+
+[node name="Level0" type="Node3D" unique_id=1951831575]
+script = ExtResource("1_qq80x")
+metadata/_custom_type_script = "uid://csb0fe7ebci5h"
+
+[node name="Node3D" parent="." unique_id=1610315983 instance=ExtResource("2_yhi02")]
+
+[node name="Player" parent="." unique_id=757401328 instance=ExtResource("3_ae7oe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38144422, 1.2316098)
+
+[node name="NPC" parent="." unique_id=778123170 instance=ExtResource("4_ae7oe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4522302, 0.38144422, -2.2277346)
+
+[node name="NPC2" parent="." unique_id=1387476001 instance=ExtResource("4_ae7oe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0016593, 0.38144422, -4.0741863)
+
+[node name="NPC3" parent="." unique_id=238367860 instance=ExtResource("4_ae7oe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5400571, 0.38144422, -1.9261796)
+
+[node name="NPC4" parent="." unique_id=1893201254 instance=ExtResource("4_ae7oe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5683182, 0.38144422, -4.0945807)
+
+[node name="NPC5" parent="." unique_id=1983030846 instance=ExtResource("4_ae7oe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1644615, 0.38144422, -7.8078356)
