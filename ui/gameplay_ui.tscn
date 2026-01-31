@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://datbdcuw2mst8"]
 
 [ext_resource type="Script" path="res://ui/gameplay_ui.gd" id="1_hlshe"]
-[ext_resource type="Texture2D" uid="uid://dhlx8ujkcfu11" path="res://Assets/Textures/UI/color test.png" id="2_671ak"]
+[ext_resource type="Texture2D" uid="uid://drjycnjbfuayd" path="res://Assets/Textures/UI/handFrames.png" id="2_671ak"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_85gms"]
 font_size = 32
@@ -73,12 +73,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=397765660]
-visible = false
-position = Vector2(897, 396)
+position = Vector2(800, 300)
+scale = Vector2(0.33, 0.33)
 texture = ExtResource("2_671ak")
 centered = false
-hframes = 2
-vframes = 2
+hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1266778574]
 libraries/ = SubResource("AnimationLibrary_671ak")

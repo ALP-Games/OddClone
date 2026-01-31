@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://t43p64se4nw2"]
 
-[ext_resource type="LabelSettings" uid="uid://cic6vrjqf8i0d" path="res://ui/level_font.tres" id="1_v3oc8"]
+[ext_resource type="LabelSettings" path="res://ui/level_font.tres" id="1_v3oc8"]
 [ext_resource type="Script" uid="uid://cphvsgl0xmoaa" path="res://ui/global_ui.gd" id="1_xtvba"]
 [ext_resource type="Theme" uid="uid://bkewb5tsxb15v" path="res://Assets/UI_Style/TestTheme.tres" id="2_mth86"]
 [ext_resource type="Material" uid="uid://d2taim5ynxyw5" path="res://Assets/UI_Style/VignetteMaterial.tres" id="3_csxbd"]
@@ -56,12 +56,14 @@ size_flags_stretch_ratio = 0.5
 
 [node name="PauseLabel" type="Label" parent="PauseMenu/HBoxContainer/VBoxContainer" unique_id=1854151885]
 layout_mode = 2
+theme = ExtResource("2_mth86")
 text = "GAME PAUSED"
 label_settings = SubResource("LabelSettings_xtvba")
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="PauseMenu/HBoxContainer/VBoxContainer" unique_id=2130811734]
 layout_mode = 2
+theme = ExtResource("2_mth86")
 text = "Resume"
 
 [node name="Control2" type="Control" parent="PauseMenu/HBoxContainer/VBoxContainer" unique_id=731471348]
@@ -154,9 +156,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
+offset_left = -114.0
 offset_top = 35.0
-offset_right = 50.0
+offset_right = 116.0
 offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -165,6 +167,7 @@ theme = ExtResource("2_mth86")
 text = "Restart"
 
 [node name="TextureRect" type="TextureRect" parent="LevelEndPrompt" unique_id=193947369]
+visible = false
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
 material = ExtResource("3_csxbd")
@@ -174,4 +177,3 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("CanvasTexture_csxbd")
