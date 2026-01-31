@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bvouu00tv8djx"]
+
+[ext_resource type="AudioStream" uid="uid://c1b3nu8shvg4y" path="res://audio/elevator/elevator-ding.ogg" id="1_vje7a"]
+
+[node name="ElevatorJingle" type="AudioStreamPlayer3D" unique_id=1137616755]
+stream = ExtResource("1_vje7a")
+volume_db = -23.0
+max_db = 0.0

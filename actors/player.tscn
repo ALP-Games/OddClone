@@ -18,7 +18,7 @@ raycast = NodePath("Head/RayCast3D")
 footstep_sounds = Array[AudioStreamOggVorbis]([ExtResource("2_er1rk"), ExtResource("3_e7yfm"), ExtResource("4_ua707"), ExtResource("5_rkwqa"), ExtResource("6_41w2c"), ExtResource("7_5nkr1")])
 
 [node name="Head" type="Node3D" parent="." unique_id=1792088025]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4676719, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1581286432]
 current = true

@@ -41,6 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.828, 0)
 offset = Vector2(25.16, 0)
 pixel_size = 0.0018
 billboard = 2
+alpha_cut = 1
 texture = ExtResource("3_mmwbd")
 hframes = 4
 vframes = 2

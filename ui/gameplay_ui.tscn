@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://datbdcuw2mst8"]
 
-[ext_resource type="Script" path="res://ui/gameplay_ui.gd" id="1_hlshe"]
+[ext_resource type="Script" uid="uid://bl8i4po5akrxq" path="res://ui/gameplay_ui.gd" id="1_hlshe"]
 [ext_resource type="Texture2D" uid="uid://drjycnjbfuayd" path="res://Assets/Textures/UI/handFrames.png" id="2_671ak"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_85gms"]
