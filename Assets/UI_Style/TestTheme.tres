@@ -1,0 +1,20 @@
+[gd_resource type="Theme" format=3 uid="uid://bkewb5tsxb15v"]
+
+[ext_resource type="StyleBox" uid="uid://b7hu1olg1w0yy" path="res://Assets/UI_Style/grid_glow_style_box_texture.tres" id="1_iqvwb"]
+[ext_resource type="StyleBox" uid="uid://bpo32ag5vbuh5" path="res://Assets/UI_Style/brightGlowStyleBoxTexture.tres" id="2_d5kg1"]
+[ext_resource type="FontFile" uid="uid://fckg0p12vh3i" path="res://Assets/Fonts/Benc_Lament_Script.ttf" id="2_yt6om"]
+[ext_resource type="Texture2D" uid="uid://dxuxk05ckyj7q" path="res://Assets/Textures/UI/warmGlow.png" id="3_od28m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t5n2r"]
+texture = ExtResource("3_od28m")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[resource]
+Button/styles/focus = ExtResource("1_iqvwb")
+Button/styles/hover = ExtResource("2_d5kg1")
+Button/styles/normal = ExtResource("1_iqvwb")
+Button/styles/pressed = SubResource("StyleBoxTexture_t5n2r")
+Label/fonts/font = ExtResource("2_yt6om")

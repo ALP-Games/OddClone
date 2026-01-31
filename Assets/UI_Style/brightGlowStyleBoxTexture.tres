@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://bpo32ag5vbuh5"]
+
+[ext_resource type="Texture2D" uid="uid://vvn6s3cqbunr" path="res://Assets/Textures/UI/brightGlow.png" id="1_2e1e8"]
+
+[resource]
+texture = ExtResource("1_2e1e8")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
