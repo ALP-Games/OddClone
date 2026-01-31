@@ -26,7 +26,7 @@ func _level_init() -> void:
 
 
 func _next_level() -> void:
-	_current_level_id = wrapi(_current_level_id + 1, 0, levels.size() - 1)
+	_current_level_id = wrapi(_current_level_id + 1, 0, levels.size())
 	get_tree().change_scene_to_packed(levels[_current_level_id])
 
 

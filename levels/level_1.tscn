@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://l60e08bayqd6"]
+
+[ext_resource type="Script" uid="uid://csb0fe7ebci5h" path="res://scripts/level.gd" id="1_kx6l7"]
+[ext_resource type="PackedScene" uid="uid://ngmr7ceqer17" path="res://Assets/LevelLayout/office_layout.tscn" id="2_n46q3"]
+[ext_resource type="PackedScene" uid="uid://yxhc6df3321x" path="res://actors/player.tscn" id="3_btoec"]
+[ext_resource type="PackedScene" uid="uid://ctgu2mirtg7f2" path="res://actors/npc.tscn" id="4_gwceb"]
+
+[node name="Level0" type="Node3D" unique_id=1951831575]
+script = ExtResource("1_kx6l7")
+metadata/_custom_type_script = "uid://csb0fe7ebci5h"
+
+[node name="Node3D" parent="." unique_id=1610315983 instance=ExtResource("2_n46q3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002887249, 0, 0.00018405914)
+
+[node name="Player" parent="." unique_id=757401328 instance=ExtResource("3_btoec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38144422, 4.3482666)
+
+[node name="NPC" parent="." unique_id=778123170 instance=ExtResource("4_gwceb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7669078, 0, -1.0074084)
+
+[node name="NPC8" parent="." unique_id=1593255505 instance=ExtResource("4_gwceb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8979405, 0, -3.208461)
+
+[node name="NPC6" parent="." unique_id=719848463 instance=ExtResource("4_gwceb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.92777, 0, -4.7428355)
+
+[node name="NPC7" parent="." unique_id=683343520 instance=ExtResource("4_gwceb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7926655, 0, -7.196678)
+
+[node name="NPC2" parent="." unique_id=1387476001 instance=ExtResource("4_gwceb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6312528, 0, 1.8613834)
+
+[node name="NPC3" parent="." unique_id=238367860 instance=ExtResource("4_gwceb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8675308, 0, -7.475027)
+
+[node name="NPC4" parent="." unique_id=1893201254 instance=ExtResource("4_gwceb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1691688, 0, -9.619627)
+
+[node name="NPC5" parent="." unique_id=1983030846 instance=ExtResource("4_gwceb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1872983, 0, -10.962196)
