@@ -4,6 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://ngmr7ceqer17" path="res://Assets/LevelLayout/office_layout.tscn" id="2_yhi02"]
 [ext_resource type="PackedScene" uid="uid://yxhc6df3321x" path="res://actors/player.tscn" id="3_ae7oe"]
 [ext_resource type="PackedScene" uid="uid://ctgu2mirtg7f2" path="res://actors/npc.tscn" id="4_ae7oe"]
+[ext_resource type="Script" uid="uid://dnji2ykos32cr" path="res://scripts/door.gd" id="5_foxie"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yi3jx"]
+albedo_color = Color(0.45431268, 0.26077116, 0.067287065, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yi3jx"]
+size = Vector3(0.17382813, 2.8117676, 1.7728271)
 
 [node name="Level0" type="Node3D" unique_id=1951831575]
 script = ExtResource("1_qq80x")
@@ -28,3 +35,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5683182, 0, -4.0945807)
 
 [node name="NPC5" parent="." unique_id=1983030846 instance=ExtResource("4_ae7oe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1644615, 0, -7.8078356)
+
+[node name="Door" type="StaticBody3D" parent="." unique_id=1733826867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.900698, 1.4132283, -7.1811643)
+visible = false
+script = ExtResource("5_foxie")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Door" unique_id=1822994046]
+size = Vector3(0.17459106, 2.8218994, 1.7714844)
+material = SubResource("StandardMaterial3D_yi3jx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door" unique_id=1555545008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0037841797, -0.006652832)
+shape = SubResource("BoxShape3D_yi3jx")
+disabled = true

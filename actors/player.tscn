@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://yxhc6df3321x"]
 
 [ext_resource type="Script" uid="uid://d2xek2q8p5rqg" path="res://actors/player.gd" id="1_niuxy"]
+[ext_resource type="AudioStream" uid="uid://3evlp8wcthkl" path="res://audio/footsteps/footstep_laminate-01.ogg" id="2_er1rk"]
 [ext_resource type="PackedScene" uid="uid://datbdcuw2mst8" path="res://ui/gameplay_ui.tscn" id="2_mvpqy"]
+[ext_resource type="AudioStream" uid="uid://4ryoucbxbg52" path="res://audio/footsteps/footstep_laminate-02.ogg" id="3_e7yfm"]
+[ext_resource type="AudioStream" uid="uid://3do655j7m6cn" path="res://audio/footsteps/footstep_laminate-03.ogg" id="4_ua707"]
+[ext_resource type="AudioStream" uid="uid://by5momy6hnb22" path="res://audio/footsteps/footstep_laminate-04.ogg" id="5_rkwqa"]
+[ext_resource type="AudioStream" uid="uid://sasdd1itl7bt" path="res://audio/footsteps/footstep_laminate-05.ogg" id="6_41w2c"]
+[ext_resource type="AudioStream" uid="uid://cpedgh2lubrwf" path="res://audio/footsteps/footstep_laminate-06.ogg" id="7_5nkr1"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_cp522"]
 
@@ -9,6 +15,7 @@
 script = ExtResource("1_niuxy")
 head = NodePath("Head")
 raycast = NodePath("Head/RayCast3D")
+footstep_sounds = Array[AudioStreamOggVorbis]([ExtResource("2_er1rk"), ExtResource("3_e7yfm"), ExtResource("4_ua707"), ExtResource("5_rkwqa"), ExtResource("6_41w2c"), ExtResource("7_5nkr1")])
 
 [node name="Head" type="Node3D" parent="." unique_id=1792088025]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4676719, 0)
@@ -27,3 +34,5 @@ shape = SubResource("CylinderShape3D_cp522")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=139447608]
 
 [node name="GameplayUI" parent="CanvasLayer" unique_id=1439478381 instance=ExtResource("2_mvpqy")]
+
+[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1583363929]
