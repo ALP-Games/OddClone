@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://de7hfy7abn2x0"
-path="res://.godot/imported/Cube_001.glb-f597467abc7e4e8edc456baea0d96fc2.scn"
+uid="uid://d0mdkfo5i5wb3"
+path="res://.godot/imported/mirror_frame.glb-edc4194b337d4f7e10890b060227ca95.scn"
 
 [deps]
 
-source_file="res://Assets/decor/Cube_001.glb"
-dest_files=["res://.godot/imported/Cube_001.glb-f597467abc7e4e8edc456baea0d96fc2.scn"]
+source_file="res://Assets/decor/mirror_frame.glb"
+dest_files=["res://.godot/imported/mirror_frame.glb-edc4194b337d4f7e10890b060227ca95.scn"]
 
 [params]
 

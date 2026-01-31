@@ -2,13 +2,13 @@
 
 [sub_resource type="Gradient" id="Gradient_2yrj0"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.20833333, 0.54924244, 0.6931818)
-colors = PackedColorArray(0.64602923, 0.6460289, 0.6460289, 1, 1, 1, 1, 1, 0.6872149, 0.68721503, 0.6872149, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0, 0.20833333, 0.46130952, 0.6931818)
+colors = PackedColorArray(0.64602923, 0.6460289, 0.6460289, 1, 1, 1, 1, 1, 0.5163941, 0.5163937, 0.51639354, 1, 1, 1, 1, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vht15"]
 noise_type = 3
 seed = 6
-frequency = 0.9994
+frequency = 0.614
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_00j6u"]
 width = 128

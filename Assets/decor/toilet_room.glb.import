@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://s7q4oe2xegpn"
-path="res://.godot/imported/Cylinder_001.glb-7509a49056a9a493d72c663ac308d4bf.scn"
+uid="uid://b4kcuqb7a1tt7"
+path="res://.godot/imported/toilet_room.glb-78b33889ba80fe1ee1af5f8a50a11947.scn"
 
 [deps]
 
-source_file="res://Assets/decor/Cylinder_001.glb"
-dest_files=["res://.godot/imported/Cylinder_001.glb-7509a49056a9a493d72c663ac308d4bf.scn"]
+source_file="res://Assets/decor/toilet_room.glb"
+dest_files=["res://.godot/imported/toilet_room.glb-78b33889ba80fe1ee1af5f8a50a11947.scn"]
 
 [params]
 
