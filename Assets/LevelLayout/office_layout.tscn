@@ -33,66 +33,65 @@ ssao_radius = 6.22
 ssao_intensity = 8.41
 glow_enabled = true
 
-[sub_resource type="Animation" id="Animation_f3h27"]
+[sub_resource type="Animation" id="Animation_m6ibb"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("@SubViewport@9108/Node3D/office_layout/Lift/Lift_left:position")
+tracks/0/path = NodePath("office_layout/Lift/Lift_right:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(1.0869876, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("@SubViewport@9108/Node3D/office_layout/Lift/Lift_right:position")
+tracks/1/path = NodePath("office_layout/Lift/Lift_left:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(-1.0265305, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_f8qqm"]
+[sub_resource type="Animation" id="Animation_thv7k"]
 resource_name = "lift_door"
 length = 2.0
-loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("@SubViewport@9108/Node3D/office_layout/Lift/Lift_left:position")
+tracks/0/path = NodePath("office_layout/Lift/Lift_right:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.2666667, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-1.0336924, 0, 0), Vector3(-1.0336924, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(1.0869876, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("@SubViewport@9108/Node3D/office_layout/Lift/Lift_right:position")
+tracks/1/path = NodePath("office_layout/Lift/Lift_left:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.001, 1.2666667, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(1.0859957, 0, 0), Vector3(1.0859957, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(-1.0265305, 0, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vb6ii"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f3h27"]
 _data = {
-&"RESET": SubResource("Animation_f3h27"),
-&"lift_door": SubResource("Animation_f8qqm")
+&"RESET": SubResource("Animation_m6ibb"),
+&"lift_door": SubResource("Animation_thv7k")
 }
 
 [sub_resource type="Gradient" id="Gradient_2yrj0"]
@@ -233,9 +232,15 @@ metadata/_edit_lock_ = true
 [node name="Lift" parent="office_layout" index="1" unique_id=2030038256]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.061842203, 0, 3.0633216)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="office_layout/Lift" index="2" unique_id=1833476160]
-root_node = NodePath("../../../../..")
-libraries/ = SubResource("AnimationLibrary_vb6ii")
+[node name="Lift_left" parent="office_layout/Lift" index="0" unique_id=1929808480]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0265305, 0, 0)
+
+[node name="Lift_right" parent="office_layout/Lift" index="1" unique_id=1782092476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0869876, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="office_layout/Lift" index="2" unique_id=2100630159]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_f3h27")
 
 [node name="decor" type="Node3D" parent="." unique_id=1324599343]
 
