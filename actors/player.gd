@@ -69,10 +69,12 @@ func _physics_process(delta: float) -> void:
 			shoot_sound.stream = shoot_sounds[sound_index]
 			shoot_sound.play()
 			raycast.force_raycast_update()
+			
+			AnimP.play("Bang")
 			var collider := raycast.get_collider()
 			if collider:
 				(collider as NPC).get_shot()
-			#AnimP.play("shoot")
+			
 			#print("Shot - ", collider.name)
 
 		# Get the input direction and handle the movement/deceleration.
