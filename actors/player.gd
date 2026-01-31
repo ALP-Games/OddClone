@@ -9,11 +9,14 @@ class_name Player extends CharacterBody3D
 @export var move_speed: float = 5.0
 @export var sensitivity: float = 0.003
 
+@export_group("Shoot Sounds")
+@export var shoot_sounds: Array[AudioStreamWAV]
+
 @export_group("Footsteps")
 @export var footstep_interval: float = 2.5
 @export var footstep_sounds: Array[AudioStreamOggVorbis]
 
-
+@onready var shoot_sound: AudioStreamPlayer = $ShootSound
 @onready var gameplay_ui: Control = $CanvasLayer/GameplayUI
 @onready var footstep_player: AudioStreamPlayer3D = $FootstepPlayer
 
@@ -62,6 +65,9 @@ func _physics_process(delta: float) -> void:
 		_head_rotation()
 		
 		if Input.is_action_just_pressed("shoot"):
+			var sound_index := randi_range(0, shoot_sounds.size() - 1)
+			shoot_sound.stream = shoot_sounds[sound_index]
+			shoot_sound.play()
 			raycast.force_raycast_update()
 			var collider := raycast.get_collider()
 			if collider:
