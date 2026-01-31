@@ -1,7 +1,0 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://4ihn3ojpanjm"]
-
-[resource]
-resource_name = "restroom_wall"
-cull_mode = 2
-albedo_color = Color(0.9063355, 0.5068386, 0.3614343, 1)
-roughness = 0.5

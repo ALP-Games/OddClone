@@ -1,6 +1,8 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://366iaadboqxv"]
 
+[ext_resource type="Texture2D" uid="uid://dsy3753k4vp11" path="res://Assets/Textures/floornoise/floor_noise_lite.tres" id="1_8fh02"]
+
 [resource]
 resource_name = "hall_floor"
 albedo_color = Color(0.9063355, 0.75028795, 0.6929986, 1)
-roughness = 0.5
+albedo_texture = ExtResource("1_8fh02")

@@ -1,0 +1,25 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://6rm1o3yt1kw4"]
+
+[ext_resource type="Texture2D" uid="uid://dsy3753k4vp11" path="res://Assets/Textures/floornoise/floor_noise_lite.tres" id="1_vht15"]
+
+[sub_resource type="Gradient" id="Gradient_nx18y"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.455, 0.56060606)
+colors = PackedColorArray(0.73300546, 0.7330054, 0.7330054, 1, 0.6872149, 0.68721503, 0.6872149, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8fh02"]
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_00j6u"]
+width = 64
+height = 64
+noise = SubResource("FastNoiseLite_8fh02")
+color_ramp = SubResource("Gradient_nx18y")
+seamless = true
+seamless_blend_skirt = 0.317
+
+[resource]
+resource_name = "metal"
+cull_mode = 2
+albedo_texture = ExtResource("1_vht15")
+roughness_texture = SubResource("NoiseTexture2D_00j6u")

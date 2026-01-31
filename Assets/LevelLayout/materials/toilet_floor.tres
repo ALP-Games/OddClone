@@ -1,6 +1,9 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://bxdoao21bm02"]
 
+[ext_resource type="Texture2D" uid="uid://dsy3753k4vp11" path="res://Assets/Textures/floornoise/floor_noise_lite.tres" id="1_yqh5f"]
+
 [resource]
 resource_name = "toilet_floor"
 albedo_color = Color(0.6733589, 0.6733589, 0.6733589, 1)
+albedo_texture = ExtResource("1_yqh5f")
 roughness = 0.5

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://3r4bdccqcohx"]
+
+[ext_resource type="Texture2D" uid="uid://dsy3753k4vp11" path="res://Assets/Textures/floornoise/floor_noise_lite.tres" id="1_qnnij"]
+
+[resource]
+resource_name = "room_floor"
+albedo_color = Color(0.9063355, 0.85944074, 0.59550196, 1)
+albedo_texture = ExtResource("1_qnnij")
+roughness = 0.5

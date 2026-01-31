@@ -44,25 +44,40 @@ _subresources={
 "use_external/fallback_path": "res://Assets/LevelLayout/materials/hall_floor.tres",
 "use_external/path": "uid://366iaadboqxv"
 },
+"metal": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/LevelLayout/materials/metal.tres",
+"use_external/path": "uid://6rm1o3yt1kw4"
+},
 "office_wal": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://Assets/LevelLayout/materials/office_wal.tres",
 "use_external/path": "uid://bptbfowat2jve"
 },
-"restroom_wall": {
+"room_floor": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/LevelLayout/materials/restroom_wall.tres",
-"use_external/path": "uid://4ihn3ojpanjm"
+"use_external/fallback_path": "res://Assets/LevelLayout/materials/room_floor.tres",
+"use_external/path": "uid://3r4bdccqcohx"
 },
-"restteoom_floor": {
+"room_wall": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/LevelLayout/materials/restteoom_floor.tres",
-"use_external/path": "uid://cpistekpkmdm2"
+"use_external/fallback_path": "res://Assets/LevelLayout/materials/room_wall.tres",
+"use_external/path": "uid://cpvlrnjtirw5l"
+},
+"scealing": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/LevelLayout/materials/scealing.tres",
+"use_external/path": "uid://2ddxmlufk40l"
 },
 "toilet_floor": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://Assets/LevelLayout/materials/toilet_floor.tres",
 "use_external/path": "uid://bxdoao21bm02"
+},
+"toilet_wall": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/LevelLayout/materials/toilet_wall.tres",
+"use_external/path": "uid://dk7mh1lm8xxv1"
 }
 }
 }
