@@ -6,6 +6,7 @@ class_name Player extends CharacterBody3D
 @export var head_max_rotation_units: Vector2 = Vector2.ZERO
 
 
+@export var no_movement: bool = false
 @export var move_speed: float = 5.0
 @export var sensitivity: float = 0.003
 @export var shot_delay: float = 1.1667
@@ -67,32 +68,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	if not controls_disabled:
-		_head_rotation()
-		
-		if Input.is_action_just_pressed("shoot") and is_zero_approx(shot_timer.time_left):
-			var sound_index := randi_range(0, shoot_sounds.size() - 1)
-			shoot_sound.stream = shoot_sounds[sound_index]
-			shoot_sound.play()
-			raycast.force_raycast_update()
-			shot_timer.start(shot_delay)
-			
-			AnimP.play("Bang")
-			var collider := raycast.get_collider()
-			if collider:
-				(collider as NPC).get_shot()
-			
-			#print("Shot - ", collider.name)
-
-		# Get the input direction and handle the movement/deceleration.
-		# As good practice, you should replace UI actions with custom gameplay actions.
-		var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
-		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-		if direction:
-			velocity.x = direction.x * move_speed
-			velocity.z = direction.z * move_speed
-		else:
-			velocity.x = move_toward(velocity.x, 0, move_speed)
-			velocity.z = move_toward(velocity.z, 0, move_speed)
+		_process_controls()
 	else:
 		velocity = Vector3.ZERO
 
@@ -107,3 +83,34 @@ func _physics_process(delta: float) -> void:
 		footstep_player.play()
 	
 	move_and_slide()
+
+
+func _process_controls() -> void:
+	_head_rotation()
+	if no_movement:
+		return
+	
+	if Input.is_action_just_pressed("shoot") and is_zero_approx(shot_timer.time_left):
+		var sound_index := randi_range(0, shoot_sounds.size() - 1)
+		shoot_sound.stream = shoot_sounds[sound_index]
+		shoot_sound.play()
+		raycast.force_raycast_update()
+		shot_timer.start(shot_delay)
+		
+		AnimP.play("Bang")
+		var collider := raycast.get_collider()
+		if collider:
+			(collider as NPC).get_shot()
+		
+		#print("Shot - ", collider.name)
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * move_speed
+		velocity.z = direction.z * move_speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, move_speed)
+		velocity.z = move_toward(velocity.z, 0, move_speed)
