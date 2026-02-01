@@ -19,6 +19,7 @@ class_name SpriteWithEffect extends Sprite3D
 
 
 func _update_material_frame() -> void:
+	print("Frame y coord - ", frame_coords.y)
 	_effect_material.set_shader_parameter("y_offset", frame_coords.y)
 
 
@@ -35,5 +36,8 @@ func set_dissolve(dissolve: float) -> void:
 
 
 func _ready() -> void:
+	if not Engine.is_editor_hint():
+		material_override = material_override.duplicate(true)
+		_effect_material = material_override
 	_update_material_frame()
 	_update_material_vframes()
