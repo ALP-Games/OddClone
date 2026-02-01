@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://bqrdrnwhf5hyh"]
+
+[ext_resource type="FontFile" uid="uid://d3fhsav6s5mjc" path="res://Assets/Fonts/Acidic.ttf" id="1_ih4bi"]
+
+[resource]
+font = ExtResource("1_ih4bi")
+font_size = 24
+font_color = Color(0.793484, 1, 0.78342503, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.47843137)

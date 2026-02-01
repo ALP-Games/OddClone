@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://t43p64se4nw2"]
 
-[ext_resource type="LabelSettings" path="res://ui/level_font.tres" id="1_v3oc8"]
+[ext_resource type="LabelSettings" uid="uid://cic6vrjqf8i0d" path="res://ui/level_font.tres" id="1_v3oc8"]
 [ext_resource type="Script" uid="uid://cphvsgl0xmoaa" path="res://ui/global_ui.gd" id="1_xtvba"]
 [ext_resource type="Theme" uid="uid://bkewb5tsxb15v" path="res://Assets/UI_Style/TestTheme.tres" id="2_mth86"]
 [ext_resource type="Material" uid="uid://d2taim5ynxyw5" path="res://Assets/UI_Style/VignetteMaterial.tres" id="3_csxbd"]
+[ext_resource type="Texture2D" uid="uid://52acoa7bgev8" path="res://Assets/npc/bigbouse_head.png" id="5_do2v4"]
+[ext_resource type="LabelSettings" uid="uid://bqrdrnwhf5hyh" path="res://ui/DialogText.tres" id="6_rb84v"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_85gms"]
 
@@ -75,6 +77,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="LevelEndPrompt" type="Control" parent="." unique_id=1572148619]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -177,3 +180,53 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="DialogUI" type="Control" parent="." unique_id=608735808]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogUI" unique_id=606304638]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="DialogUI/VBoxContainer" unique_id=715920163]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control2" type="Control" parent="DialogUI/VBoxContainer" unique_id=113495654]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogUI/VBoxContainer" unique_id=1019050775]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogUI/VBoxContainer/MarginContainer" unique_id=936289604]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="DialogUI/VBoxContainer/MarginContainer/HBoxContainer" unique_id=865800792]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("5_do2v4")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="DialogUI/VBoxContainer/MarginContainer/HBoxContainer" unique_id=769580195]
+layout_mode = 2
+text = "Officer, this is HQ. You should be arriving at ALP Inc. shortly. 
+Dispatch reports a broken replicant is hiding amongst the office employees."
+label_settings = ExtResource("6_rb84v")
