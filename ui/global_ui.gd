@@ -11,6 +11,7 @@ extends CanvasLayer
 
 @onready var pause_menu: Control = $PauseMenu
 @onready var dialog_ui: Control = $DialogUI
+@onready var animation_player: AnimationPlayer = $DialogUI/AnimationPlayer
 
 
 func _ready() -> void:
@@ -18,7 +19,7 @@ func _ready() -> void:
 	pause_menu.visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	unpause_button.pressed.connect(_toggle_pause_menu)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	animation_player.play("TextAppear")
 	
 
 

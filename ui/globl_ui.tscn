@@ -12,6 +12,67 @@
 [sub_resource type="LabelSettings" id="LabelSettings_xtvba"]
 font_size = 32
 
+[sub_resource type="Animation" id="Animation_do2v4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/MarginContainer/HBoxContainer/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_rb84v"]
+resource_name = "TextAppear"
+length = 4.5333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/MarginContainer/HBoxContainer/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.55, 0.7, 1.9, 2.07, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.1375, 0.1375, 0.46159092, 0.46159092, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.5333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_saqqb"]
+_data = {
+&"RESET": SubResource("Animation_do2v4"),
+&"TextAppear": SubResource("Animation_rb84v")
+}
+
 [node name="GlobalUI" type="CanvasLayer" unique_id=352080034 node_paths=PackedStringArray("unpause_button")]
 layer = 10
 script = ExtResource("1_xtvba")
@@ -182,7 +243,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DialogUI" type="Control" parent="." unique_id=608735808]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -230,3 +290,6 @@ layout_mode = 2
 text = "Officer, this is HQ. You should be arriving at ALP Inc. shortly. 
 Dispatch reports a broken replicant is hiding amongst the office employees."
 label_settings = ExtResource("6_rb84v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogUI" unique_id=888832859]
+libraries/ = SubResource("AnimationLibrary_saqqb")
