@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://0q2nh6vhj0y6" path="res://Assets/npc/bigbouse_face_normal.png" id="2_pdq4a"]
 [ext_resource type="Script" uid="uid://bjx3cmprqfi4x" path="res://scripts/sprite_with_effect.gd" id="3_y47ak"]
 [ext_resource type="Texture2D" uid="uid://52acoa7bgev8" path="res://Assets/npc/bigbouse_head.png" id="4_6ef63"]
+[ext_resource type="Texture2D" uid="uid://b57es3kh03wa8" path="res://Assets/npc/bigbouse_body_glitched.png" id="4_y47ak"]
 [ext_resource type="Texture2D" uid="uid://bajahhnbdredu" path="res://Assets/npc/bigbouse_body_normal.png" id="5_y47ak"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qbes0"]
@@ -309,14 +310,21 @@ shader_parameter/randomness = 0.5
 shader_parameter/glow_color = Color(0.6392157, 0.8235294, 0.6156863, 1)
 shader_parameter/flicker_intensity = 0.5
 
-[node name="NPC" type="CharacterBody3D" unique_id=778123170 node_paths=PackedStringArray("face", "head", "body") groups=["NPC"]]
+[node name="NPC-boss" type="CharacterBody3D" unique_id=778123170 node_paths=PackedStringArray("face", "head", "body") groups=["NPC"]]
 collision_layer = 3
 script = ExtResource("1_pdq4a")
 face = NodePath("Face")
 head = NodePath("Head")
 body = NodePath("Body")
+glitch_chance = 0.15
 animation_cycle_speed = 1.0
-bad_animation_frame = 4
+normal_face_frame_count = 3
+glitched_face_frame_count = 3
+normal_face = ExtResource("2_pdq4a")
+normal_body_frame_count = 3
+glitched_body_frame_count = 3
+normal_body = ExtResource("5_y47ak")
+glitched_body = ExtResource("4_y47ak")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=696306462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

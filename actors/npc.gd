@@ -47,7 +47,7 @@ func _select_random_frame() -> void:
 	if _is_clanker and randf() <= glitch_chance:
 		var face_frame_count := normal_face_frame_count
 		var body_frame_count := normal_body_frame_count
-		if randf() > 0.5:
+		if glitched_face and randf() > 0.8:
 			face.set_material_texture(glitched_face)
 			face_frame_count = glitched_face_frame_count
 		else:
