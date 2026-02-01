@@ -1,6 +1,7 @@
 extends Node
 
 @export var levels: Array[PackedScene]
+@export var await_time_after_objective := 1.0
 
 var _current_level_id = 0
 
@@ -36,6 +37,7 @@ func _restart_level() -> void:
 
 func _on_level_end(won: bool) -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	await get_tree().create_timer(await_time_after_objective).timeout
 	if won:
 		_level_won()
 	else:
