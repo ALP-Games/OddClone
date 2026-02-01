@@ -3,6 +3,8 @@ class_name SpriteWithEffect extends Sprite3D
 
 @export var animation_frame := frame:
 	set(value):
+		if value == -1:
+			return
 		animation_frame = value
 		frame = value
 		if is_node_ready():

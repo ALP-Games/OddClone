@@ -171,6 +171,54 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 1.1169227, 4.437277)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/TextureRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/VBoxContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/TextureRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/VBoxContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ng40l"]
 resource_name = "level_animation"
@@ -198,12 +246,62 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 1.1169227, 4.437277), Vector3(0.6490725, 1.1169231, -4.190031), Vector3(1.9221542, 1.1169232, -6.6549764), Vector3(1.9221542, 1.1169232, -6.654976), Vector3(0.69470346, 1.1169232, -7.5540385), Vector3(0.69470346, 1.1169232, -7.554039), Vector3(-0.6532338, 1.1169232, -7.554039), Vector3(-0.6532338, 1.1169232, -7.554039), Vector3(-1.9161043, 1.1169232, -7.554039), Vector3(-1.9161043, 1.1169232, -7.554039), Vector3(-0.4114287, 1.1169232, -7.554039)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/TextureRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(19.837984),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/VBoxContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(19.837984),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/TextureRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(19.838, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/VBoxContainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(19.838, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_04hp8"]
 _data = {
 &"RESET": SubResource("Animation_04hp8"),
 &"level_animation": SubResource("Animation_ng40l")
 }
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dmnu2"]
 
 [node name="Level4" type="Node3D" unique_id=1951831575]
 script = ExtResource("1_hokjj")
@@ -253,3 +351,76 @@ libraries/ = SubResource("AnimationLibrary_0fd8o")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=716310597]
 libraries/ = SubResource("AnimationLibrary_04hp8")
 autoplay = &"level_animation"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1282889527]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=858250870]
+visible = false
+modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("CanvasTexture_dmnu2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1347471390]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer" unique_id=2020378400]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1829167986]
+layout_mode = 2
+text = "Thanks For Playing!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="CanvasLayer/VBoxContainer" unique_id=1736575496]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=42947548]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=694900309]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Art" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1064484655]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Art:
+Ignas Montvilovas
+Paulius Pilelis
+SirCrackWaffle
+[qasp]"
+
+[node name="Control3" type="Control" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1374721379]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Programming" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=887275873]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Programming:
+Andrej Lapin"
+
+[node name="Control2" type="Control" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1587305111]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ControlBottom" type="Control" parent="CanvasLayer/VBoxContainer" unique_id=1210402087]
+layout_mode = 2
+size_flags_vertical = 3
