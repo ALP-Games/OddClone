@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw3fvpx8pr57c"
-path.s3tc="res://.godot/imported/body.png-64b7a71dcb40acaaef95d303621b4f41.s3tc.ctex"
+uid="uid://028bcwkgb3qr"
+path.s3tc="res://.godot/imported/faces_normal.png-58d75bfe956760426bc2428732aac70d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/npc/body.png"
-dest_files=["res://.godot/imported/body.png-64b7a71dcb40acaaef95d303621b4f41.s3tc.ctex"]
+source_file="res://Assets/npc/faces_normal.png"
+dest_files=["res://.godot/imported/faces_normal.png-58d75bfe956760426bc2428732aac70d.s3tc.ctex"]
 
 [params]
 

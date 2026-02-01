@@ -1,16 +1,13 @@
-[gd_scene format=3 uid="uid://ctgu2mirtg7f2"]
+[gd_scene format=3 uid="uid://cq22nba13gq0u"]
 
-[ext_resource type="Script" uid="uid://d4ax3xntynw2k" path="res://actors/npc.gd" id="1_qbes0"]
-[ext_resource type="Texture2D" uid="uid://028bcwkgb3qr" path="res://Assets/npc/faces_normal.png" id="2_iv687"]
-[ext_resource type="Texture2D" uid="uid://cai6iinafes7x" path="res://Assets/npc/faces.png" id="2_mmwbd"]
-[ext_resource type="Texture2D" uid="uid://xdgeavnl1v4e" path="res://Assets/npc/head.png" id="2_yjbk2"]
-[ext_resource type="Texture2D" uid="uid://bb6wts4iefgx6" path="res://Assets/npc/faces_glitched.png" id="3_sjbeq"]
-[ext_resource type="Texture2D" uid="uid://dd6qc150vxr5w" path="res://Assets/npc/body_glitched.png" id="5_sjbeq"]
-[ext_resource type="Texture2D" uid="uid://dryc7q5ott7nn" path="res://Assets/npc/body_normal.png" id="6_3s6tw"]
-[ext_resource type="Script" uid="uid://bjx3cmprqfi4x" path="res://scripts/sprite_with_effect.gd" id="6_o86md"]
+[ext_resource type="Script" uid="uid://d4ax3xntynw2k" path="res://actors/npc.gd" id="1_pdq4a"]
+[ext_resource type="Texture2D" uid="uid://0q2nh6vhj0y6" path="res://Assets/npc/bigbouse_face_normal.png" id="2_pdq4a"]
+[ext_resource type="Script" uid="uid://bjx3cmprqfi4x" path="res://scripts/sprite_with_effect.gd" id="3_y47ak"]
+[ext_resource type="Texture2D" uid="uid://52acoa7bgev8" path="res://Assets/npc/bigbouse_head.png" id="4_6ef63"]
+[ext_resource type="Texture2D" uid="uid://bajahhnbdredu" path="res://Assets/npc/bigbouse_body_normal.png" id="5_y47ak"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qbes0"]
-radius = 0.3
+radius = 0.4
 
 [sub_resource type="Shader" id="Shader_0b5f4"]
 code = "shader_type spatial;
@@ -105,7 +102,7 @@ render_priority = 2
 shader = SubResource("Shader_0b5f4")
 shader_parameter/vframes = 1.0
 shader_parameter/y_offset = 0.0
-shader_parameter/albedo_texture = ExtResource("2_iv687")
+shader_parameter/albedo_texture = ExtResource("2_pdq4a")
 shader_parameter/dissolve = 1.0
 shader_parameter/block_size = 16.0
 shader_parameter/randomness = 0.5
@@ -205,7 +202,7 @@ render_priority = 1
 shader = SubResource("Shader_o86md")
 shader_parameter/vframes = 1.0
 shader_parameter/y_offset = 0.0
-shader_parameter/albedo_texture = ExtResource("2_yjbk2")
+shader_parameter/albedo_texture = ExtResource("4_6ef63")
 shader_parameter/dissolve = 1.0
 shader_parameter/block_size = 16.0
 shader_parameter/randomness = 0.5
@@ -305,7 +302,7 @@ render_priority = 0
 shader = SubResource("Shader_3s6tw")
 shader_parameter/vframes = 1.0
 shader_parameter/y_offset = 0.0
-shader_parameter/albedo_texture = ExtResource("6_3s6tw")
+shader_parameter/albedo_texture = ExtResource("5_y47ak")
 shader_parameter/dissolve = 1.0
 shader_parameter/block_size = 100.0
 shader_parameter/randomness = 0.5
@@ -314,15 +311,12 @@ shader_parameter/flicker_intensity = 0.5
 
 [node name="NPC" type="CharacterBody3D" unique_id=778123170 node_paths=PackedStringArray("face", "head", "body") groups=["NPC"]]
 collision_layer = 3
-script = ExtResource("1_qbes0")
+script = ExtResource("1_pdq4a")
 face = NodePath("Face")
 head = NodePath("Head")
 body = NodePath("Body")
 animation_cycle_speed = 1.0
-normal_face = ExtResource("2_iv687")
-glitched_face = ExtResource("3_sjbeq")
-normal_body = ExtResource("6_3s6tw")
-glitched_body = ExtResource("5_sjbeq")
+bad_animation_frame = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=696306462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -332,14 +326,14 @@ debug_color = Color(0, 0.6, 0.69803923, 1)
 [node name="Face" type="Sprite3D" parent="." unique_id=1575915531]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7961043, 0)
 material_override = SubResource("ShaderMaterial_3s6tw")
-offset = Vector2(12.3, 0)
+offset = Vector2(-46.45, 56.42)
 pixel_size = 0.00055
 billboard = 2
 render_priority = 1
-texture = ExtResource("2_mmwbd")
+texture = ExtResource("2_pdq4a")
 hframes = 4
 vframes = 4
-script = ExtResource("6_o86md")
+script = ExtResource("3_y47ak")
 animation_frame = 0
 animation_vframes = 4
 metadata/_custom_type_script = "uid://bjx3cmprqfi4x"
@@ -347,10 +341,11 @@ metadata/_custom_type_script = "uid://bjx3cmprqfi4x"
 [node name="Head" type="Sprite3D" parent="." unique_id=335742942]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8312495, 0)
 material_override = SubResource("ShaderMaterial_iv687")
+offset = Vector2(-50.12, 0)
 pixel_size = 0.00065
 billboard = 2
-texture = ExtResource("2_yjbk2")
-script = ExtResource("6_o86md")
+texture = ExtResource("4_6ef63")
+script = ExtResource("3_y47ak")
 animation_frame = 0
 animation_vframes = 1
 metadata/_custom_type_script = "uid://bjx3cmprqfi4x"
@@ -358,19 +353,16 @@ metadata/_custom_type_script = "uid://bjx3cmprqfi4x"
 [node name="Body" type="Sprite3D" parent="." unique_id=2099446628]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.828, 0)
 material_override = SubResource("ShaderMaterial_sjbeq")
-offset = Vector2(25.16, 0)
 pixel_size = 0.0018
 billboard = 2
 alpha_cut = 1
-texture = ExtResource("6_3s6tw")
+texture = ExtResource("5_y47ak")
 hframes = 4
 vframes = 2
-script = ExtResource("6_o86md")
+script = ExtResource("3_y47ak")
 animation_frame = 0
 animation_vframes = 2
 
 [node name="BodyFrameCycle" type="Timer" parent="." unique_id=1510843439]
 
 [node name="DisintegrateTimer" type="Timer" parent="." unique_id=975446416]
-
-[node name="FaceFrameCycle" type="Timer" parent="." unique_id=122772138]

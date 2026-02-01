@@ -35,6 +35,10 @@ func set_dissolve(dissolve: float) -> void:
 	_effect_material.set_shader_parameter("dissolve", dissolve)
 
 
+func set_material_texture(texture: CompressedTexture2D) -> void:
+	_effect_material.set_shader_parameter("albedo_texture", texture)
+
+
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		material_override = material_override.duplicate(true)

@@ -4,19 +4,28 @@ class_name NPC extends CharacterBody3D
 @export var head: SpriteWithEffect
 @export var body: SpriteWithEffect
 
+
 @export var good_color: Color = Color("a3d29d")
 @export var clanker_color: Color = Color(0.937, 0.0, 0.0, 1.0)
 
+@export var glitch_chance := 0.2
 @export var animation_cycle_speed := 0.5
 @export var animation_cycle_offset_max := 0.4
 @export var disintegrate_time := 0.5
+@export_group("Faces")
+@export var normal_face_frame_count := 4
+@export var glitched_face_frame_count := 5
+@export var normal_face: CompressedTexture2D
+@export var glitched_face: CompressedTexture2D
 @export_group("Body")
-@export var normal_frame_first := 0
-@export var normal_frame_last := 2
-@export var bad_animation_frame := 3
+@export var normal_body_frame_count := 2
+@export var glitched_body_frame_count := 2
+@export var normal_body: CompressedTexture2D
+@export var glitched_body: CompressedTexture2D
 
 
 @onready var body_frame_cycle: Timer = $BodyFrameCycle
+#@onready var face_frame_cycle: Timer = $FaceFrameCycle
 @onready var disintegrate_timer: Timer = $DisintegrateTimer
 
 
@@ -35,17 +44,29 @@ func _ready() -> void:
 
 
 func _select_random_frame() -> void:
-	var max_index := normal_frame_last
-	var frame_index := body.animation_frame
-	if _is_clanker:
-		max_index += 1
-	while frame_index == body.animation_frame:
-		frame_index = randi_range(normal_frame_first, max_index)
-	if frame_index > normal_frame_last:
-		body.animation_frame = bad_animation_frame
-	else:
-		body.animation_frame = frame_index
-	#body.
+	if _is_clanker and randf() <= glitch_chance:
+		var face_frame_count := normal_face_frame_count
+		var body_frame_count := normal_body_frame_count
+		if randf() > 0.5:
+			face.set_material_texture(glitched_face)
+			face_frame_count = glitched_face_frame_count
+		else:
+			body.set_material_texture(glitched_body)
+			body_frame_count = glitched_body_frame_count
+		_sprite_select_random_frame(face, face_frame_count)
+		_sprite_select_random_frame(body, body_frame_count)
+	elif _is_clanker:
+		face.set_material_texture(normal_face)
+		body.set_material_texture(normal_body)
+	_sprite_select_random_frame(face, normal_face_frame_count)
+	_sprite_select_random_frame(body, normal_body_frame_count)
+
+
+func _sprite_select_random_frame(sprite: SpriteWithEffect, max_frame_index: int) -> void:
+	var frame_index := sprite.animation_frame
+	while frame_index == sprite.animation_frame:
+		frame_index = randi_range(0, max_frame_index)
+	sprite.animation_frame = frame_index
 
 
 func convert_to_target() -> void:
