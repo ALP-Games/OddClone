@@ -4,9 +4,12 @@ class_name NPC extends CharacterBody3D
 @export var head: SpriteWithEffect
 @export var body: SpriteWithEffect
 
+@export var good_color: Color = Color("a3d29d")
+@export var clanker_color: Color = Color(0.937, 0.0, 0.0, 1.0)
+
 @export var animation_cycle_speed := 0.5
 @export var animation_cycle_offset_max := 0.4
-@export var disintegrate_time := 1.0
+@export var disintegrate_time := 0.5
 @export_group("Body")
 @export var normal_frame_first := 0
 @export var normal_frame_last := 2
@@ -54,6 +57,13 @@ func get_shot() -> void:
 	var level: Level = get_tree().get_first_node_in_group(Constants.LEVEL_GROUP)
 	level.npc_shot(_is_clanker)
 	disintegrate_timer.start(disintegrate_time)
+	
+	var disintegrate_color := good_color
+	if _is_clanker:
+		disintegrate_color = clanker_color
+	face.set_material_color(disintegrate_color)
+	body.set_material_color(disintegrate_color)
+	head.set_material_color(disintegrate_color)
 	set_process(true)
 #func _physics_process(delta: float) -> void:
 	## Add the gravity.
