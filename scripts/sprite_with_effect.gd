@@ -19,7 +19,6 @@ class_name SpriteWithEffect extends Sprite3D
 
 
 func _update_material_frame() -> void:
-	print("Frame y coord - ", frame_coords.y)
 	_effect_material.set_shader_parameter("y_offset", frame_coords.y)
 
 
