@@ -32,7 +32,6 @@ background_mode = 1
 background_color = Color(0.46446896, 0.5260276, 0.46351516, 1)
 background_energy_multiplier = 0.34
 tonemap_agx_contrast = 1.33
-ssao_enabled = true
 ssao_radius = 6.22
 ssao_intensity = 8.41
 glow_enabled = true
