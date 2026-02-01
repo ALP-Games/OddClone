@@ -1,12 +1,14 @@
-extends Control
+class_name GameplayUI extends Control
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+@onready var croshair: Label = $Croshair
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animation_player.play("shoot")
-#
-#
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-	#pass
+
+
+func disable_ui() -> void:
+	croshair.visible = false

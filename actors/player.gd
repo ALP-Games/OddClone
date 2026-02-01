@@ -8,6 +8,7 @@ class_name Player extends CharacterBody3D
 
 @export var move_speed: float = 5.0
 @export var sensitivity: float = 0.003
+@export var shot_delay: float = 1.1667
 
 @export_group("Shoot Sounds")
 @export var shoot_sounds: Array[AudioStreamWAV]
@@ -17,8 +18,10 @@ class_name Player extends CharacterBody3D
 @export var footstep_sounds: Array[AudioStreamOggVorbis]
 
 @onready var shoot_sound: AudioStreamPlayer = $ShootSound
-@onready var gameplay_ui: Control = $CanvasLayer/GameplayUI
+@onready var gameplay_ui: GameplayUI = $CanvasLayer/GameplayUI
 @onready var footstep_player: AudioStreamPlayer3D = $FootstepPlayer
+@onready var shot_timer: Timer = $ShotTimer
+
 
 @onready var AnimP: AnimationPlayer = $CanvasLayer/GameplayUI/AnimationPlayer
 
@@ -27,13 +30,15 @@ var rotation_accumulation := Vector2.ZERO
 var _elapsed_footstep	: float = 0.0
 
 
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	raycast.enabled = false
+	shot_timer.one_shot = true
 
 
 func on_level_end(_won: bool) -> void:
-	gameplay_ui.visible = false
+	gameplay_ui.disable_ui()
 	controls_disabled = true
 
 
@@ -64,11 +69,12 @@ func _physics_process(delta: float) -> void:
 	if not controls_disabled:
 		_head_rotation()
 		
-		if Input.is_action_just_pressed("shoot"):
+		if Input.is_action_just_pressed("shoot") and is_zero_approx(shot_timer.time_left):
 			var sound_index := randi_range(0, shoot_sounds.size() - 1)
 			shoot_sound.stream = shoot_sounds[sound_index]
 			shoot_sound.play()
 			raycast.force_raycast_update()
+			shot_timer.start(shot_delay)
 			
 			AnimP.play("Bang")
 			var collider := raycast.get_collider()
