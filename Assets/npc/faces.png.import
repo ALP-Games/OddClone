@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cai6iinafes7x"
 path.s3tc="res://.godot/imported/faces.png-60286c96bf2585dbfd90b5d1114fce80.s3tc.ctex"
+path.etc2="res://.godot/imported/faces.png-60286c96bf2585dbfd90b5d1114fce80.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/npc/faces.png"
-dest_files=["res://.godot/imported/faces.png-60286c96bf2585dbfd90b5d1114fce80.s3tc.ctex"]
+dest_files=["res://.godot/imported/faces.png-60286c96bf2585dbfd90b5d1114fce80.s3tc.ctex", "res://.godot/imported/faces.png-60286c96bf2585dbfd90b5d1114fce80.etc2.ctex"]
 
 [params]
 

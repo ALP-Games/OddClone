@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bo64ihlpkpcjo"
 path.s3tc="res://.godot/imported/KAREN-NORMAL.png-4e9249b6c09403cdefdd8f4253621092.s3tc.ctex"
+path.etc2="res://.godot/imported/KAREN-NORMAL.png-4e9249b6c09403cdefdd8f4253621092.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/npc/KAREN-NORMAL.png"
-dest_files=["res://.godot/imported/KAREN-NORMAL.png-4e9249b6c09403cdefdd8f4253621092.s3tc.ctex"]
+dest_files=["res://.godot/imported/KAREN-NORMAL.png-4e9249b6c09403cdefdd8f4253621092.s3tc.ctex", "res://.godot/imported/KAREN-NORMAL.png-4e9249b6c09403cdefdd8f4253621092.etc2.ctex"]
 
 [params]
 

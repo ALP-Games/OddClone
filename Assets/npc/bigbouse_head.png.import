@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://52acoa7bgev8"
 path.s3tc="res://.godot/imported/bigbouse_head.png-847ca2f1030789cde8ada6f34b1d2df8.s3tc.ctex"
+path.etc2="res://.godot/imported/bigbouse_head.png-847ca2f1030789cde8ada6f34b1d2df8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/npc/bigbouse_head.png"
-dest_files=["res://.godot/imported/bigbouse_head.png-847ca2f1030789cde8ada6f34b1d2df8.s3tc.ctex"]
+dest_files=["res://.godot/imported/bigbouse_head.png-847ca2f1030789cde8ada6f34b1d2df8.s3tc.ctex", "res://.godot/imported/bigbouse_head.png-847ca2f1030789cde8ada6f34b1d2df8.etc2.ctex"]
 
 [params]
 

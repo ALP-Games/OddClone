@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://y2klhqqiydfg"
 path.s3tc="res://.godot/imported/FOXYGUY-WALK_AND_SHOOT.png-c15560948fab5c93cadee747456db9ad.s3tc.ctex"
+path.etc2="res://.godot/imported/FOXYGUY-WALK_AND_SHOOT.png-c15560948fab5c93cadee747456db9ad.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/npc/FOXYGUY-WALK_AND_SHOOT.png"
-dest_files=["res://.godot/imported/FOXYGUY-WALK_AND_SHOOT.png-c15560948fab5c93cadee747456db9ad.s3tc.ctex"]
+dest_files=["res://.godot/imported/FOXYGUY-WALK_AND_SHOOT.png-c15560948fab5c93cadee747456db9ad.s3tc.ctex", "res://.godot/imported/FOXYGUY-WALK_AND_SHOOT.png-c15560948fab5c93cadee747456db9ad.etc2.ctex"]
 
 [params]
 

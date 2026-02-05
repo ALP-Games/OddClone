@@ -31,6 +31,9 @@ class_name NPC extends CharacterBody3D
 
 var _is_clanker: bool = false
 
+var _player: Player
+var _process_functions: Array[Callable]
+
 
 func _ready() -> void:
 	_select_random_frame()
@@ -40,7 +43,8 @@ func _ready() -> void:
 		body_frame_cycle.timeout.connect(_select_random_frame)
 		)
 	disintegrate_timer.one_shot = true
-	set_process(false)
+	_process_functions.append(_query_for_player)
+	#set_process(false)
 
 
 func _select_random_frame() -> void:
@@ -85,7 +89,13 @@ func get_shot() -> void:
 	face.set_material_color(disintegrate_color)
 	body.set_material_color(disintegrate_color)
 	head.set_material_color(disintegrate_color)
-	set_process(true)
+	#set_process(true)
+	_process_functions.append(func(_delta:float)->void:
+		var dissolve := disintegrate_timer.time_left / disintegrate_time
+		face.set_dissolve(dissolve)
+		body.set_dissolve(dissolve)
+		head.set_dissolve(dissolve)
+		)
 #func _physics_process(delta: float) -> void:
 	## Add the gravity.
 	#if not is_on_floor():
@@ -93,11 +103,24 @@ func get_shot() -> void:
 #
 	#move_and_slide()
 
-func _process(_delta: float) -> void:
-	var dissolve := disintegrate_timer.time_left / disintegrate_time
-	face.set_dissolve(dissolve)
-	body.set_dissolve(dissolve)
-	head.set_dissolve(dissolve)
+
+func _query_for_player(_delta: float) -> void:
+	var result := get_tree().get_first_node_in_group(Constants.PLAYER_GROUP)
+	if result == null:
+		return
+	_player = result
+	_process_functions.erase(_query_for_player)
+	_process_functions.append(_face_player)
+
+
+func _face_player(_delta: float) -> void:
+	look_at(_player.get_interpolated_pos())
+
+
+func _process(delta: float) -> void:
+	for function: Callable in _process_functions:
+		function.call(delta)
+	
 
 #func _physics_process(delta: float) -> void:
 	#

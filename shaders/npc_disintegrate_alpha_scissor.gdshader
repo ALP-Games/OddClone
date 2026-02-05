@@ -1,9 +1,12 @@
 shader_type spatial;
-render_mode unshaded, cull_disabled;
+render_mode unshaded, cull_disabled, alpha_to_coverage; // alpha_to_coverage_and_one;
 
 uniform float vframes = 1.0;
 uniform float y_offset = 0.0;
 uniform sampler2D albedo_texture : source_color;
+
+uniform float alpha_scissor_threshold : hint_range(0.0, 1.0, 0.0001) = 0.25;
+uniform float alpha_antialiasing_edge : hint_range(0.0, 1.0, 0.01);
 
 uniform float dissolve : hint_range(0, 1) = 1.0;
 uniform float block_size = 16.0;
@@ -81,5 +84,7 @@ void fragment() {
     ALPHA = tex.a * visibility;
     EMISSION = glow_color * glow * 3.0;
 	
-	ALPHA_SCISSOR_THRESHOLD = 0.0001;
+	ALPHA_SCISSOR_THRESHOLD = alpha_scissor_threshold;
+	ALPHA_ANTIALIASING_EDGE = alpha_antialiasing_edge;
+	//ALPHA_TEXTURE_COORDINATE = UV * vec2(albedo_texture_size);
 }

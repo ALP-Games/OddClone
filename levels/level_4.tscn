@@ -331,6 +331,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.78112435, 0.093599975, -8.9
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1169227, 4.437277)
 pixel_size = 0.0025
 billboard = 2
+alpha_cut = 1
 texture = ExtResource("5_t6q73")
 hframes = 4
 vframes = 2

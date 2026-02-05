@@ -30,6 +30,11 @@ var controls_disabled := false
 var rotation_accumulation := Vector2.ZERO
 var _elapsed_footstep	: float = 0.0
 
+var _interpolated_position: Vector3
+
+
+func get_interpolated_pos() -> Vector3:
+	return _interpolated_position
 
 
 func _ready() -> void:
@@ -60,6 +65,10 @@ func _head_rotation() -> void:
 		head.rotate_x(rotation_accumulation.y)
 		head.rotation.x = clamp(head.rotation.x, -max_pitch_degrees, max_pitch_degrees)
 	rotation_accumulation = Vector2.ZERO
+
+
+func _process(_delta: float) -> void:
+	_interpolated_position = get_global_transform_interpolated().origin
 
 
 func _physics_process(delta: float) -> void:

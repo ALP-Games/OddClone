@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b57es3kh03wa8"
 path.s3tc="res://.godot/imported/bigbouse_body_glitched.png-1a64dd9e846ba579167d2738f1a82036.s3tc.ctex"
+path.etc2="res://.godot/imported/bigbouse_body_glitched.png-1a64dd9e846ba579167d2738f1a82036.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/npc/bigbouse_body_glitched.png"
-dest_files=["res://.godot/imported/bigbouse_body_glitched.png-1a64dd9e846ba579167d2738f1a82036.s3tc.ctex"]
+dest_files=["res://.godot/imported/bigbouse_body_glitched.png-1a64dd9e846ba579167d2738f1a82036.s3tc.ctex", "res://.godot/imported/bigbouse_body_glitched.png-1a64dd9e846ba579167d2738f1a82036.etc2.ctex"]
 
 [params]
 
