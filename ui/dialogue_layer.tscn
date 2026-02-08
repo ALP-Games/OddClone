@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://br6acjcejb0ks"]
+
+[ext_resource type="Texture2D" uid="uid://52acoa7bgev8" path="res://Assets/npc/bigbouse_head.png" id="1_eajpo"]
+[ext_resource type="Texture2D" uid="uid://0q2nh6vhj0y6" path="res://Assets/npc/bigbouse_face_normal.png" id="2_tv6fg"]
+[ext_resource type="LabelSettings" uid="uid://ch0hb1fbd21rs" path="res://ui/DialogText.tres" id="3_cypr3"]
+[ext_resource type="FontFile" uid="uid://d3fhsav6s5mjc" path="res://Assets/Fonts/Acidic.ttf" id="4_tv6fg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3sd3"]
+atlas = ExtResource("2_tv6fg")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="Animation" id="Animation_do2v4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/MarginContainer/HBoxContainer/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/MarginContainer/HBoxContainer/TextureRect2/FaceSprite:texture:region")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 512, 512)]
+}
+
+[sub_resource type="Animation" id="Animation_rb84v"]
+resource_name = "TextAppear"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/MarginContainer/HBoxContainer/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.55, 0.7, 1.9, 2.07, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.1375, 0.1375, 0.46159092, 0.46159092, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/MarginContainer/HBoxContainer/TextureRect2/FaceSprite:texture:region")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05, 1.2, 1.35, 1.5, 1.65, 1.8000001, 1.95, 2.1, 2.25, 2.4, 2.55, 2.7, 2.85, 3, 3.15, 3.3, 3.4499998, 3.6, 3.75, 3.9, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(512, 0, 512, 512)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rhdrl"]
+_data = {
+&"RESET": SubResource("Animation_do2v4"),
+&"TextAppear": SubResource("Animation_rb84v")
+}
+
+[node name="DialogLayer" type="CanvasLayer" unique_id=748861057]
+layer = 5
+
+[node name="DialogUI" type="Control" parent="." unique_id=770537827]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogUI" unique_id=1460158601]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="DialogUI/VBoxContainer" unique_id=67892208]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.7
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogUI/VBoxContainer" unique_id=2056607363]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogUI/VBoxContainer/MarginContainer" unique_id=534897450]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect2" type="TextureRect" parent="DialogUI/VBoxContainer/MarginContainer/HBoxContainer" unique_id=75082308]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_eajpo")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="FaceSprite" type="TextureRect" parent="DialogUI/VBoxContainer/MarginContainer/HBoxContainer/TextureRect2" unique_id=1004034865]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.5
+offset_top = -179.5
+offset_right = 179.5
+offset_bottom = 179.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_r3sd3")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="DialogUI/VBoxContainer/MarginContainer/HBoxContainer" unique_id=683565953]
+layout_mode = 2
+text = "Officer, this is HQ. You should be arriving at ALP Inc. shortly. 
+Dispatch reports a broken replicant is hiding amongst the office employees."
+label_settings = ExtResource("3_cypr3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogUI/VBoxContainer/MarginContainer" unique_id=1121812554]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_tv6fg")
+text = "something very"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogUI" unique_id=1721141677]
+libraries/ = SubResource("AnimationLibrary_rhdrl")
+autoplay = &"TextAppear"

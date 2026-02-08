@@ -24,7 +24,7 @@ class_name Player extends CharacterBody3D
 @onready var shot_timer: Timer = $ShotTimer
 
 
-@onready var AnimP: AnimationPlayer = $CanvasLayer/GameplayUI/AnimationPlayer
+@onready var AnimP: AnimationPlayer = %GameplayUI/AnimationPlayer
 
 var controls_disabled := false
 var rotation_accumulation := Vector2.ZERO
