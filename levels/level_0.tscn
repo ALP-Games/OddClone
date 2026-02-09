@@ -14,6 +14,9 @@ size = Vector3(0.17382813, 2.8117676, 1.7728271)
 
 [node name="Level0" type="Node3D" unique_id=1951831575]
 script = ExtResource("1_qq80x")
+glitch_step = 3
+starting_glitch_period_min = 13
+starting_glitch_period_max = 15
 metadata/_custom_type_script = "uid://csb0fe7ebci5h"
 
 [node name="Node3D" parent="." unique_id=1610315983 instance=ExtResource("2_yhi02")]

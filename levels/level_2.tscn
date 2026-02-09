@@ -7,6 +7,11 @@
 
 [node name="Level0" type="Node3D" unique_id=1951831575]
 script = ExtResource("1_kx6l7")
+glitch_step = 2
+starting_glitch_period_min = 9
+starting_glitch_period_max = 11
+end_glitch_period_min = 4
+end_glitch_period_max = 6
 metadata/_custom_type_script = "uid://csb0fe7ebci5h"
 
 [node name="Node3D" parent="." unique_id=1610315983 instance=ExtResource("2_n46q3")]
@@ -19,7 +24,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38144422, 4.3482666)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1778116, -2.3841858e-07, 0.3388188)
 
 [node name="NPC-boss2" parent="." unique_id=754405672 instance=ExtResource("4_kx6l7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5144262, -2.3841858e-07, -5.349743)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9257176, -2.3841858e-07, -5.23025)
 
 [node name="NPC-boss3" parent="." unique_id=118030814 instance=ExtResource("4_kx6l7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.451729, -2.3841858e-07, 1.6341567)

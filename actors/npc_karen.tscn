@@ -57,6 +57,7 @@ script = ExtResource("1_hshcy")
 face = NodePath("Face")
 head = NodePath("Head")
 body = NodePath("Body")
+face_glitch_chance = 0.7
 animation_cycle_speed = 1.0
 normal_face_frame_count = 3
 normal_face = ExtResource("2_hshcy")
@@ -72,9 +73,9 @@ shape = SubResource("CylinderShape3D_qbes0")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
 [node name="Face" type="Sprite3D" parent="." unique_id=1575915531]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.796, -0.02)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7754955, -0.02)
 material_override = SubResource("ShaderMaterial_3s6tw")
-offset = Vector2(31.65, -208.22)
+offset = Vector2(54.84, -208.22)
 pixel_size = 0.00055
 billboard = 2
 render_priority = 1
@@ -87,9 +88,9 @@ animation_vframes = 4
 metadata/_custom_type_script = "uid://bjx3cmprqfi4x"
 
 [node name="Head" type="Sprite3D" parent="." unique_id=335742942]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.831, -0.01)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8104955, -0.01)
 material_override = SubResource("ShaderMaterial_iv687")
-offset = Vector2(31.65, -123.25)
+offset = Vector2(54.84, -123.25)
 pixel_size = 0.0006
 billboard = 2
 texture = ExtResource("4_hshcy")
@@ -99,10 +100,10 @@ animation_vframes = 1
 metadata/_custom_type_script = "uid://bjx3cmprqfi4x"
 
 [node name="Body" type="Sprite3D" parent="." unique_id=2099446628]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.828, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87193805, 0)
 material_override = SubResource("ShaderMaterial_sjbeq")
 offset = Vector2(50.62, 41.69)
-pixel_size = 0.0025
+pixel_size = 0.0024
 billboard = 2
 alpha_cut = 1
 texture = ExtResource("5_hshcy")

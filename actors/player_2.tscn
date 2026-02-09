@@ -42,6 +42,7 @@ shape = SubResource("CylinderShape3D_cp522")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=139447608]
 
 [node name="GameplayUI" parent="CanvasLayer" unique_id=1439478381 instance=ExtResource("12_c6u5s")]
+unique_name_in_owner = true
 visible = false
 
 [node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1583363929]

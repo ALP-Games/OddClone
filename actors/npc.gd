@@ -1,5 +1,8 @@
 class_name NPC extends CharacterBody3D
 
+signal got_shot
+signal glitch_shown
+
 @export var face: SpriteWithEffect
 @export var head: SpriteWithEffect
 @export var body: SpriteWithEffect
@@ -8,7 +11,9 @@ class_name NPC extends CharacterBody3D
 @export var good_color: Color = Color("a3d29d")
 @export var clanker_color: Color = Color(0.937, 0.0, 0.0, 1.0)
 
-@export var glitch_chance := 0.2
+@export_range(0.0, 1.0, 0.01) var face_glitch_chance := 0.5
+@export var normal_frames_min: int = 5
+@export var normal_frames_max: int = 13
 @export var animation_cycle_speed := 0.5
 @export var animation_cycle_offset_max := 0.4
 @export var disintegrate_time := 0.5
@@ -30,6 +35,8 @@ class_name NPC extends CharacterBody3D
 
 
 var _is_clanker: bool = false
+var _glitch_period: int = 0
+var _normal_frames_elapsed: int = 0 
 
 var _player: Player
 var _process_functions: Array[Callable]
@@ -48,10 +55,10 @@ func _ready() -> void:
 
 
 func _select_random_frame() -> void:
-	if _is_clanker and randf() <= glitch_chance:
+	if _is_clanker and _normal_frames_elapsed >= _glitch_period:
 		var face_frame_count := normal_face_frame_count
 		var body_frame_count := normal_body_frame_count
-		if glitched_face and randf() > 0.8:
+		if glitched_face and randf() > face_glitch_chance:
 			face.set_material_texture(glitched_face)
 			face_frame_count = glitched_face_frame_count
 		else:
@@ -59,11 +66,20 @@ func _select_random_frame() -> void:
 			body_frame_count = glitched_body_frame_count
 		_sprite_select_random_frame(face, face_frame_count)
 		_sprite_select_random_frame(body, body_frame_count)
+		_normal_frames_elapsed = 0
+		glitch_shown.emit()
+		_roll_new_glitch_period()
+		return
 	elif _is_clanker:
 		face.set_material_texture(normal_face)
 		body.set_material_texture(normal_body)
 	_sprite_select_random_frame(face, normal_face_frame_count)
 	_sprite_select_random_frame(body, normal_body_frame_count)
+	_normal_frames_elapsed += 1
+
+
+func _roll_new_glitch_period() -> void:
+	_glitch_period = randi_range(normal_frames_min, normal_frames_max)
 
 
 func _sprite_select_random_frame(sprite: SpriteWithEffect, max_frame_index: int) -> void:
@@ -76,11 +92,11 @@ func _sprite_select_random_frame(sprite: SpriteWithEffect, max_frame_index: int)
 func convert_to_target() -> void:
 	#head.modulate = Color.RED
 	_is_clanker = true
+	_roll_new_glitch_period()
 
 
 func get_shot() -> void:
-	var level: Level = get_tree().get_first_node_in_group(Constants.LEVEL_GROUP)
-	level.npc_shot(_is_clanker)
+	got_shot.emit()
 	disintegrate_timer.start(disintegrate_time)
 	
 	var disintegrate_color := good_color
@@ -114,7 +130,9 @@ func _query_for_player(_delta: float) -> void:
 
 
 func _face_player(_delta: float) -> void:
-	look_at(_player.get_interpolated_pos())
+	var look_pos := _player.get_interpolated_pos()
+	look_pos.y = global_position.y
+	look_at(look_pos)
 
 
 func _process(delta: float) -> void:

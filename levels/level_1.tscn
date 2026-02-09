@@ -7,6 +7,9 @@
 
 [node name="Level0" type="Node3D" unique_id=1951831575]
 script = ExtResource("1_v5uil")
+glitch_step = 2
+starting_glitch_period_min = 9
+starting_glitch_period_max = 11
 metadata/_custom_type_script = "uid://csb0fe7ebci5h"
 
 [node name="Node3D" parent="." unique_id=1610315983 instance=ExtResource("2_5722l")]

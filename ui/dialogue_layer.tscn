@@ -38,7 +38,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("VBoxContainer/MarginContainer/HBoxContainer/TextureRect2/FaceSprite:texture:region")
+tracks/2/path = NodePath("VBoxContainer/MarginContainer/HBoxContainer/TextureRect2/AspectRatioContainer/FaceSprite:texture:region")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -78,7 +78,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("VBoxContainer/MarginContainer/HBoxContainer/TextureRect2/FaceSprite:texture:region")
+tracks/2/path = NodePath("VBoxContainer/MarginContainer/HBoxContainer/TextureRect2/AspectRatioContainer/FaceSprite:texture:region")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -139,21 +139,18 @@ texture = ExtResource("1_eajpo")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="FaceSprite" type="TextureRect" parent="DialogUI/VBoxContainer/MarginContainer/HBoxContainer/TextureRect2" unique_id=1004034865]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="DialogUI/VBoxContainer/MarginContainer/HBoxContainer/TextureRect2" unique_id=21777183]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -179.5
-offset_top = -179.5
-offset_right = 179.5
-offset_bottom = 179.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="FaceSprite" type="TextureRect" parent="DialogUI/VBoxContainer/MarginContainer/HBoxContainer/TextureRect2/AspectRatioContainer" unique_id=1004034865]
+layout_mode = 2
 texture = SubResource("AtlasTexture_r3sd3")
-expand_mode = 3
+expand_mode = 4
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="DialogUI/VBoxContainer/MarginContainer/HBoxContainer" unique_id=683565953]

@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://3evlp8wcthkl" path="res://audio/footsteps/footstep_laminate-01.ogg" id="6_dmnu2"]
 [ext_resource type="AudioStream" uid="uid://i05gint3p2jl" path="res://audio/shoot/SCIWeap_Pulserifle_V2.1_Altshot_04.wav" id="6_hokjj"]
 [ext_resource type="AudioStream" uid="uid://4ryoucbxbg52" path="res://audio/footsteps/footstep_laminate-02.ogg" id="7_sc6c1"]
+[ext_resource type="LabelSettings" uid="uid://ch0hb1fbd21rs" path="res://ui/DialogText.tres" id="9_sc6c1"]
 
 [sub_resource type="Animation" id="Animation_t6q73"]
 length = 0.001
@@ -382,6 +383,7 @@ size_flags_vertical = 3
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1829167986]
 layout_mode = 2
 text = "Thanks For Playing!"
+label_settings = ExtResource("9_sc6c1")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -406,6 +408,7 @@ Ignas Montvilovas
 Paulius Pilelis
 SirCrackWaffle
 [qasp]"
+label_settings = ExtResource("9_sc6c1")
 
 [node name="Control3" type="Control" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1374721379]
 layout_mode = 2
@@ -417,6 +420,7 @@ layout_mode = 2
 size_flags_vertical = 1
 text = "Programming:
 Andrej Lapin"
+label_settings = ExtResource("9_sc6c1")
 
 [node name="Control2" type="Control" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1587305111]
 layout_mode = 2

@@ -87,8 +87,11 @@ func _physics_process(delta: float) -> void:
 	_elapsed_footstep += xz_plane_velocity.length() * delta
 	if _elapsed_footstep >= footstep_interval:
 		_elapsed_footstep -= footstep_interval
-		var footstep_sound_index := randi_range(0, footstep_sounds.size() - 1)
-		footstep_player.stream = footstep_sounds[footstep_sound_index]
+		var current_footstep_sound := footstep_player.stream
+		while current_footstep_sound == footstep_player.stream:
+			var footstep_sound_index := randi_range(0, footstep_sounds.size() - 1)
+			current_footstep_sound = footstep_sounds[footstep_sound_index]
+		footstep_player.stream = current_footstep_sound
 		footstep_player.play()
 	
 	move_and_slide()

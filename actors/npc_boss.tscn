@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bajahhnbdredu" path="res://Assets/npc/bigbouse_body_normal.png" id="5_y47ak"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qbes0"]
-radius = 0.4
+height = 2.3
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3s6tw"]
 render_priority = 2
@@ -56,7 +56,6 @@ script = ExtResource("1_pdq4a")
 face = NodePath("Face")
 head = NodePath("Head")
 body = NodePath("Body")
-glitch_chance = 0.15
 animation_cycle_speed = 1.0
 normal_face_frame_count = 3
 glitched_face_frame_count = 3
@@ -67,15 +66,15 @@ normal_body = ExtResource("5_y47ak")
 glitched_body = ExtResource("4_y47ak")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=696306462]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0)
 shape = SubResource("CylinderShape3D_qbes0")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
 [node name="Face" type="Sprite3D" parent="." unique_id=1575915531]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.796, -0.02)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.076, -0.02)
 material_override = SubResource("ShaderMaterial_3s6tw")
-offset = Vector2(-46.45, 56.42)
-pixel_size = 0.00055
+offset = Vector2(-32.67, 56.42)
+pixel_size = 0.0008
 billboard = 2
 render_priority = 1
 texture = ExtResource("2_pdq4a")
@@ -87,10 +86,10 @@ animation_vframes = 4
 metadata/_custom_type_script = "uid://bjx3cmprqfi4x"
 
 [node name="Head" type="Sprite3D" parent="." unique_id=335742942]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.831, -0.01)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.110516, -0.01)
 material_override = SubResource("ShaderMaterial_iv687")
 offset = Vector2(-50.12, 0)
-pixel_size = 0.00065
+pixel_size = 0.0008
 billboard = 2
 texture = ExtResource("4_6ef63")
 script = ExtResource("3_y47ak")
@@ -99,9 +98,9 @@ animation_vframes = 1
 metadata/_custom_type_script = "uid://bjx3cmprqfi4x"
 
 [node name="Body" type="Sprite3D" parent="." unique_id=2099446628]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.828, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95408636, 0)
 material_override = SubResource("ShaderMaterial_sjbeq")
-pixel_size = 0.0018
+pixel_size = 0.00205
 billboard = 2
 alpha_cut = 1
 texture = ExtResource("5_y47ak")

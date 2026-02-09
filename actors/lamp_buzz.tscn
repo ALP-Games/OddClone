@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://b26rqwp7bd675"]
 
 [ext_resource type="AudioStream" uid="uid://b3xssgfmwohem" path="res://audio/light_buzz_short_loop_mono.ogg" id="1_14khk"]
+[ext_resource type="Script" uid="uid://5du35q3n1fe4" path="res://actors/lamp_buzz.gd" id="2_bkjmb"]
 
 [node name="LampBuzz" type="AudioStreamPlayer3D" unique_id=949132078]
 stream = ExtResource("1_14khk")
+attenuation_model = 1
 volume_db = -15.0
-autoplay = true
-max_distance = 5.0
-panning_strength = 2.0
+unit_size = 4.0
+max_db = 0.0
+script = ExtResource("2_bkjmb")
+start_offset = 18.0

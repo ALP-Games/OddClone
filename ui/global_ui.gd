@@ -10,8 +10,6 @@ extends CanvasLayer
 @onready var button_restart: Button = $LevelEndPrompt/ButtonRestart
 
 @onready var pause_menu: Control = $PauseMenu
-@onready var dialog_ui: Control = $DialogUI
-#@onready var animation_player: AnimationPlayer = $DialogUI/AnimationPlayer
 
 
 func _ready() -> void:
