@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://csb0fe7ebci5h" path="res://scripts/level.gd" id="1_v5uil"]
 [ext_resource type="PackedScene" uid="uid://ngmr7ceqer17" path="res://Assets/LevelLayout/office_layout.tscn" id="2_5722l"]
-[ext_resource type="PackedScene" uid="uid://yxhc6df3321x" path="res://actors/player.tscn" id="3_ilhis"]
 [ext_resource type="PackedScene" uid="uid://b2cxwvtwbjk0y" path="res://actors/npc_karen.tscn" id="4_ep78u"]
 
 [node name="Level0" type="Node3D" unique_id=1951831575]
@@ -14,9 +13,6 @@ metadata/_custom_type_script = "uid://csb0fe7ebci5h"
 
 [node name="Node3D" parent="." unique_id=1610315983 instance=ExtResource("2_5722l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002887249, 0, 0.00018405914)
-
-[node name="Player" parent="." unique_id=757401328 instance=ExtResource("3_ilhis")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38144422, 4.3482666)
 
 [node name="NPC-Karen1" parent="." unique_id=778123170 instance=ExtResource("4_ep78u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7669078, 0, -1.0074084)
@@ -41,3 +37,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1691688, 0, -9.619627)
 
 [node name="NPC-Karen7" parent="." unique_id=138017007 instance=ExtResource("4_ep78u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1872983, 0, -10.962196)
+
+[node name="PlayerSpawner" type="Marker3D" parent="." unique_id=1827906377 groups=["PlayerSpawner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.348)

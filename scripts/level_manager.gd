@@ -1,11 +1,14 @@
 extends Node
 
-@export var levels: Array[PackedScene]
+@export var levels: Array[PackedScene] # maybe need resource for level instead of a scene
+@export var player_scene: PackedScene
 @export var await_time_after_objective := 1.0
 
 var _current_level_id = 0
 
 var _current_level: Level = null
+
+var _player_instance: Player = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,6 +27,15 @@ func _enter_tree() -> void:
 func _level_init() -> void:
 	GlobalUi.disable_level_end()
 	_current_level.level_end.connect(_on_level_end)
+	if _player_instance and get_tree().get_nodes_in_group(Constants.PLAYER_GROUP).size() > 1:
+		_player_instance.queue_free()
+	if not get_tree().get_first_node_in_group(Constants.PLAYER_GROUP):
+		var spawn_pos: Node3D = get_tree().get_first_node_in_group(Constants.P_SPAWNER_GROUP)
+		_player_instance = player_scene.instantiate()
+		get_tree().root.add_child.call_deferred(_player_instance)
+		_player_instance.ready.connect(func()->void:
+			_player_instance.global_position = spawn_pos.global_position,
+			CONNECT_ONE_SHOT)
 
 
 func _next_level() -> void:

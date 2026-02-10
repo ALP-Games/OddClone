@@ -41,6 +41,7 @@ NPC=""
 Level=""
 Player=""
 OfficeLayout=""
+PlayerSpawner=""
 
 [input]
 

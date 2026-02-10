@@ -33,7 +33,21 @@ func _ready() -> void:
 		for npc_index in npcs.size():
 			(npcs[npc_index] as NPC).got_shot.connect(npc_shot.bind(npc_index == bad_npc_index))
 	
+	
 	var player: Player = get_tree().get_first_node_in_group(Constants.PLAYER_GROUP)
+	if player == null:
+		get_tree().root.child_entered_tree.connect(_look_for_player)
+	else:
+		_init_player(player)
+
+
+func _look_for_player(node: Node) -> void:
+	if node is Player:
+		node.ready.connect(func()->void:_init_player(node), CONNECT_ONE_SHOT)
+	get_tree().root.child_entered_tree.disconnect(_look_for_player)
+
+
+func _init_player(player: Player) -> void:
 	player.level_start_init()
 	level_end.connect(player.on_level_end)
 
