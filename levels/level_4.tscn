@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://i05gint3p2jl" path="res://audio/shoot/SCIWeap_Pulserifle_V2.1_Altshot_04.wav" id="6_hokjj"]
 [ext_resource type="AudioStream" uid="uid://4ryoucbxbg52" path="res://audio/footsteps/footstep_laminate-02.ogg" id="7_sc6c1"]
 [ext_resource type="LabelSettings" uid="uid://ch0hb1fbd21rs" path="res://ui/DialogText.tres" id="9_sc6c1"]
+[ext_resource type="Shader" uid="uid://cus5pifvhlvhs" path="res://shaders/ui_disintegrate.gdshader" id="11_04hp8"]
 
 [sub_resource type="Animation" id="Animation_t6q73"]
 length = 0.001
@@ -175,50 +176,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/TextureRect:visible")
+tracks/1/path = NodePath("CanvasLayer/OutroMask:material:shader_parameter/dissolve")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/VBoxContainer:visible")
+tracks/2/path = NodePath("PlayerRotator:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/TextureRect:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/VBoxContainer:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ng40l"]
@@ -250,50 +227,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/TextureRect:visible")
+tracks/2/path = NodePath("CanvasLayer/OutroMask:material:shader_parameter/dissolve")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(19.837984),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"times": PackedFloat32Array(0, 19.67, 20.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/VBoxContainer:visible")
+tracks/3/path = NodePath("PlayerRotator:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(19.837984),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/TextureRect:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(19.838, 20),
+"times": PackedFloat32Array(19.7, 20.66),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/VBoxContainer:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(19.838, 20),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Vector3(0, 0, 0), Vector3(-1.4835298, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_04hp8"]
@@ -304,6 +257,19 @@ _data = {
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_dmnu2"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_ng40l"]
+viewport_path = NodePath("CanvasLayer/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_04hp8"]
+resource_local_to_scene = true
+shader = ExtResource("11_04hp8")
+shader_parameter/some_texture = SubResource("ViewportTexture_ng40l")
+shader_parameter/dissolve = 0.0
+shader_parameter/block_size = 40.0
+shader_parameter/randomness = 0.5
+shader_parameter/glow_color = Color(0.9372549, 0, 0, 1)
+shader_parameter/flicker_intensity = 0.5
+
 [node name="Level4" type="Node3D" unique_id=1951831575]
 script = ExtResource("1_hokjj")
 glitches = false
@@ -312,8 +278,11 @@ metadata/_custom_type_script = "uid://csb0fe7ebci5h"
 [node name="Node3D" parent="." unique_id=1610315983 instance=ExtResource("2_0fd8o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002887249, 0, 0.00018405914)
 
-[node name="Player" parent="." unique_id=757401328 instance=ExtResource("3_s4mq8")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.5421289, -4.7683716e-07, -8.79979)
+[node name="PlayerRotator" type="Node3D" parent="." unique_id=1179155766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5421289, -4.7683716e-07, -8.79979)
+
+[node name="Player" parent="PlayerRotator" unique_id=757401328 instance=ExtResource("3_s4mq8")]
+transform = Transform3D(-1, 0, -1.5099577e-07, 0, 0.9999998, 0, 1.509958e-07, 0, -0.9999998, 0, 0, 0)
 no_movement = true
 
 [node name="NPC" parent="." unique_id=778123170 instance=ExtResource("5_ng40l")]
@@ -356,9 +325,11 @@ autoplay = &"level_animation"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1282889527]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=858250870]
-visible = false
-modulate = Color(0, 0, 0, 0)
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer" unique_id=1060390591]
+size = Vector2i(1920, 1080)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/SubViewport" unique_id=858250870]
+modulate = Color(0, 0, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -367,8 +338,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("CanvasTexture_dmnu2")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1347471390]
-visible = false
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/SubViewport" unique_id=1347471390]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -376,31 +346,31 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer" unique_id=2020378400]
+[node name="Control" type="Control" parent="CanvasLayer/SubViewport/VBoxContainer" unique_id=2020378400]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1829167986]
+[node name="Label" type="Label" parent="CanvasLayer/SubViewport/VBoxContainer" unique_id=1829167986]
 layout_mode = 2
 text = "Thanks For Playing!"
 label_settings = ExtResource("9_sc6c1")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control2" type="Control" parent="CanvasLayer/VBoxContainer" unique_id=1736575496]
+[node name="Control2" type="Control" parent="CanvasLayer/SubViewport/VBoxContainer" unique_id=1736575496]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=42947548]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/SubViewport/VBoxContainer" unique_id=42947548]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=694900309]
+[node name="Control" type="Control" parent="CanvasLayer/SubViewport/VBoxContainer/HBoxContainer" unique_id=694900309]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Art" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1064484655]
+[node name="Art" type="Label" parent="CanvasLayer/SubViewport/VBoxContainer/HBoxContainer" unique_id=1064484655]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Art:
@@ -410,22 +380,31 @@ SirCrackWaffle
 [qasp]"
 label_settings = ExtResource("9_sc6c1")
 
-[node name="Control3" type="Control" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1374721379]
+[node name="Control3" type="Control" parent="CanvasLayer/SubViewport/VBoxContainer/HBoxContainer" unique_id=1374721379]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Programming" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=887275873]
+[node name="Programming" type="Label" parent="CanvasLayer/SubViewport/VBoxContainer/HBoxContainer" unique_id=887275873]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Programming:
 Andrej Lapin"
 label_settings = ExtResource("9_sc6c1")
 
-[node name="Control2" type="Control" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1587305111]
+[node name="Control2" type="Control" parent="CanvasLayer/SubViewport/VBoxContainer/HBoxContainer" unique_id=1587305111]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ControlBottom" type="Control" parent="CanvasLayer/VBoxContainer" unique_id=1210402087]
+[node name="ControlBottom" type="Control" parent="CanvasLayer/SubViewport/VBoxContainer" unique_id=1210402087]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="OutroMask" type="ColorRect" parent="CanvasLayer" unique_id=1134426578]
+material = SubResource("ShaderMaterial_04hp8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
