@@ -40,6 +40,7 @@ folder_colors={
 NPC=""
 Level=""
 Player=""
+OfficeLayout=""
 
 [input]
 
@@ -79,6 +80,7 @@ pause={
 3d_physics/layer_1="Basic"
 3d_physics/layer_2="NPC"
 3d_physics/layer_3="Door"
+3d_physics/layer_4="ElevatorRider"
 
 [physics]
 

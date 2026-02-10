@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://robktqvn7o0f" path="res://Assets/decor/chair-col.glb" id="3_l7f45"]
 [ext_resource type="PackedScene" uid="uid://l4fepv6o30jd" path="res://Assets/decor/clock.glb" id="4_hl4s0"]
 [ext_resource type="PackedScene" uid="uid://bqwf0cjgsxmqs" path="res://Assets/decor/plant.glb" id="4_ulrd6"]
+[ext_resource type="AudioStream" uid="uid://bpfa0b0frc836" path="res://audio/elevator/elevator_door-close2.ogg" id="4_vb6ii"]
 [ext_resource type="Material" uid="uid://bxdoao21bm02" path="res://Assets/LevelLayout/materials/toilet_floor.tres" id="5_kdu4h"]
 [ext_resource type="PackedScene" uid="uid://cp76y3t7lpfys" path="res://Assets/decor/rug.glb" id="6_j0fwr"]
 [ext_resource type="PackedScene" uid="uid://cyy0agsaixk88" path="res://Assets/decor/picture_frame.glb" id="7_5w48u"]
@@ -26,6 +27,12 @@
 [ext_resource type="PackedScene" uid="uid://cwgej05drnx7d" path="res://Assets/decor/doorl_frame-col.glb" id="22_m6ibb"]
 [ext_resource type="Material" uid="uid://bptbfowat2jve" path="res://Assets/LevelLayout/materials/office_wal.tres" id="23_thv7k"]
 [ext_resource type="PackedScene" uid="uid://b26rqwp7bd675" path="res://actors/lamp_buzz.tscn" id="26_f8qqm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vb6ii"]
+size = Vector3(3.1308594, 3.322815, 3.6148682)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qikqs"]
+size = Vector3(2.0810547, 3.322815, 1.4550781)
 
 [sub_resource type="Environment" id="Environment_pksf0"]
 background_mode = 1
@@ -65,10 +72,74 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ElevatorDoorOpen:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ElevatorDoorClose:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_f8qqm"]
+resource_name = "elevator_close"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("office_layout/Lift/Lift_right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.0869876, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("office_layout/Lift/Lift_left:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.0265305, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ElevatorDoorClose:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_thv7k"]
-resource_name = "lift_door"
-length = 2.0
+resource_name = "elevator_open"
+length = 2.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -93,11 +164,24 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(-1.0265305, 0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ElevatorDoorOpen:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f3h27"]
 _data = {
 &"RESET": SubResource("Animation_m6ibb"),
-&"lift_door": SubResource("Animation_thv7k")
+&"elevator_close": SubResource("Animation_f8qqm"),
+&"elevator_open": SubResource("Animation_thv7k")
 }
 
 [sub_resource type="Gradient" id="Gradient_2yrj0"]
@@ -191,8 +275,28 @@ roughness_texture = SubResource("NoiseTexture2D_00j6u")
 uv1_scale = Vector3(0.51, 0.51, 0.51)
 texture_filter = 1
 
-[node name="Node3D" type="Node3D" unique_id=1610315983]
+[node name="OfficeLayout" type="Node3D" unique_id=1610315983 groups=["OfficeLayout"]]
 script = ExtResource("1_7pim8")
+
+[node name="ElevatorExitArea" type="Area3D" parent="." unique_id=752134270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049288273, 0, 4.222484)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ElevatorExitArea" unique_id=1614158022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6463318, -0.70977783)
+shape = SubResource("BoxShape3D_vb6ii")
+debug_color = Color(0.9911346, 0, 0.26344946, 1)
+
+[node name="ElevatorEnterArea" type="Area3D" parent="." unique_id=76682747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049288273, 0, 4.222484)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ElevatorEnterArea" unique_id=1338118202]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6463318, 0.1862874)
+shape = SubResource("BoxShape3D_qikqs")
+debug_color = Color(0, 0.6, 0.69803923, 1)
 
 [node name="ElevatorJingle" parent="." unique_id=1137616755 instance=ExtResource("2_f8qqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0295508, 4.2670255)
@@ -200,6 +304,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0295508, 4.2670255)
 [node name="ElevatorDoorOpen" type="AudioStreamPlayer3D" parent="." unique_id=45262485]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5095298, 3.090458)
 stream = ExtResource("3_f3h27")
+volume_db = -17.0
+
+[node name="ElevatorDoorClose" type="AudioStreamPlayer3D" parent="." unique_id=1645176766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5095298, 3.090458)
+stream = ExtResource("4_vb6ii")
 volume_db = -17.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1417747881]

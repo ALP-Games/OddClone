@@ -34,6 +34,7 @@ func _ready() -> void:
 			(npcs[npc_index] as NPC).got_shot.connect(npc_shot.bind(npc_index == bad_npc_index))
 	
 	var player: Player = get_tree().get_first_node_in_group(Constants.PLAYER_GROUP)
+	player.level_start_init()
 	level_end.connect(player.on_level_end)
 
 
@@ -43,11 +44,26 @@ func _update_npc_glitch_ranged(npc: NPC) -> void:
 
 
 func npc_shot(enemy: bool) -> void:
-	# TODO: if enemy -> tell to go to the elevator to finish
-	# emit level_end in the elevator if victory
-	# if non enemy was shot emit level_end false
-	level_end.emit(enemy)
-	#if enemy:
-		#level_won.emit()
-	#else:
-		#level_lost.emit()
+	if enemy:
+		# TODO: if enemy -> tell to go to the elevator to finish
+		# emit level_end in the elevator if victory
+		var office_layout: OfficeLayout = get_tree().get_first_node_in_group(Constants.OFFICE_GROUP)
+		var player: Player = get_tree().get_first_node_in_group(Constants.PLAYER_GROUP)
+		player.disable_shoot = true
+		office_layout.open_evelvator()
+		if office_layout.check_elevator().size() > 0:
+			# TODO: display job well done text
+			_on_level_beaten()
+		else:
+			# TODO: display job done and return to elevator
+			office_layout.elevator_user_entered.connect(func(_node)->void:_on_level_beaten(), CONNECT_ONE_SHOT)
+	else:
+		# if non enemy was shot emit level_end false
+		# TODO: display level failed dialogue
+		level_end.emit(enemy)
+
+
+func _on_level_beaten() -> void:
+	var office_layout: OfficeLayout = get_tree().get_first_node_in_group(Constants.OFFICE_GROUP)
+	office_layout.close_elevator()
+	office_layout.elevator_closed.connect(func()->void: level_end.emit(true), CONNECT_ONE_SHOT)

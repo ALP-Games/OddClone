@@ -30,6 +30,7 @@ var controls_disabled := false
 var rotation_accumulation := Vector2.ZERO
 var _elapsed_footstep	: float = 0.0
 
+var disable_shoot := false
 var _interpolated_position: Vector3
 
 
@@ -43,8 +44,14 @@ func _ready() -> void:
 	shot_timer.one_shot = true
 
 
+func level_start_init() -> void:
+	gameplay_ui.disable_ui(false)
+	controls_disabled = false
+	disable_shoot = false
+
+
 func on_level_end(_won: bool) -> void:
-	gameplay_ui.disable_ui()
+	gameplay_ui.disable_ui(true)
 	controls_disabled = true
 
 
@@ -65,6 +72,20 @@ func _head_rotation() -> void:
 		head.rotate_x(rotation_accumulation.y)
 		head.rotation.x = clamp(head.rotation.x, -max_pitch_degrees, max_pitch_degrees)
 	rotation_accumulation = Vector2.ZERO
+
+
+func _process_shoot() -> void:
+	if Input.is_action_just_pressed("shoot") and is_zero_approx(shot_timer.time_left):
+		var sound_index := randi_range(0, shoot_sounds.size() - 1)
+		shoot_sound.stream = shoot_sounds[sound_index]
+		shoot_sound.play()
+		raycast.force_raycast_update()
+		shot_timer.start(shot_delay)
+		
+		AnimP.play("Bang")
+		var collider := raycast.get_collider()
+		if collider:
+			(collider as NPC).get_shot()
 
 
 func _process(_delta: float) -> void:
@@ -102,17 +123,8 @@ func _process_controls() -> void:
 	if no_movement:
 		return
 	
-	if Input.is_action_just_pressed("shoot") and is_zero_approx(shot_timer.time_left):
-		var sound_index := randi_range(0, shoot_sounds.size() - 1)
-		shoot_sound.stream = shoot_sounds[sound_index]
-		shoot_sound.play()
-		raycast.force_raycast_update()
-		shot_timer.start(shot_delay)
-		
-		AnimP.play("Bang")
-		var collider := raycast.get_collider()
-		if collider:
-			(collider as NPC).get_shot()
+	if not disable_shoot:
+		_process_shoot()
 		
 		#print("Shot - ", collider.name)
 

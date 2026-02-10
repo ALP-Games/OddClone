@@ -10,5 +10,5 @@ func _ready() -> void:
 	animation_player.play("shoot")
 
 
-func disable_ui() -> void:
-	croshair.visible = false
+func disable_ui(disable: bool) -> void:
+	croshair.visible = not disable

@@ -11,6 +11,9 @@
 [ext_resource type="LabelSettings" uid="uid://ch0hb1fbd21rs" path="res://ui/DialogText.tres" id="9_sc6c1"]
 [ext_resource type="Shader" uid="uid://cus5pifvhlvhs" path="res://shaders/ui_disintegrate.gdshader" id="11_04hp8"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_ng40l"]
+radius = 0.3
+
 [sub_resource type="Animation" id="Animation_t6q73"]
 length = 0.001
 tracks/0/type = "value"
@@ -305,6 +308,13 @@ alpha_cut = 1
 texture = ExtResource("5_t6q73")
 hframes = 4
 vframes = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Executioner" unique_id=1660127127]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Executioner/StaticBody3D" unique_id=1620742693]
+shape = SubResource("SphereShape3D_ng40l")
 
 [node name="Footstep1" type="AudioStreamPlayer3D" parent="Executioner" unique_id=1739595562]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6532338, -1.1169232, 7.554039)

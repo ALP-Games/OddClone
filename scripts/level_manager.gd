@@ -36,17 +36,18 @@ func _restart_level() -> void:
 
 
 func _on_level_end(won: bool) -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	await get_tree().create_timer(await_time_after_objective).timeout
 	if won:
 		_level_won()
 	else:
+		await get_tree().create_timer(await_time_after_objective).timeout
 		_level_lost()
 
 
 func _level_won() -> void:
-	GlobalUi.enable_level_won()
+	#GlobalUi.enable_level_won()
+	_next_level()
 
 
 func _level_lost() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	GlobalUi.enable_level_lost()
