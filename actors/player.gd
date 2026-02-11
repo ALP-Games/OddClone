@@ -61,6 +61,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _head_rotation() -> void:
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: 
+		return
 	if head_max_rotation_units.x > 0:
 			# rotate the body
 		rotate_y(clamp(rotation_accumulation.x, -head_max_rotation_units.x, head_max_rotation_units.x))
@@ -75,7 +77,12 @@ func _head_rotation() -> void:
 
 
 func _process_shoot() -> void:
-	if Input.is_action_just_pressed("shoot") and is_zero_approx(shot_timer.time_left):
+	if not Input.is_action_just_pressed("shoot"):
+		return
+	elif Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:  # capture for web on click
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		return
+	elif is_zero_approx(shot_timer.time_left):
 		var sound_index := randi_range(0, shoot_sounds.size() - 1)
 		shoot_sound.stream = shoot_sounds[sound_index]
 		shoot_sound.play()
