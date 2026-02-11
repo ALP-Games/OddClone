@@ -10,6 +10,8 @@ var _current_level: Level = null
 
 var _player_instance: Player = null
 
+var _level_restarting = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GlobalUi.button_next_level.pressed.connect(_next_level)
@@ -27,15 +29,16 @@ func _enter_tree() -> void:
 func _level_init() -> void:
 	GlobalUi.disable_level_end()
 	_current_level.level_end.connect(_on_level_end)
-	if _player_instance and get_tree().get_nodes_in_group(Constants.PLAYER_GROUP).size() > 1:
+	if _player_instance and get_tree().get_node_count_in_group(Constants.PLAYER_GROUP) > 1:
 		_player_instance.queue_free()
-	if not get_tree().get_first_node_in_group(Constants.PLAYER_GROUP):
+	elif not get_tree().get_first_node_in_group(Constants.PLAYER_GROUP) or _level_restarting:
 		var spawn_pos: Node3D = get_tree().get_first_node_in_group(Constants.P_SPAWNER_GROUP)
 		_player_instance = player_scene.instantiate()
 		get_tree().root.add_child.call_deferred(_player_instance)
 		_player_instance.ready.connect(func()->void:
 			_player_instance.global_position = spawn_pos.global_position,
 			CONNECT_ONE_SHOT)
+	_level_restarting = false
 
 
 func _next_level() -> void:
@@ -44,7 +47,9 @@ func _next_level() -> void:
 
 
 func _restart_level() -> void:
-	get_tree().reload_current_scene()
+	get_tree().reload_current_scene.call_deferred()
+	_player_instance.queue_free()
+	_level_restarting = true
 
 
 func _on_level_end(won: bool) -> void:
@@ -63,3 +68,5 @@ func _level_won() -> void:
 func _level_lost() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	GlobalUi.enable_level_lost()
+	if _player_instance:
+		_player_instance.on_level_end(false)
