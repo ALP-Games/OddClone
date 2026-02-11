@@ -14,6 +14,7 @@ signal level_end(won: bool)
 @export var end_glitch_period_min: int = 2
 @export var end_glitch_period_max: int = 4
 
+@export var _level_intro_dialogue: DialogueRes = null
 
 var _shown_glitches: int = 0
 
@@ -33,12 +34,14 @@ func _ready() -> void:
 		for npc_index in npcs.size():
 			(npcs[npc_index] as NPC).got_shot.connect(npc_shot.bind(npc_index == bad_npc_index))
 	
-	
 	var player: Player = get_tree().get_first_node_in_group(Constants.PLAYER_GROUP)
 	if player == null:
 		get_tree().root.child_entered_tree.connect(_look_for_player)
 	else:
 		_init_player(player)
+	
+	if _level_intro_dialogue:
+		DialogueLayer.display_dialogue(_level_intro_dialogue)
 
 
 func _look_for_player(node: Node) -> void:

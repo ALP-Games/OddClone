@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogueRes" format=3 uid="uid://5rdojya5ett3"]
+
+[ext_resource type="Script" uid="uid://cesc8j6rcirsw" path="res://scripts/dialogue_res.gd" id="1_qovff"]
+
+[resource]
+script = ExtResource("1_qovff")
+dialogue_text = "Officer, this is HQ. You should be arriving at ALP Inc. shortly. 
+Dispatch reports a broken replicant is hiding amongst the office employees."
+characters_over_time = 20.0
+wait_before_start = 2.0
+metadata/_custom_type_script = "uid://cesc8j6rcirsw"

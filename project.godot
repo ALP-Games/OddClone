@@ -32,6 +32,8 @@ window/stretch/aspect="keep_height"
 [file_customization]
 
 folder_colors={
+"res://globals/": "purple",
+"res://scripts/": "pink",
 "res://ui/": "green"
 }
 

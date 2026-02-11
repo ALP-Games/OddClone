@@ -4,7 +4,7 @@
 
 [resource]
 font = ExtResource("1_ih4bi")
-font_size = 24
+font_size = 32
 font_color = Color(0.793484, 1, 0.78342503, 1)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.47843137)
