@@ -15,8 +15,9 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_cp522"]
 
-[node name="Player" type="CharacterBody3D" unique_id=757401328 node_paths=PackedStringArray("head", "raycast") groups=["Player"]]
+[node name="Player" type="CharacterBody3D" unique_id=757401328 node_paths=PackedStringArray("body", "head", "raycast")]
 script = ExtResource("1_be2nh")
+body = NodePath(".")
 head = NodePath("Head")
 raycast = NodePath("Head/RayCast3D")
 shoot_sounds = Array[AudioStreamWAV]([ExtResource("2_mckeo"), ExtResource("3_qh87v"), ExtResource("4_0axhw"), ExtResource("5_og7jd")])

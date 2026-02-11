@@ -1,5 +1,6 @@
 class_name Player extends CharacterBody3D
 
+@export var body: Node3D
 @export var head: Node3D
 @export var raycast: RayCast3D
 @export_range(0, 180, 0.001, "radians_as_degrees") var max_pitch_degrees: float = deg_to_rad(60)
@@ -55,9 +56,13 @@ func on_level_end(_won: bool) -> void:
 	controls_disabled = true
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotation_accumulation -= event.relative * sensitivity
+		
+#func _unhandled_input(event: InputEvent) -> void:
+	#if event is InputEventMouseMotion:
+		#rotation_accumulation -= event.relative * sensitivity
 
 
 func _head_rotation() -> void:
@@ -65,9 +70,9 @@ func _head_rotation() -> void:
 		return
 	if head_max_rotation_units.x > 0:
 			# rotate the body
-		rotate_y(clamp(rotation_accumulation.x, -head_max_rotation_units.x, head_max_rotation_units.x))
+		body.rotate_y(clamp(rotation_accumulation.x, -head_max_rotation_units.x, head_max_rotation_units.x))
 	else:
-		rotate_y(rotation_accumulation.x)
+		body.rotate_y(rotation_accumulation.x)
 	if head_max_rotation_units.y > 0:
 		head.rotate_x(clamp(rotation_accumulation.y, -head_max_rotation_units.y, head_max_rotation_units.y))
 	else:

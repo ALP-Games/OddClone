@@ -12,12 +12,14 @@
 [ext_resource type="AudioStream" uid="uid://by5momy6hnb22" path="res://audio/footsteps/footstep_laminate-04.ogg" id="5_rkwqa"]
 [ext_resource type="AudioStream" uid="uid://sasdd1itl7bt" path="res://audio/footsteps/footstep_laminate-05.ogg" id="6_41w2c"]
 [ext_resource type="AudioStream" uid="uid://cpedgh2lubrwf" path="res://audio/footsteps/footstep_laminate-06.ogg" id="7_5nkr1"]
+[ext_resource type="Texture2D" uid="uid://y2klhqqiydfg" path="res://Assets/npc/FOXYGUY-WALK_AND_SHOOT.png" id="13_5nkr1"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_cp522"]
 
-[node name="Player" type="CharacterBody3D" unique_id=757401328 node_paths=PackedStringArray("head", "raycast") groups=["Player"]]
+[node name="Player" type="CharacterBody3D" unique_id=757401328 node_paths=PackedStringArray("body", "head", "raycast") groups=["Player"]]
 collision_layer = 9
 script = ExtResource("1_niuxy")
+body = NodePath(".")
 head = NodePath("Head")
 raycast = NodePath("Head/RayCast3D")
 shoot_sounds = Array[AudioStreamWAV]([ExtResource("2_41w2c"), ExtResource("3_5nkr1"), ExtResource("4_31m4k"), ExtResource("5_opp7g")])
@@ -48,3 +50,13 @@ unique_name_in_owner = true
 [node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1583363929]
 
 [node name="ShotTimer" type="Timer" parent="." unique_id=77636046]
+
+[node name="Executioner" type="Sprite3D" parent="." unique_id=1608079827]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.117, 0)
+pixel_size = 0.0025
+billboard = 2
+alpha_cut = 1
+texture = ExtResource("13_5nkr1")
+hframes = 4
+vframes = 2
+frame = 2
