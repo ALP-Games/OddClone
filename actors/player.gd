@@ -46,9 +46,17 @@ func _ready() -> void:
 
 
 func level_start_init() -> void:
+	AnimP.play("ready")
 	gameplay_ui.disable_ui(false)
 	controls_disabled = false
 	disable_shoot = false
+
+
+func on_npc_shot() -> void:
+	disable_shoot = true
+	gameplay_ui.disable_ui(true)
+	await get_tree().create_timer(1.5).timeout
+	AnimP.play("holster")
 
 
 func on_level_end(_won: bool) -> void:
@@ -96,7 +104,8 @@ func _process_shoot() -> void:
 		
 		AnimP.play("Bang")
 		var collider := raycast.get_collider()
-		if collider:
+		if collider is NPC:
+			on_npc_shot()
 			(collider as NPC).get_shot()
 
 

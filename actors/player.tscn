@@ -36,7 +36,7 @@ current = true
 
 [node name="RayCast3D" type="RayCast3D" parent="Head" unique_id=612811798]
 target_position = Vector3(0, 0, -100)
-collision_mask = 2
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=122466643]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
