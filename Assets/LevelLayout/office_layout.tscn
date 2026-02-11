@@ -123,7 +123,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-1.0265305, 0, 0), Vector3(0, 0, 0)]
+"values": [Vector3(-1.0265305, 0, 0), Vector3(0.007, 0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -163,7 +163,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-1.0265305, 0, 0)]
+"values": [Vector3(0.007, 0, 0), Vector3(-1.0265305, 0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -348,17 +348,17 @@ spot_angle = 78.66998
 [node name="office_layout" parent="." unique_id=1408482873 instance=ExtResource("2_6prn3")]
 metadata/_edit_lock_ = true
 
-[node name="Office_layout" parent="office_layout" index="0" unique_id=1534242322]
+[node name="Office_layout" parent="office_layout" index="0" unique_id=341924421]
 surface_material_override/7 = ExtResource("3_7rv5h")
 metadata/_edit_lock_ = true
 
-[node name="StaticBody3D" parent="office_layout/Office_layout" index="0" unique_id=1268298116]
+[node name="StaticBody3D" parent="office_layout/Office_layout" index="0" unique_id=439900680]
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D" parent="office_layout/Office_layout/StaticBody3D" index="0" unique_id=245575062]
+[node name="CollisionShape3D" parent="office_layout/Office_layout/StaticBody3D" index="0" unique_id=804115811]
 metadata/_edit_lock_ = true
 
-[node name="Lift" parent="office_layout" index="1" unique_id=2030038256]
+[node name="Lift" parent="office_layout" index="1" unique_id=428347611]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.061842203, 0, 3.0633216)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="office_layout/Lift" index="2" unique_id=2100630159]

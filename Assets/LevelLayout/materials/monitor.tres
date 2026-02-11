@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://celexdlr6qtcu"]
+
+[ext_resource type="Texture2D" uid="uid://4bct63fowi5e" path="res://Assets/Textures/extra/sratches.png" id="1_i0x3p"]
+
+[resource]
+resource_name = "metal"
+diffuse_mode = 1
+albedo_color = Color(0.17330214, 0.18890435, 0.12548503, 1)
+metallic = 0.2
+metallic_specular = 0.45
+roughness_texture = ExtResource("1_i0x3p")
+rim_enabled = true
+rim_tint = 0.0
+clearcoat_enabled = true
+clearcoat = 0.32
+clearcoat_roughness = 0.07
+anisotropy_enabled = true
+anisotropy = -0.72
+uv1_scale = Vector3(0.51, 0.51, 0.51)
+texture_filter = 1
