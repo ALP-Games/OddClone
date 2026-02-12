@@ -35,6 +35,9 @@ func _ready() -> void:
 	elevator_enter_area.body_entered.connect(func(node: Node3D)->void:elevator_user_entered.emit(node))
 	elevator_enter_area.body_entered.connect(func(_n)->void:open_evelvator())
 	elevator_exit_area.body_exited.connect(func(_n)->void:close_elevator())
+
+
+func elevator_arrive() -> void:
 	await get_tree().create_timer(arrival_delay).timeout
 	elevator_jingle.play()
 	await get_tree().create_timer(delay_after_jingle).timeout

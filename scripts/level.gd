@@ -42,6 +42,9 @@ func _ready() -> void:
 	
 	if _level_intro_dialogue:
 		DialogueLayer.display_dialogue(_level_intro_dialogue)
+	
+	var office: OfficeLayout = get_tree().get_first_node_in_group(Constants.OFFICE_GROUP)
+	office.elevator_arrive()
 
 
 func _look_for_player(node: Node) -> void:
