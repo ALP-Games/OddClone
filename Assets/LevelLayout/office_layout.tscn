@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cyy0agsaixk88" path="res://Assets/decor/picture_frame.glb" id="7_5w48u"]
 [ext_resource type="PackedScene" uid="uid://dl7c4uqnuadvu" path="res://Assets/decor/picure.glb" id="8_nh6cx"]
 [ext_resource type="Texture2D" uid="uid://dmyg5pde4uju7" path="res://Assets/Textures/game_ilustration.jpg" id="8_ulrd6"]
+[ext_resource type="Material" uid="uid://d3wyg8mnigdfu" path="res://Assets/LevelLayout/materials/black.tres" id="9_qikqs"]
 [ext_resource type="PackedScene" uid="uid://cn6evyk00wx3q" path="res://Assets/decor/pot-col.glb" id="11_m6ibb"]
 [ext_resource type="PackedScene" uid="uid://bvfbu8v4jrb6" path="res://Assets/decor/mirror.glb" id="13_h3th1"]
 [ext_resource type="PackedScene" uid="uid://dfdbgi4x7q75a" path="res://Assets/decor/mirror_frame.glb" id="14_b71pw"]
@@ -217,14 +218,6 @@ albedo_color = Color(0.654232, 0.6542321, 0.65423197, 1)
 uv1_scale = Vector3(0.51, 0.51, 0.51)
 texture_filter = 1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t24is"]
-resource_name = "metal"
-diffuse_mode = 1
-albedo_color = Color(0.12225226, 0.12225223, 0.12225217, 1)
-roughness_texture = SubResource("NoiseTexture2D_00j6u")
-uv1_scale = Vector3(0.51, 0.51, 0.51)
-texture_filter = 1
-
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6iajb"]
 width = 178
 height = 13
@@ -419,10 +412,15 @@ surface_material_override/1 = SubResource("StandardMaterial3D_qaq6i")
 [node name="clock2" parent="decor" unique_id=1919749140 instance=ExtResource("4_hl4s0")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.20634907, 2.4885783, -11.022001)
 
-[node name="clock" parent="decor/clock2" index="0" unique_id=162366450]
+[node name="clock" parent="decor/clock2" index="0" unique_id=1561300481]
 transform = Transform3D(-2.8193845e-08, 0, 0.6449999, 0, 0.6449999, 0, -0.6449999, 0, -2.8193845e-08, 3.5092573, 0.2533481, -7.009854)
-surface_material_override/1 = SubResource("StandardMaterial3D_t24is")
-surface_material_override/2 = ExtResource("3_7rv5h")
+surface_material_override/1 = ExtResource("9_qikqs")
+
+[node name="clock_hours" parent="decor/clock2/clock" index="0" unique_id=1249466570]
+surface_material_override/0 = ExtResource("9_qikqs")
+
+[node name="clock_min" parent="decor/clock2/clock" index="1" unique_id=127044131]
+surface_material_override/0 = ExtResource("9_qikqs")
 
 [node name="mirror_frame2" parent="decor" unique_id=565202422 instance=ExtResource("14_b71pw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0814877, 1.9964056, -4.358739)
