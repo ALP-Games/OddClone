@@ -33,8 +33,11 @@ var _elevator_state := ElevatorState.CLOSED:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	elevator_enter_area.body_entered.connect(func(node: Node3D)->void:elevator_user_entered.emit(node))
-	elevator_enter_area.body_entered.connect(func(_n)->void:open_evelvator())
 	elevator_exit_area.body_exited.connect(func(_n)->void:close_elevator())
+	
+	# hack
+	await get_tree().create_timer(1.0).timeout
+	elevator_enter_area.body_entered.connect(func(_n)->void:open_evelvator())
 
 
 func elevator_arrive() -> void:

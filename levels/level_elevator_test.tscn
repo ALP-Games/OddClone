@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bqjw08d6jgb1l"]
+
+[ext_resource type="Script" uid="uid://c0nhofelip04i" path="res://scripts/level_elevator_test.gd" id="1_ynipm"]
+[ext_resource type="Resource" uid="uid://5rdojya5ett3" path="res://resources/intro_dialogue.tres" id="2_hhrqs"]
+[ext_resource type="PackedScene" uid="uid://ngmr7ceqer17" path="res://Assets/LevelLayout/office_layout.tscn" id="3_0nuwg"]
+[ext_resource type="PackedScene" uid="uid://ctgu2mirtg7f2" path="res://actors/npc.tscn" id="4_f6w36"]
+[ext_resource type="Script" uid="uid://dnji2ykos32cr" path="res://scripts/door.gd" id="5_wti6r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yi3jx"]
+albedo_color = Color(0.45431268, 0.26077116, 0.067287065, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yi3jx"]
+size = Vector3(0.17382813, 2.8117676, 1.7728271)
+
+[node name="Level0" type="Node3D" unique_id=1951831575]
+script = ExtResource("1_ynipm")
+glitch_step = 3
+starting_glitch_period_min = 13
+starting_glitch_period_max = 15
+_level_intro_dialogue = ExtResource("2_hhrqs")
+metadata/_custom_type_script = "uid://csb0fe7ebci5h"
+
+[node name="Node3D" parent="." unique_id=1610315983 instance=ExtResource("3_0nuwg")]
+
+[node name="PlayerSpawner" type="Marker3D" parent="." unique_id=1723050025 groups=["PlayerSpawner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.348)
+
+[node name="NPC" parent="." unique_id=778123170 instance=ExtResource("4_f6w36")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.452, 0, -2.228)
+
+[node name="NPC2" parent="." unique_id=1387476001 instance=ExtResource("4_f6w36")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.002, 0, -4.074)
+
+[node name="NPC3" parent="." unique_id=238367860 instance=ExtResource("4_f6w36")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5400571, 0, -1.9261796)
+
+[node name="NPC4" parent="." unique_id=1893201254 instance=ExtResource("4_f6w36")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5683182, 0, -4.0945807)
+
+[node name="NPC5" parent="." unique_id=1983030846 instance=ExtResource("4_f6w36")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1644615, 0, -7.8078356)
+
+[node name="Door" type="StaticBody3D" parent="." unique_id=1733826867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.900698, 1.4132283, -7.1811643)
+visible = false
+script = ExtResource("5_wti6r")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Door" unique_id=1822994046]
+size = Vector3(0.17459106, 2.8218994, 1.7714844)
+material = SubResource("StandardMaterial3D_yi3jx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door" unique_id=1555545008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0037841797, -0.006652832)
+shape = SubResource("BoxShape3D_yi3jx")
+disabled = true
