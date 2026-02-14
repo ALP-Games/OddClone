@@ -37,19 +37,6 @@ size = Vector3(3.1308594, 3.322815, 3.6148682)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qikqs"]
 size = Vector3(2.0810547, 3.322815, 1.4550781)
 
-[sub_resource type="Environment" id="Environment_pksf0"]
-background_mode = 1
-background_color = Color(0.46446896, 0.5260276, 0.46351516, 1)
-background_energy_multiplier = 0.34
-tonemap_agx_contrast = 1.33
-ssao_enabled = true
-ssao_radius = 6.22
-ssao_intensity = 8.41
-glow_intensity = 0.65
-glow_hdr_scale = 0.0
-fog_mode = 1
-fog_density = 1.0
-
 [sub_resource type="Animation" id="Animation_m6ibb"]
 length = 0.001
 tracks/0/type = "value"
@@ -188,6 +175,19 @@ _data = {
 &"elevator_open": SubResource("Animation_thv7k")
 }
 
+[sub_resource type="Environment" id="Environment_pksf0"]
+background_mode = 1
+background_color = Color(0.46446896, 0.5260276, 0.46351516, 1)
+background_energy_multiplier = 0.34
+tonemap_agx_contrast = 1.33
+ssao_enabled = true
+ssao_radius = 6.22
+ssao_intensity = 8.41
+glow_intensity = 0.65
+glow_hdr_scale = 0.0
+fog_mode = 1
+fog_density = 1.0
+
 [sub_resource type="Gradient" id="Gradient_2yrj0"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.20833333, 0.46130952, 0.6931818)
@@ -294,6 +294,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6463318, 0.1862874)
 shape = SubResource("BoxShape3D_qikqs")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2100630159]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_f3h27")
+
 [node name="ElevatorJingle" parent="." unique_id=1137616755 instance=ExtResource("2_f8qqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0295508, 4.2670255)
 
@@ -346,19 +350,15 @@ light_color = Color(0.72617555, 0.86601955, 0.78895664, 1)
 light_energy = 3.095
 spot_angle = 78.66998
 
-[node name="office_layout" parent="." unique_id=2008245760 instance=ExtResource("2_6prn3")]
+[node name="office_layout" parent="." unique_id=1221243078 instance=ExtResource("2_6prn3")]
 
-[node name="Lift" parent="office_layout" index="1" unique_id=570199565]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.061842203, 0, 3.0633216)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="office_layout/Lift" index="2" unique_id=2100630159]
-root_node = NodePath("../../..")
-libraries/ = SubResource("AnimationLibrary_f3h27")
-
-[node name="Office_lift" parent="office_layout" index="2" unique_id=522458356]
+[node name="Office_lift" parent="office_layout" index="1" unique_id=1015008325]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.126125)
 surface_material_override/0 = ExtResource("3_7rv5h")
 surface_material_override/1 = ExtResource("3_7rv5h")
+
+[node name="Lift" parent="office_layout/Office_lift" index="0" unique_id=760392915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050665617, 0, -1.0755072)
 
 [node name="decor" type="Node3D" parent="." unique_id=1324599343]
 
