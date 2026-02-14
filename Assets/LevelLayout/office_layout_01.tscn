@@ -455,17 +455,18 @@ light_color = Color(0.72617555, 0.86601955, 0.78895664, 1)
 light_energy = 3.095
 spot_angle = 78.66998
 
-[node name="office_layout" parent="." unique_id=1648963197 instance=ExtResource("5_gbydb")]
+[node name="office_layout" parent="." unique_id=2008245760 instance=ExtResource("5_gbydb")]
 
-[node name="Office_layout" parent="office_layout" index="0" unique_id=341924421]
-surface_material_override/7 = ExtResource("6_nmrmw")
-
-[node name="Lift" parent="office_layout" index="1" unique_id=428347611]
+[node name="Lift" parent="office_layout" index="1" unique_id=570199565]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.061842203, 0, 3.0633216)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="office_layout/Lift" index="1" unique_id=2100630159]
 root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_f3h27")
+
+[node name="Office_lift" parent="office_layout" index="2" unique_id=522458356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.14101)
+material_override = ExtResource("6_nmrmw")
 
 [node name="decor" type="Node3D" parent="." unique_id=1324599343]
 
@@ -528,14 +529,14 @@ surface_material_override/1 = SubResource("StandardMaterial3D_qaq6i")
 [node name="clock2" parent="decor" unique_id=1658541777 instance=ExtResource("8_cmenu")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.20634907, 2.4885783, -11.022001)
 
-[node name="clock" parent="decor/clock2" index="0" unique_id=706527708]
+[node name="clock" parent="decor/clock2" index="0" unique_id=359571319]
 transform = Transform3D(-2.8193845e-08, 0, 0.6449999, 0, 0.6449999, 0, -0.6449999, 0, -2.8193845e-08, 3.5092573, 0.2533481, -7.009854)
 surface_material_override/1 = SubResource("StandardMaterial3D_t24is")
 
-[node name="clock_hours" parent="decor/clock2/clock" index="0" unique_id=1064279781]
+[node name="clock_hours" parent="decor/clock2/clock" index="0" unique_id=2111344881]
 material_override = ExtResource("9_cmenu")
 
-[node name="clock_min" parent="decor/clock2/clock" index="1" unique_id=760742193]
+[node name="clock_min" parent="decor/clock2/clock" index="1" unique_id=714607871]
 material_override = ExtResource("9_cmenu")
 
 [node name="mirror_frame2" parent="decor" unique_id=565202422 instance=ExtResource("9_28ntp")]
