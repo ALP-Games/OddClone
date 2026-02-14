@@ -43,6 +43,7 @@ func _ready() -> void:
 	if _level_intro_dialogue:
 		DialogueLayer.display_dialogue(_level_intro_dialogue)
 	
+	await get_tree().create_timer(0.5).timeout
 	var office: OfficeLayout = get_tree().get_first_node_in_group(Constants.OFFICE_GROUP)
 	office.elevator_arrive()
 
