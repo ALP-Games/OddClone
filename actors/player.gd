@@ -54,14 +54,15 @@ func level_start_init() -> void:
 
 func on_npc_shot() -> void:
 	disable_shoot = true
-	gameplay_ui.disable_ui(true)
+	#gameplay_ui.disable_ui(true)
 	await get_tree().create_timer(1.5).timeout
 	AnimP.play("holster")
 
 
-func on_level_end(_won: bool) -> void:
-	gameplay_ui.disable_ui(true)
-	controls_disabled = true
+func on_level_end(won: bool) -> void:
+	if not won:
+		controls_disabled = true
+	#gameplay_ui.disable_ui(true)
 
 
 func _input(event: InputEvent) -> void:

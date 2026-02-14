@@ -5,6 +5,7 @@ signal level_end(won: bool)
 #signal level_won
 #signal level_lost
 
+@export var elevator_travel_time: float = 7.0
 @export var glitches: bool = true
 @export var glitch_step: int = 5
 @export_subgroup("Starting glitch period")
@@ -45,7 +46,8 @@ func _ready() -> void:
 	
 	await get_tree().create_timer(0.5).timeout
 	var office: OfficeLayout = get_tree().get_first_node_in_group(Constants.OFFICE_GROUP)
-	office.elevator_arrive()
+	office.open_elevator()
+	#office.elevator_arrive()
 
 
 func _look_for_player(node: Node) -> void:
@@ -71,7 +73,8 @@ func npc_shot(enemy: bool) -> void:
 		var office_layout: OfficeLayout = get_tree().get_first_node_in_group(Constants.OFFICE_GROUP)
 		var player: Player = get_tree().get_first_node_in_group(Constants.PLAYER_GROUP)
 		player.disable_shoot = true
-		office_layout.open_evelvator()
+		office_layout.open_elevator()
+		office_layout.disable_elevator_enter_check()
 		if office_layout.check_elevator().size() > 0:
 			# TODO: display job well done text
 			_on_level_beaten()
@@ -87,4 +90,10 @@ func npc_shot(enemy: bool) -> void:
 func _on_level_beaten() -> void:
 	var office_layout: OfficeLayout = get_tree().get_first_node_in_group(Constants.OFFICE_GROUP)
 	office_layout.close_elevator()
-	office_layout.elevator_closed.connect(func()->void: level_end.emit(true), CONNECT_ONE_SHOT)
+	office_layout.elevator_closed.connect(func()->void:
+		office_layout.elevator_work()
+		await get_tree().create_timer(elevator_travel_time).timeout
+		office_layout.elevator_arrive()
+		await get_tree().create_timer(2.0).timeout
+		level_end.emit(true)
+		, CONNECT_ONE_SHOT)

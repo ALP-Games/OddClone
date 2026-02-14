@@ -13,8 +13,8 @@ signal elevator_opened
 @onready var elevator_exit_area: Area3D = $ElevatorExitArea
 @onready var elevator_enter_area: Area3D = $ElevatorEnterArea
 
-@export var arrival_delay: float = 0.2
-@export var delay_after_jingle: float = 0.5
+@export var arrival_delay: float = 0.5
+@export var delay_after_jingle: float = 0.75
 
 enum ElevatorState{
 	CLOSED,
@@ -39,7 +39,7 @@ func _ready() -> void:
 	
 	# hack
 	await get_tree().create_timer(1.0).timeout
-	elevator_enter_area.body_entered.connect(func(_n)->void:open_evelvator())
+	elevator_enable_enter_check()
 
 
 func elevator_work() -> void:
@@ -48,7 +48,7 @@ func elevator_work() -> void:
 	extended_camera.set_shake(0.025)
 	extended_camera.enable_shake(0.005, 0.05)
 	elevator_working.play()
-
+ 
 
 func elevator_arrive() -> void:
 	elevator_working.stop()
@@ -58,15 +58,15 @@ func elevator_arrive() -> void:
 	extended_camera.disable_shake()
 	await get_tree().create_timer(arrival_delay).timeout
 	elevator_jingle.play()
-	await get_tree().create_timer(delay_after_jingle).timeout
-	open_evelvator()
+	#await get_tree().create_timer(delay_after_jingle).timeout
+	#elevator_enable_enter_check()
 
 
-func open_evelvator() -> void:
+func open_elevator() -> void:
 	if _elevator_state == ElevatorState.OPEN:
 		return
 	if animation_player.is_playing():
-		animation_player.animation_finished.connect(func(_anim)->void:open_evelvator(), CONNECT_ONE_SHOT)
+		elevator_closed.connect(open_elevator, CONNECT_ONE_SHOT)
 	else:
 		animation_player.play("elevator_open")
 		animation_player.animation_finished.connect(func(_anim)->void:_elevator_state = ElevatorState.OPEN, CONNECT_ONE_SHOT)
@@ -77,7 +77,7 @@ func close_elevator() -> void:
 	if _elevator_state == ElevatorState.CLOSED:
 		return
 	if animation_player.is_playing():
-		animation_player.animation_finished.connect(func(_anim)->void:close_elevator(), CONNECT_ONE_SHOT)
+		elevator_opened.connect(close_elevator, CONNECT_ONE_SHOT)
 	else:
 		animation_player.play("elevator_close")
 		animation_player.animation_finished.connect(func(_anim)->void:_elevator_state = ElevatorState.CLOSED, CONNECT_ONE_SHOT)
@@ -86,6 +86,22 @@ func close_elevator() -> void:
 
 func check_elevator() -> Array[Node3D]:
 	return elevator_enter_area.get_overlapping_bodies()
+
+
+func elevator_enable_enter_check() -> void:
+	if not elevator_enter_area.body_entered.is_connected(_elevator_user_enter):
+		elevator_enter_area.body_entered.connect(_elevator_user_enter)
+	#if elevator_enter_area.get_overlapping_bodies().size() > 0:
+		#open_elevator()
+
+
+func disable_elevator_enter_check() -> void:
+	if elevator_enter_area.body_entered.is_connected(_elevator_user_enter):
+		elevator_enter_area.body_entered.disconnect(_elevator_user_enter)
+
+
+func _elevator_user_enter(_user: Node3D) -> void:
+	open_elevator()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
