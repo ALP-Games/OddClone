@@ -7,6 +7,8 @@ signal elevator_opened
 
 @onready var animation_player: AnimationPlayer = $office_layout/Lift/AnimationPlayer
 @onready var elevator_jingle: AudioStreamPlayer3D = $ElevatorJingle
+@onready var elevator_working: AudioStreamPlayer3D = $ElevatorWorking
+@onready var elevator_arrive_sound: AudioStreamPlayer3D = $ElevatorArrive
 
 @onready var elevator_exit_area: Area3D = $ElevatorExitArea
 @onready var elevator_enter_area: Area3D = $ElevatorEnterArea
@@ -40,7 +42,20 @@ func _ready() -> void:
 	elevator_enter_area.body_entered.connect(func(_n)->void:open_evelvator())
 
 
+func elevator_work() -> void:
+	# has to be closed first
+	var extended_camera: ExtendedCamera = get_viewport().get_camera_3d()
+	extended_camera.set_shake(0.05)
+	extended_camera.enable_shake(0.01, 0.05)
+	elevator_working.play()
+
+
 func elevator_arrive() -> void:
+	elevator_working.stop()
+	elevator_arrive_sound.play()
+	var extended_camera: ExtendedCamera = get_viewport().get_camera_3d()
+	extended_camera.enable_shake(0.05, 0.10)
+	extended_camera.disable_shake()
 	await get_tree().create_timer(arrival_delay).timeout
 	elevator_jingle.play()
 	await get_tree().create_timer(delay_after_jingle).timeout

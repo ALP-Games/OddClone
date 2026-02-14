@@ -12,7 +12,7 @@ var _shake_amount := 0.0
 func enable_shake(intensisty: float, shake_decay: float) -> void:
 	_shake_amount = intensisty
 	_shake_decay = shake_decay
-	_current_shake_amount = _shake_amount
+	set_shake(_shake_amount)
 	if process_functions.count(_add_shake) < 1:
 		process_functions.append(_add_shake)
 	if process_functions.count(_process_camera_shake) < 1: 
@@ -22,6 +22,11 @@ func enable_shake(intensisty: float, shake_decay: float) -> void:
 func disable_shake() -> void:
 	_shake_amount = 0.0
 	process_functions.erase(_add_shake)
+
+
+func set_shake(amount: float) -> void:
+	_current_shake_amount = max(amount, _current_shake_amount)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -48,7 +53,7 @@ func _process_camera_shake(delta: float) -> void:
 
 
 func _add_shake(_delta: float) -> void:
-	_current_shake_amount = _shake_amount
+	set_shake(_shake_amount)
 
 
 #func _physics_process(delta: float) -> void:

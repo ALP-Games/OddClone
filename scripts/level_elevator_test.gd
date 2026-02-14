@@ -18,17 +18,21 @@ func _ready() -> void:
 			(npcs[npc_index] as NPC).got_shot.connect(npc_shot.bind(npc_index == bad_npc_index))
 	
 	var player: Player = get_tree().get_first_node_in_group(Constants.PLAYER_GROUP)
+	
 	if player == null:
 		get_tree().root.child_entered_tree.connect(_look_for_player)
 	else:
 		_init_player(player)
 	
-	#var office: OfficeLayout = get_tree().get_first_node_in_group(Constants.OFFICE_GROUP)
+	var office: OfficeLayout = get_tree().get_first_node_in_group(Constants.OFFICE_GROUP)
 	#office.elevator_arrive()
 	
 	await get_tree().create_timer(1.0).timeout
-	var extended_camera: ExtendedCamera = get_viewport().get_camera_3d()
-	extended_camera.enable_shake(0.01, 0.05)
+	#var extended_camera: ExtendedCamera = get_viewport().get_camera_3d()
+	#extended_camera.set_shake(0.05)
+	#extended_camera.enable_shake(0.01, 0.05)
+	office.elevator_work()
 	await get_tree().create_timer(5.0).timeout
-	extended_camera.enable_shake(0.05, 0.10)
-	extended_camera.disable_shake()
+	office.elevator_arrive()
+	#extended_camera.enable_shake(0.05, 0.10)
+	#extended_camera.disable_shake()
