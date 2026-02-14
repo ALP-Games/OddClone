@@ -297,15 +297,11 @@ debug_color = Color(0, 0.6, 0.69803923, 1)
 [node name="ElevatorJingle" parent="." unique_id=1137616755 instance=ExtResource("2_f8qqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0295508, 4.2670255)
 
-[node name="ElevatorWorking" parent="." unique_id=1554535693 instance=ExtResource("2_f8qqm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8113205, 4.2670255)
+[node name="ElevatorWorking" type="AudioStreamPlayer" parent="." unique_id=949499975]
 stream = ExtResource("3_lcpmh")
-volume_db = 0.0
 
-[node name="ElevatorArrive" parent="." unique_id=1008806854 instance=ExtResource("2_f8qqm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8113205, 4.2670255)
+[node name="ElevatorArrive" type="AudioStreamPlayer" parent="." unique_id=1229863985]
 stream = ExtResource("4_a5sfx")
-volume_db = 0.0
 
 [node name="ElevatorDoorOpen" type="AudioStreamPlayer3D" parent="." unique_id=45262485]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5095298, 3.090458)
