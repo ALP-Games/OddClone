@@ -57,9 +57,10 @@ func elevator_work() -> void:
 func elevator_arrive() -> void:
 	elevator_working.stop()
 	elevator_arrive_sound.play()
-	var extended_camera: ExtendedCamera = get_viewport().get_camera_3d()
-	extended_camera.enable_shake(0.05, 0.10)
-	extended_camera.disable_shake()
+	var camera = get_viewport().get_camera_3d()
+	if is_instance_of(camera, ExtendedCamera):
+		camera.enable_shake(0.05, 0.10)
+		camera.disable_shake()
 	await get_tree().create_timer(arrival_delay).timeout
 	elevator_jingle.play()
 	await get_tree().create_timer(delay_after_jingle).timeout
