@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b4p8gnl2wfjuy" path="res://actors/elevator.gd" id="1_0ejow"]
 [ext_resource type="Material" uid="uid://b1nydjhb77upj" path="res://Assets/LevelLayout/materials/metal.tres" id="1_i3hwb"]
 [ext_resource type="PackedScene" uid="uid://bvouu00tv8djx" path="res://actors/elevator_jingle.tscn" id="2_0ejow"]
+[ext_resource type="Material" uid="uid://bptbfowat2jve" path="res://Assets/LevelLayout/materials/office_wal.tres" id="2_adj4o"]
 [ext_resource type="AudioStream" uid="uid://86hmjennh7k2" path="res://audio/elevator/elevator_sound-open3.ogg" id="3_adj4o"]
 [ext_resource type="AudioStream" uid="uid://bpfa0b0frc836" path="res://audio/elevator/elevator_door-close2.ogg" id="4_gnjmy"]
 
@@ -38,7 +39,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 24,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0A"),
-"material": ExtResource("1_i3hwb"),
+"material": ExtResource("2_adj4o"),
 "name": "office_wal",
 "primitive": 3,
 "uv_scale": Vector4(4.2998867, 11.259034, 0, 0),
@@ -317,7 +318,6 @@ script = ExtResource("1_0ejow")
 [node name="Office_lift-col2" type="Node3D" parent="." unique_id=1200925319]
 
 [node name="Office_lift" type="MeshInstance3D" parent="Office_lift-col2" unique_id=1090825042]
-material_override = ExtResource("1_i3hwb")
 mesh = SubResource("ArrayMesh_54fyp")
 
 [node name="Lift" type="MeshInstance3D" parent="Office_lift-col2/Office_lift" unique_id=96449362]
