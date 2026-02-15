@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c22k3qngnrhet"]
+
+[ext_resource type="AudioStream" uid="uid://b8k1mj2cgb72x" path="res://audio/click.ogg" id="1_p4mto"]
+
+[node name="ClickSoundPlayer" type="AudioStreamPlayer" unique_id=1404589967]
+stream = ExtResource("1_p4mto")
+volume_db = 3.5

@@ -8,6 +8,8 @@ extends CanvasLayer
 @onready var level_lost: Label = $LevelEndPrompt/LevelLost
 @onready var button_next_level: Button = $LevelEndPrompt/ButtonNextLevel
 @onready var button_restart: Button = $LevelEndPrompt/ButtonRestart
+@onready var click: AudioStreamPlayer = $Click
+@onready var hover: AudioStreamPlayer = $Hover
 
 @onready var pause_menu: Control = $PauseMenu
 

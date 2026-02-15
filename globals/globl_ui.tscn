@@ -4,11 +4,22 @@
 [ext_resource type="Theme" uid="uid://bkewb5tsxb15v" path="res://Assets/UI_Style/TestTheme.tres" id="2_21ciw"]
 [ext_resource type="LabelSettings" uid="uid://cic6vrjqf8i0d" path="res://ui/level_font.tres" id="3_lkvwh"]
 [ext_resource type="Material" uid="uid://d2taim5ynxyw5" path="res://Assets/UI_Style/VignetteMaterial.tres" id="4_1scv1"]
+[ext_resource type="Script" uid="uid://by6dnks1r5ui" path="res://ui/button_fx.gd" id="4_voxbq"]
+[ext_resource type="AudioStream" uid="uid://h8ch7wrnkcby" path="res://audio/vocals/huh01.ogg" id="6_1dseo"]
+[ext_resource type="AudioStream" uid="uid://c3tgx15orj4sx" path="res://audio/vocals/huh02.ogg" id="7_tbsnx"]
+[ext_resource type="AudioStream" uid="uid://b2hb8eeaa5sq5" path="res://audio/vocals/huh03.ogg" id="8_mix1n"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_85gms"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xtvba"]
 font_size = 32
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_isu2q"]
+random_pitch = 1.0503232
+streams_count = 3
+stream_0/stream = ExtResource("6_1dseo")
+stream_1/stream = ExtResource("7_tbsnx")
+stream_2/stream = ExtResource("8_mix1n")
 
 [node name="GlobalUI" type="CanvasLayer" unique_id=352080034 node_paths=PackedStringArray("unpause_button")]
 layer = 10
@@ -52,7 +63,6 @@ size_flags_horizontal = 3
 [node name="Control" type="Control" parent="PauseMenu/HBoxContainer/VBoxContainer" unique_id=2087065895]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
 
 [node name="PauseLabel" type="Label" parent="PauseMenu/HBoxContainer/VBoxContainer" unique_id=1854151885]
 layout_mode = 2
@@ -61,10 +71,12 @@ text = "GAME PAUSED"
 label_settings = SubResource("LabelSettings_xtvba")
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="PauseMenu/HBoxContainer/VBoxContainer" unique_id=2130811734]
+[node name="Button" type="Button" parent="PauseMenu/HBoxContainer/VBoxContainer" unique_id=1319577978]
 layout_mode = 2
 theme = ExtResource("2_21ciw")
 text = "Resume"
+script = ExtResource("4_voxbq")
+metadata/_custom_type_script = "uid://by6dnks1r5ui"
 
 [node name="Control2" type="Control" parent="PauseMenu/HBoxContainer/VBoxContainer" unique_id=731471348]
 layout_mode = 2
@@ -133,7 +145,7 @@ label_settings = ExtResource("3_lkvwh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonNextLevel" type="Button" parent="LevelEndPrompt" unique_id=1348541048]
+[node name="ButtonNextLevel" type="Button" parent="LevelEndPrompt" unique_id=1356311010]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -141,16 +153,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -60.0
+offset_left = -68.0
 offset_top = 35.0
-offset_right = 60.0
+offset_right = 68.0
 offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 text = "Next Level"
+script = ExtResource("4_voxbq")
+metadata/_custom_type_script = "uid://by6dnks1r5ui"
 
-[node name="ButtonRestart" type="Button" parent="LevelEndPrompt" unique_id=1378352551]
+[node name="ButtonRestart" type="Button" parent="LevelEndPrompt" unique_id=1593250947]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -166,6 +180,8 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme = ExtResource("2_21ciw")
 text = "Restart"
+script = ExtResource("4_voxbq")
+metadata/_custom_type_script = "uid://by6dnks1r5ui"
 
 [node name="TextureRect" type="TextureRect" parent="LevelEndPrompt" unique_id=193947369]
 visible = false
@@ -178,3 +194,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Hover" type="AudioStreamPlayer" parent="." unique_id=841790729]
+stream = SubResource("AudioStreamRandomizer_isu2q")
+volume_db = 5.0

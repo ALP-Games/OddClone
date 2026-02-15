@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogueRes" format=3 uid="uid://dbnwphpcnp0ws"]
+
+[ext_resource type="Script" uid="uid://cesc8j6rcirsw" path="res://scripts/dialogue_res.gd" id="1_jwixq"]
+
+[resource]
+script = ExtResource("1_jwixq")
+dialogue_text = "Good work. Get back in the elevator, you're needed for another mission."
+characters_over_time = 20.0
+wait_before_start = 0.05
+metadata/_custom_type_script = "uid://cesc8j6rcirsw"

@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://0q2nh6vhj0y6" path="res://Assets/npc/bigbouse_face_normal.png" id="2_tv6fg"]
 [ext_resource type="LabelSettings" uid="uid://ch0hb1fbd21rs" path="res://ui/DialogText.tres" id="3_cypr3"]
 [ext_resource type="FontFile" uid="uid://d3fhsav6s5mjc" path="res://Assets/Fonts/Acidic.ttf" id="4_tv6fg"]
+[ext_resource type="AudioStream" uid="uid://by0qfocor4fws" path="res://audio/vocals/DeepHuh01.ogg" id="6_d008s"]
+[ext_resource type="AudioStream" uid="uid://bks8s5purxs7p" path="res://audio/vocals/DeepHuh02.ogg" id="7_qygaw"]
+[ext_resource type="AudioStream" uid="uid://b4c3qvlm1auj3" path="res://audio/vocals/DeepHuh03.ogg" id="8_vxuf2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r3sd3"]
 atlas = ExtResource("2_tv6fg")
@@ -99,6 +102,13 @@ _data = {
 &"TextAppear": SubResource("Animation_rb84v")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sn182"]
+random_pitch = 1.0503232
+streams_count = 3
+stream_0/stream = ExtResource("6_d008s")
+stream_1/stream = ExtResource("7_qygaw")
+stream_2/stream = ExtResource("8_vxuf2")
+
 [node name="DialogLayer" type="CanvasLayer" unique_id=748861057]
 layer = 5
 script = ExtResource("1_nh54w")
@@ -178,3 +188,12 @@ visible_ratio = 0.0
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_rhdrl")
 autoplay = &"FaceIdle"
+
+[node name="MumblingNoises" type="AudioStreamPlayer" parent="." unique_id=1206178922]
+stream = SubResource("AudioStreamRandomizer_sn182")
+volume_db = 5.0
+
+[node name="MumbleTimer" type="Timer" parent="." unique_id=727965709]
+wait_time = 0.3
+
+[connection signal="timeout" from="MumbleTimer" to="MumblingNoises" method="play"]

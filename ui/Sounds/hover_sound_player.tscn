@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cygit0p25c757"]
+
+[ext_resource type="AudioStream" uid="uid://cxy6gpvgkq7mw" path="res://audio/Hover.ogg" id="1_sw7j1"]
+
+[node name="HoverSoundPlayer" type="AudioStreamPlayer" unique_id=1404589967]
+stream = ExtResource("1_sw7j1")
+volume_db = 5.0
