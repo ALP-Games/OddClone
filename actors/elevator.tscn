@@ -321,7 +321,7 @@ script = ExtResource("1_0ejow")
 mesh = SubResource("ArrayMesh_54fyp")
 
 [node name="Lift" type="MeshInstance3D" parent="Office_lift-col2/Office_lift" unique_id=96449362]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032504797, 0, -1.0676138)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0480811, 0, -1.0676138)
 mesh = SubResource("ArrayMesh_kk88r")
 
 [node name="Lift_left" type="MeshInstance3D" parent="Office_lift-col2/Office_lift/Lift" unique_id=1189797831]
