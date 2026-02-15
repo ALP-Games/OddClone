@@ -89,9 +89,9 @@ func _on_level_beaten() -> void:
 	var elevator: Elevator = get_tree().get_first_node_in_group(Constants.ELEVATOR_GROUP)
 	elevator.close_elevator()
 	elevator.elevator_closed.connect(func()->void:
-	elevator.elevator_work()
-	await get_tree().create_timer(elevator_travel_time).timeout
-	elevator.elevator_arrive()
-	await get_tree().create_timer(2.0).timeout
-	level_end.emit(true)
+		elevator.elevator_work()
+		await get_tree().create_timer(elevator_travel_time).timeout
+		elevator.elevator_arrive()
+		await get_tree().create_timer(2.0).timeout
+		level_end.emit(true)
 	, CONNECT_ONE_SHOT)
