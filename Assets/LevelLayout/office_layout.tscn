@@ -1,17 +1,12 @@
 [gd_scene format=3 uid="uid://ngmr7ceqer17"]
 
-[ext_resource type="Script" uid="uid://sfp75l8gvwb5" path="res://scripts/office_layout.gd" id="1_7pim8"]
 [ext_resource type="PackedScene" uid="uid://cveuq6ftxmcy7" path="res://Assets/LevelLayout/office_layout.glb" id="2_6prn3"]
-[ext_resource type="PackedScene" uid="uid://bvouu00tv8djx" path="res://actors/elevator_jingle.tscn" id="2_f8qqm"]
+[ext_resource type="PackedScene" uid="uid://75txfrbe04p0" path="res://actors/elevator.tscn" id="2_f8qqm"]
 [ext_resource type="Material" uid="uid://b1nydjhb77upj" path="res://Assets/LevelLayout/materials/metal.tres" id="3_7rv5h"]
-[ext_resource type="AudioStream" uid="uid://86hmjennh7k2" path="res://audio/elevator/elevator_sound-open3.ogg" id="3_f3h27"]
 [ext_resource type="Texture2D" uid="uid://dsy3753k4vp11" path="res://Assets/Textures/floornoise/floor_noise_lite.tres" id="3_kdu4h"]
 [ext_resource type="PackedScene" uid="uid://robktqvn7o0f" path="res://Assets/decor/chair-col.glb" id="3_l7f45"]
-[ext_resource type="AudioStream" uid="uid://dju5n3kolqbv3" path="res://audio/elevator/elevator_work.ogg" id="3_lcpmh"]
-[ext_resource type="AudioStream" uid="uid://o5lhpmmmd3lt" path="res://audio/elevator/elevator_arrive.ogg" id="4_a5sfx"]
 [ext_resource type="PackedScene" uid="uid://l4fepv6o30jd" path="res://Assets/decor/clock.glb" id="4_hl4s0"]
 [ext_resource type="PackedScene" uid="uid://bqwf0cjgsxmqs" path="res://Assets/decor/plant.glb" id="4_ulrd6"]
-[ext_resource type="AudioStream" uid="uid://bpfa0b0frc836" path="res://audio/elevator/elevator_door-close2.ogg" id="4_vb6ii"]
 [ext_resource type="Material" uid="uid://bxdoao21bm02" path="res://Assets/LevelLayout/materials/toilet_floor.tres" id="5_kdu4h"]
 [ext_resource type="PackedScene" uid="uid://cp76y3t7lpfys" path="res://Assets/decor/rug.glb" id="6_j0fwr"]
 [ext_resource type="PackedScene" uid="uid://cyy0agsaixk88" path="res://Assets/decor/picture_frame.glb" id="7_5w48u"]
@@ -31,12 +26,6 @@
 [ext_resource type="Material" uid="uid://bptbfowat2jve" path="res://Assets/LevelLayout/materials/office_wal.tres" id="23_thv7k"]
 [ext_resource type="PackedScene" uid="uid://b26rqwp7bd675" path="res://actors/lamp_buzz.tscn" id="26_f8qqm"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_vb6ii"]
-size = Vector3(3.1308594, 3.322815, 3.6148682)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_qikqs"]
-size = Vector3(2.0810547, 3.322815, 1.4550781)
-
 [sub_resource type="Environment" id="Environment_pksf0"]
 background_mode = 1
 background_color = Color(0.46446896, 0.5260276, 0.46351516, 1)
@@ -49,144 +38,6 @@ glow_intensity = 0.65
 glow_hdr_scale = 0.0
 fog_mode = 1
 fog_density = 1.0
-
-[sub_resource type="Animation" id="Animation_m6ibb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("office_layout/Lift/Lift_right:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("office_layout/Lift/Lift_left:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.007, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ElevatorDoorOpen:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ElevatorDoorClose:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_f8qqm"]
-resource_name = "elevator_close"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("office_layout/Lift/Lift_right:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1.0869876, 0, 0), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("office_layout/Lift/Lift_left:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-1.0265305, 0, 0), Vector3(0.007, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ElevatorDoorClose:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_thv7k"]
-resource_name = "elevator_open"
-length = 2.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("office_layout/Lift/Lift_right:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(1.0869876, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("office_layout/Lift/Lift_left:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.007, 0, 0), Vector3(-1.0265305, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ElevatorDoorOpen:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_f3h27"]
-_data = {
-&"RESET": SubResource("Animation_m6ibb"),
-&"elevator_close": SubResource("Animation_f8qqm"),
-&"elevator_open": SubResource("Animation_thv7k")
-}
 
 [sub_resource type="Gradient" id="Gradient_2yrj0"]
 interpolation_mode = 1
@@ -272,46 +123,9 @@ uv1_scale = Vector3(0.51, 0.51, 0.51)
 texture_filter = 1
 
 [node name="OfficeLayout" type="Node3D" unique_id=1610315983 groups=["OfficeLayout"]]
-script = ExtResource("1_7pim8")
 
-[node name="ElevatorExitArea" type="Area3D" parent="." unique_id=752134270]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049288273, 0, 4.222484)
-collision_layer = 0
-collision_mask = 8
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ElevatorExitArea" unique_id=1614158022]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6463318, -0.70977783)
-shape = SubResource("BoxShape3D_vb6ii")
-debug_color = Color(0.9911346, 0, 0.26344946, 1)
-
-[node name="ElevatorEnterArea" type="Area3D" parent="." unique_id=76682747]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049288273, 0, 4.222484)
-collision_layer = 0
-collision_mask = 8
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ElevatorEnterArea" unique_id=1338118202]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6463318, 0.1862874)
-shape = SubResource("BoxShape3D_qikqs")
-debug_color = Color(0, 0.6, 0.69803923, 1)
-
-[node name="ElevatorJingle" parent="." unique_id=1137616755 instance=ExtResource("2_f8qqm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0295508, 4.2670255)
-
-[node name="ElevatorWorking" type="AudioStreamPlayer" parent="." unique_id=949499975]
-stream = ExtResource("3_lcpmh")
-
-[node name="ElevatorArrive" type="AudioStreamPlayer" parent="." unique_id=1229863985]
-stream = ExtResource("4_a5sfx")
-
-[node name="ElevatorDoorOpen" type="AudioStreamPlayer3D" parent="." unique_id=45262485]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5095298, 3.090458)
-stream = ExtResource("3_f3h27")
-volume_db = -17.0
-
-[node name="ElevatorDoorClose" type="AudioStreamPlayer3D" parent="." unique_id=1645176766]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5095298, 3.090458)
-stream = ExtResource("4_vb6ii")
-volume_db = -17.0
+[node name="Elevator" parent="." unique_id=1511823988 instance=ExtResource("2_f8qqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.13)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1417747881]
 environment = SubResource("Environment_pksf0")
@@ -346,28 +160,7 @@ light_color = Color(0.72617555, 0.86601955, 0.78895664, 1)
 light_energy = 3.095
 spot_angle = 78.66998
 
-[node name="office_layout" parent="." unique_id=1408482873 instance=ExtResource("2_6prn3")]
-metadata/_edit_lock_ = true
-
-[node name="Office_layout" parent="office_layout" index="0" unique_id=891137876]
-surface_material_override/7 = ExtResource("3_7rv5h")
-metadata/_edit_lock_ = true
-
-[node name="StaticBody3D" parent="office_layout/Office_layout" index="0" unique_id=1755491238]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape3D" parent="office_layout/Office_layout/StaticBody3D" index="0" unique_id=855058220]
-metadata/_edit_lock_ = true
-
-[node name="Lift" parent="office_layout" index="1" unique_id=1812678162]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.061842203, 0, 3.0633216)
-
-[node name="Lift_left" parent="office_layout/Lift" index="0" unique_id=1652837105]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007, 0, 0)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="office_layout/Lift" index="2" unique_id=2100630159]
-root_node = NodePath("../../..")
-libraries/ = SubResource("AnimationLibrary_f3h27")
+[node name="office_layout" parent="." unique_id=1221243078 instance=ExtResource("2_6prn3")]
 
 [node name="decor" type="Node3D" parent="." unique_id=1324599343]
 

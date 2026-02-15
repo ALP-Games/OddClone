@@ -45,9 +45,8 @@ func _ready() -> void:
 		DialogueLayer.display_dialogue(_level_intro_dialogue)
 	
 	await get_tree().create_timer(0.5).timeout
-	var office: OfficeLayout = get_tree().get_first_node_in_group(Constants.OFFICE_GROUP)
-	office.open_elevator()
-	#office.elevator_arrive()
+	var elevator: Elevator = get_tree().get_first_node_in_group(Constants.ELEVATOR_GROUP)
+	elevator.elevator_arrive()
 
 
 func _look_for_player(node: Node) -> void:
@@ -70,17 +69,16 @@ func npc_shot(enemy: bool) -> void:
 	if enemy:
 		# TODO: if enemy -> tell to go to the elevator to finish
 		# emit level_end in the elevator if victory
-		var office_layout: OfficeLayout = get_tree().get_first_node_in_group(Constants.OFFICE_GROUP)
+		var elevator: Elevator = get_tree().get_first_node_in_group(Constants.ELEVATOR_GROUP)
 		var player: Player = get_tree().get_first_node_in_group(Constants.PLAYER_GROUP)
 		player.disable_shoot = true
-		office_layout.open_elevator()
-		office_layout.disable_elevator_enter_check()
-		if office_layout.check_elevator().size() > 0:
+		elevator.open_evelvator()
+		if elevator.check_elevator().size() > 0:
 			# TODO: display job well done text
 			_on_level_beaten()
 		else:
 			# TODO: display job done and return to elevator
-			office_layout.elevator_user_entered.connect(func(_node)->void:_on_level_beaten(), CONNECT_ONE_SHOT)
+			elevator.elevator_user_entered.connect(func(_node)->void:_on_level_beaten(), CONNECT_ONE_SHOT)
 	else:
 		# if non enemy was shot emit level_end false
 		# TODO: display level failed dialogue
@@ -88,12 +86,12 @@ func npc_shot(enemy: bool) -> void:
 
 
 func _on_level_beaten() -> void:
-	var office_layout: OfficeLayout = get_tree().get_first_node_in_group(Constants.OFFICE_GROUP)
-	office_layout.close_elevator()
-	office_layout.elevator_closed.connect(func()->void:
-		office_layout.elevator_work()
-		await get_tree().create_timer(elevator_travel_time).timeout
-		office_layout.elevator_arrive()
-		await get_tree().create_timer(2.0).timeout
-		level_end.emit(true)
-		, CONNECT_ONE_SHOT)
+	var elevator: Elevator = get_tree().get_first_node_in_group(Constants.ELEVATOR_GROUP)
+	elevator.close_elevator()
+	elevator.elevator_closed.connect(func()->void:
+	elevator.elevator_work()
+	await get_tree().create_timer(elevator_travel_time).timeout
+	elevator.elevator_arrive()
+	await get_tree().create_timer(2.0).timeout
+	level_end.emit(true)
+	, CONNECT_ONE_SHOT)
