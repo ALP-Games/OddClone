@@ -10,7 +10,6 @@
 [ext_resource type="AudioStream" uid="uid://4ryoucbxbg52" path="res://audio/footsteps/footstep_laminate-02.ogg" id="7_sc6c1"]
 [ext_resource type="LabelSettings" uid="uid://ch0hb1fbd21rs" path="res://ui/DialogText.tres" id="9_sc6c1"]
 [ext_resource type="Shader" uid="uid://cus5pifvhlvhs" path="res://shaders/ui_disintegrate.gdshader" id="11_04hp8"]
-[ext_resource type="PackedScene" uid="uid://75txfrbe04p0" path="res://actors/elevator.tscn" id="11_8hlpj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ng40l"]
 radius = 0.3
@@ -418,5 +417,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="Elevator" parent="." unique_id=1511823988 instance=ExtResource("11_8hlpj")]

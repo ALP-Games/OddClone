@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://csb0fe7ebci5h" path="res://scripts/level.gd" id="1_v5uil"]
 [ext_resource type="PackedScene" uid="uid://ngmr7ceqer17" path="res://Assets/LevelLayout/office_layout.tscn" id="2_5722l"]
 [ext_resource type="PackedScene" uid="uid://b2cxwvtwbjk0y" path="res://actors/npc_karen.tscn" id="4_ep78u"]
-[ext_resource type="PackedScene" uid="uid://75txfrbe04p0" path="res://actors/elevator.tscn" id="4_kx6l7"]
 
 [node name="Level1" type="Node3D" unique_id=1951831575]
 script = ExtResource("1_v5uil")
@@ -41,5 +40,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1872983, 0, -15.092196)
 
 [node name="PlayerSpawner" type="Marker3D" parent="." unique_id=1827906377 groups=["PlayerSpawner"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.21799994)
-
-[node name="Elevator" parent="." unique_id=1511823988 instance=ExtResource("4_kx6l7")]

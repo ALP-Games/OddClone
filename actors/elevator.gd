@@ -36,6 +36,9 @@ var _elevator_state := ElevatorState.CLOSED:
 				elevator_opened.emit()
 
 
+# TODO: functions to instantly set elevator states functionality (like after restart)
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	elevator_enter_area.body_entered.connect(func(node: Node3D)->void:elevator_user_entered.emit(node))

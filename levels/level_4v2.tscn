@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://df86moepnfnxq"]
 
 [ext_resource type="Script" uid="uid://csb0fe7ebci5h" path="res://scripts/level.gd" id="1_4b0oo"]
-[ext_resource type="PackedScene" uid="uid://75txfrbe04p0" path="res://actors/elevator.tscn" id="2_bsa0e"]
 [ext_resource type="PackedScene" uid="uid://ngmr7ceqer17" path="res://Assets/LevelLayout/office_layout.tscn" id="2_tco0s"]
 [ext_resource type="Script" uid="uid://d2xek2q8p5rqg" path="res://actors/player.gd" id="3_n701c"]
 [ext_resource type="AudioStream" uid="uid://bp1l5l2acgj2c" path="res://audio/shoot/SCIWeap_Pulserifle_V2.1_Altshot_01.wav" id="4_46ygf"]
@@ -299,8 +298,6 @@ shader_parameter/flicker_intensity = 0.5
 script = ExtResource("1_4b0oo")
 glitches = false
 metadata/_custom_type_script = "uid://csb0fe7ebci5h"
-
-[node name="Elevator" parent="." unique_id=1511823988 instance=ExtResource("2_bsa0e")]
 
 [node name="OfficeLayout" parent="." unique_id=1610315983 instance=ExtResource("2_tco0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002887249, 0, -4.129816)

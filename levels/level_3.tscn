@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://cq22nba13gq0u" path="res://actors/npc_boss.tscn" id="4_lfnxh"]
 [ext_resource type="PackedScene" uid="uid://ctgu2mirtg7f2" path="res://actors/npc.tscn" id="5_8l0e1"]
 [ext_resource type="PackedScene" uid="uid://b2cxwvtwbjk0y" path="res://actors/npc_karen.tscn" id="5_20opy"]
-[ext_resource type="PackedScene" uid="uid://75txfrbe04p0" path="res://actors/elevator.tscn" id="6_8l0e1"]
 
 [node name="Level3" type="Node3D" unique_id=1951831575]
 script = ExtResource("1_bmgug")
@@ -54,5 +53,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.121054, 7.1525574e-07, -8.
 
 [node name="PlayerSpawner" type="Marker3D" parent="." unique_id=1107835564 groups=["PlayerSpawner"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.21799994)
-
-[node name="Elevator" parent="." unique_id=1511823988 instance=ExtResource("6_8l0e1")]

@@ -19,6 +19,9 @@ signal level_end(won: bool)
 
 var _shown_glitches: int = 0
 
+# TODO: on level start elevator should only play "open" (maybe will be nice to have a state machine for that)
+# TODO: fix player hand anim
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group(Constants.LEVEL_GROUP)
