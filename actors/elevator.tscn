@@ -6,6 +6,8 @@
 [ext_resource type="Material" uid="uid://bptbfowat2jve" path="res://Assets/LevelLayout/materials/office_wal.tres" id="2_adj4o"]
 [ext_resource type="AudioStream" uid="uid://86hmjennh7k2" path="res://audio/elevator/elevator_sound-open3.ogg" id="3_adj4o"]
 [ext_resource type="AudioStream" uid="uid://bpfa0b0frc836" path="res://audio/elevator/elevator_door-close2.ogg" id="4_gnjmy"]
+[ext_resource type="AudioStream" uid="uid://dju5n3kolqbv3" path="res://audio/elevator/elevator_work.ogg" id="7_7cc1q"]
+[ext_resource type="AudioStream" uid="uid://o5lhpmmmd3lt" path="res://audio/elevator/elevator_arrive.ogg" id="7_gnjmy"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_a6xdp"]
 _surfaces = [{
@@ -384,5 +386,7 @@ stream = ExtResource("4_gnjmy")
 volume_db = -17.0
 
 [node name="ElevatorWorking" type="AudioStreamPlayer" parent="." unique_id=564909961]
+stream = ExtResource("7_7cc1q")
 
 [node name="ElevatorArrive" type="AudioStreamPlayer" parent="." unique_id=124035023]
+stream = ExtResource("7_gnjmy")

@@ -72,7 +72,8 @@ func npc_shot(enemy: bool) -> void:
 		var elevator: Elevator = get_tree().get_first_node_in_group(Constants.ELEVATOR_GROUP)
 		var player: Player = get_tree().get_first_node_in_group(Constants.PLAYER_GROUP)
 		player.disable_shoot = true
-		elevator.open_evelvator()
+		elevator.disable_open_on_enter()
+		elevator.open_elevator()
 		if elevator.check_elevator().size() > 0:
 			# TODO: display job well done text
 			_on_level_beaten()
@@ -91,7 +92,7 @@ func _on_level_beaten() -> void:
 	elevator.elevator_closed.connect(func()->void:
 		elevator.elevator_work()
 		await get_tree().create_timer(elevator_travel_time).timeout
-		elevator.elevator_arrive()
-		await get_tree().create_timer(2.0).timeout
+		#elevator.elevator_arrive()
+		#await get_tree().create_timer(2.0).timeout
 		level_end.emit(true)
 	, CONNECT_ONE_SHOT)

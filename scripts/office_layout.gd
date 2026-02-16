@@ -39,7 +39,7 @@ func _ready() -> void:
 	
 	# hack
 	await get_tree().create_timer(1.0).timeout
-	elevator_enable_enter_check()
+	enable_open_on_enter()
 
 
 func elevator_work() -> void:
@@ -59,7 +59,7 @@ func elevator_arrive() -> void:
 	await get_tree().create_timer(arrival_delay).timeout
 	elevator_jingle.play()
 	#await get_tree().create_timer(delay_after_jingle).timeout
-	#elevator_enable_enter_check()
+	#enable_open_on_enter()
 
 
 func open_elevator() -> void:
@@ -88,14 +88,14 @@ func check_elevator() -> Array[Node3D]:
 	return elevator_enter_area.get_overlapping_bodies()
 
 
-func elevator_enable_enter_check() -> void:
+func enable_open_on_enter() -> void:
 	if not elevator_enter_area.body_entered.is_connected(_elevator_user_enter):
 		elevator_enter_area.body_entered.connect(_elevator_user_enter)
 	#if elevator_enter_area.get_overlapping_bodies().size() > 0:
 		#open_elevator()
 
 
-func disable_elevator_enter_check() -> void:
+func disable_open_on_enter() -> void:
 	if elevator_enter_area.body_entered.is_connected(_elevator_user_enter):
 		elevator_enter_area.body_entered.disconnect(_elevator_user_enter)
 

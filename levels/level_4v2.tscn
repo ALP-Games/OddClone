@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://df86moepnfnxq"]
 
 [ext_resource type="Script" uid="uid://csb0fe7ebci5h" path="res://scripts/level.gd" id="1_4b0oo"]
+[ext_resource type="PackedScene" uid="uid://75txfrbe04p0" path="res://actors/elevator.tscn" id="2_bsa0e"]
 [ext_resource type="PackedScene" uid="uid://ngmr7ceqer17" path="res://Assets/LevelLayout/office_layout.tscn" id="2_tco0s"]
 [ext_resource type="Script" uid="uid://d2xek2q8p5rqg" path="res://actors/player.gd" id="3_n701c"]
 [ext_resource type="AudioStream" uid="uid://bp1l5l2acgj2c" path="res://audio/shoot/SCIWeap_Pulserifle_V2.1_Altshot_01.wav" id="4_46ygf"]
@@ -299,11 +300,13 @@ script = ExtResource("1_4b0oo")
 glitches = false
 metadata/_custom_type_script = "uid://csb0fe7ebci5h"
 
-[node name="Node3D" parent="." unique_id=1610315983 instance=ExtResource("2_tco0s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002887249, 0, 0.00018405914)
+[node name="Elevator" parent="." unique_id=1511823988 instance=ExtResource("2_bsa0e")]
+
+[node name="OfficeLayout" parent="." unique_id=1610315983 instance=ExtResource("2_tco0s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002887249, 0, -4.129816)
 
 [node name="PlayerRotator" type="Node3D" parent="." unique_id=1179155766]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5421289, -4.7683716e-07, -8.79979)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5421289, -4.7683716e-07, -12.9297905)
 
 [node name="Player" type="CharacterBody3D" parent="PlayerRotator" unique_id=757401328 node_paths=PackedStringArray("body", "head", "raycast")]
 unique_name_in_owner = true
@@ -350,7 +353,7 @@ visible = false
 [node name="ShotTimer" type="Timer" parent="PlayerRotator/Player" unique_id=77636046]
 
 [node name="Executioner2" type="Sprite3D" parent="." unique_id=104564003]
-transform = Transform3D(1, 0, -1.4210855e-14, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.5421289, 1.2109994, -8.79979)
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.5421289, 1.2109994, -12.9297905)
 pixel_size = 0.0025
 billboard = 2
 alpha_cut = 1
@@ -360,16 +363,16 @@ vframes = 2
 frame = 2
 
 [node name="NPC" parent="." unique_id=918147048 instance=ExtResource("4_u5wsr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8633775, 0.093599975, -8.028644)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8633775, 0.093599975, -12.158644)
 
 [node name="NPC2" parent="." unique_id=471940055 instance=ExtResource("4_u5wsr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9723604, 0.093599975, -8.124165)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9723604, 0.093599975, -12.254165)
 
 [node name="NPC3" parent="." unique_id=1057249204 instance=ExtResource("4_u5wsr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0425267, 0.093599975, -8.789564)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0425267, 0.093599975, -12.919564)
 
 [node name="NPC4" parent="." unique_id=960073380 instance=ExtResource("4_u5wsr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.78112435, 0.093599975, -8.914976)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.78112435, 0.093599975, -13.044976)
 
 [node name="Executioner" type="Sprite3D" parent="." unique_id=179171592]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1169227, 4.437277)
@@ -416,6 +419,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer" unique_id=1060390591]
 size = Vector2i(1920, 1080)
@@ -500,9 +504,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="PlayerSpawner" type="Marker3D" parent="." unique_id=175682868 groups=["PlayerSpawner"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.348)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.21799994)
 
 [node name="EndingScript" type="Node" parent="." unique_id=35093261]
 script = ExtResource("20_8bs3u")
