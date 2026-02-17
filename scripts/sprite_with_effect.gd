@@ -36,8 +36,8 @@ func set_dissolve(dissolve: float) -> void:
 	_effect_material.set_shader_parameter("dissolve", dissolve)
 
 
-func set_material_texture(texture: CompressedTexture2D) -> void:
-	_effect_material.set_shader_parameter("albedo_texture", texture)
+func set_material_texture(new_texture: CompressedTexture2D) -> void:
+	_effect_material.set_shader_parameter("albedo_texture", new_texture)
 
 
 func _ready() -> void:

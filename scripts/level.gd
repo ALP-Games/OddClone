@@ -55,7 +55,7 @@ func _ready() -> void:
 func _look_for_player(node: Node) -> void:
 	if node is Player:
 		node.ready.connect(func()->void:_init_player(node), CONNECT_ONE_SHOT)
-	get_tree().root.child_entered_tree.disconnect(_look_for_player)
+		get_tree().root.child_entered_tree.disconnect(_look_for_player)
 
 
 func _init_player(player: Player) -> void:
