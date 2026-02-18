@@ -314,6 +314,9 @@ _data = {
 &"elevator_open": SubResource("Animation_0ejow")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7cc1q"]
+size = Vector3(2.8896484, 3.3065186, 1)
+
 [node name="Elevator" type="Node3D" unique_id=1511823988 groups=["Elevator"]]
 script = ExtResource("1_0ejow")
 
@@ -390,3 +393,11 @@ stream = ExtResource("7_7cc1q")
 
 [node name="ElevatorArrive" type="AudioStreamPlayer" parent="." unique_id=124035023]
 stream = ExtResource("7_gnjmy")
+
+[node name="ExitBlock" type="StaticBody3D" parent="." unique_id=194683867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49849015, 0)
+
+[node name="ExitBlockCollisionShape" type="CollisionShape3D" parent="ExitBlock" unique_id=1634663902]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1532593, -1.3456235)
+shape = SubResource("BoxShape3D_7cc1q")
+disabled = true

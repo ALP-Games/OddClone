@@ -19,8 +19,6 @@ signal level_end(won: bool)
 
 var _shown_glitches: int = 0
 
-# TODO: on level start elevator should only play "open" (maybe will be nice to have a state machine for that)
-# TODO: fix player hand anim
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,27 +36,19 @@ func _ready() -> void:
 		for npc_index in npcs.size():
 			(npcs[npc_index] as NPC).got_shot.connect(npc_shot.bind(npc_index == bad_npc_index))
 	
-	var player: Player = get_tree().get_first_node_in_group(Constants.PLAYER_GROUP)
-	if player == null:
-		get_tree().root.child_entered_tree.connect(_look_for_player)
-	else:
-		_init_player(player)
-	
 	if _level_intro_dialogue:
 		DialogueLayer.display_dialogue(_level_intro_dialogue)
 	
 	await get_tree().create_timer(0.5).timeout
 	var elevator: Elevator = get_tree().get_first_node_in_group(Constants.ELEVATOR_GROUP)
-	elevator.elevator_arrive()
+	elevator.disable_exit_block(true)
+	elevator.elevator_opening.connect(_init_player, CONNECT_ONE_SHOT)
+	elevator.open_elevator()
+	elevator.enable_open_on_enter()
 
 
-func _look_for_player(node: Node) -> void:
-	if node is Player:
-		node.ready.connect(func()->void:_init_player(node), CONNECT_ONE_SHOT)
-		get_tree().root.child_entered_tree.disconnect(_look_for_player)
-
-
-func _init_player(player: Player) -> void:
+func _init_player() -> void:
+	var player: Player = get_tree().get_first_node_in_group(Constants.PLAYER_GROUP)
 	player.level_start_init()
 	level_end.connect(player.on_level_end)
 
@@ -91,11 +81,10 @@ func npc_shot(enemy: bool) -> void:
 
 func _on_level_beaten() -> void:
 	var elevator: Elevator = get_tree().get_first_node_in_group(Constants.ELEVATOR_GROUP)
+	elevator.disable_exit_block(false)
 	elevator.close_elevator()
 	elevator.elevator_closed.connect(func()->void:
-		elevator.elevator_work()
-		await get_tree().create_timer(elevator_travel_time).timeout
-		#elevator.elevator_arrive()
-		#await get_tree().create_timer(2.0).timeout
+		elevator.disable_exit_block(true)
+		elevator.elevator_work(elevator_travel_time)
 		level_end.emit(true)
 	, CONNECT_ONE_SHOT)

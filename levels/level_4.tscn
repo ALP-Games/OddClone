@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7hkq63m0yssf"]
 
-[ext_resource type="Script" uid="uid://csb0fe7ebci5h" path="res://scripts/level.gd" id="1_hokjj"]
+[ext_resource type="Script" uid="uid://clvnc62v01foi" path="res://scripts/basic_ending_level.gd" id="1_ng40l"]
 [ext_resource type="PackedScene" uid="uid://ngmr7ceqer17" path="res://Assets/LevelLayout/office_layout.tscn" id="2_0fd8o"]
 [ext_resource type="PackedScene" uid="uid://dpjf3forbly3j" path="res://actors/player_2.tscn" id="3_s4mq8"]
 [ext_resource type="PackedScene" uid="uid://ctgu2mirtg7f2" path="res://actors/npc.tscn" id="5_ng40l"]
@@ -225,7 +225,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(3.5, 7, 8.5, 11, 11.8, 13, 13.8, 15.5, 16.3, 16.8, 17.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 1.1169227, 4.437277), Vector3(0.6490725, 1.1169231, -4.190031), Vector3(1.9221542, 1.1169232, -6.6549764), Vector3(1.9221542, 1.1169232, -6.654976), Vector3(0.69470346, 1.1169232, -7.5540385), Vector3(0.69470346, 1.1169232, -7.554039), Vector3(-0.6532338, 1.1169232, -7.554039), Vector3(-0.6532338, 1.1169232, -7.554039), Vector3(-1.9161043, 1.1169232, -7.554039), Vector3(-1.9161043, 1.1169232, -7.554039), Vector3(-0.4114287, 1.1169232, -7.554039)]
+"values": [Vector3(0, 1.117, 0.307), Vector3(0.649, 1.117, -8.32), Vector3(1.922, 1.117, -10.785), Vector3(1.922, 1.117, -10.785), Vector3(0.695, 1.117, -11.684), Vector3(0.695, 1.117, -11.684), Vector3(-0.653, 1.117, -11.684), Vector3(-0.653, 1.117, -11.684), Vector3(-1.916, 1.117, -11.684), Vector3(-1.916, 1.117, -11.684), Vector3(-0.411, 1.117, -11.684)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -274,7 +274,7 @@ shader_parameter/glow_color = Color(0.9372549, 0, 0, 1)
 shader_parameter/flicker_intensity = 0.5
 
 [node name="Level4" type="Node3D" unique_id=1951831575]
-script = ExtResource("1_hokjj")
+script = ExtResource("1_ng40l")
 glitches = false
 metadata/_custom_type_script = "uid://csb0fe7ebci5h"
 

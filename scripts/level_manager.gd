@@ -50,8 +50,9 @@ func _next_level() -> void:
 
 
 func _restart_level() -> void:
-	get_tree().reload_current_scene.call_deferred()
 	_player_instance.queue_free()
+	_elevator_instance.reset()
+	get_tree().reload_current_scene.call_deferred()
 	_level_restarting = true
 
 
