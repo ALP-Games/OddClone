@@ -6,6 +6,8 @@
 [ext_resource type="Material" uid="uid://bptbfowat2jve" path="res://Assets/LevelLayout/materials/office_wal.tres" id="2_adj4o"]
 [ext_resource type="AudioStream" uid="uid://86hmjennh7k2" path="res://audio/elevator/elevator_sound-open3.ogg" id="3_adj4o"]
 [ext_resource type="AudioStream" uid="uid://bpfa0b0frc836" path="res://audio/elevator/elevator_door-close2.ogg" id="4_gnjmy"]
+[ext_resource type="AudioStream" uid="uid://dju5n3kolqbv3" path="res://audio/elevator/elevator_work.ogg" id="7_7cc1q"]
+[ext_resource type="AudioStream" uid="uid://o5lhpmmmd3lt" path="res://audio/elevator/elevator_arrive.ogg" id="7_gnjmy"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_a6xdp"]
 _surfaces = [{
@@ -312,6 +314,9 @@ _data = {
 &"elevator_open": SubResource("Animation_0ejow")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7cc1q"]
+size = Vector3(2.8896484, 3.3065186, 1)
+
 [node name="Elevator" type="Node3D" unique_id=1511823988 groups=["Elevator"]]
 script = ExtResource("1_0ejow")
 
@@ -384,5 +389,15 @@ stream = ExtResource("4_gnjmy")
 volume_db = -17.0
 
 [node name="ElevatorWorking" type="AudioStreamPlayer" parent="." unique_id=564909961]
+stream = ExtResource("7_7cc1q")
 
 [node name="ElevatorArrive" type="AudioStreamPlayer" parent="." unique_id=124035023]
+stream = ExtResource("7_gnjmy")
+
+[node name="ExitBlock" type="StaticBody3D" parent="." unique_id=194683867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49849015, 0)
+
+[node name="ExitBlockCollisionShape" type="CollisionShape3D" parent="ExitBlock" unique_id=1634663902]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1532593, -1.3456235)
+shape = SubResource("BoxShape3D_7cc1q")
+disabled = true

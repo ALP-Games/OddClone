@@ -20,28 +20,29 @@ starting_glitch_period_max = 15
 _level_intro_dialogue = ExtResource("2_foxie")
 metadata/_custom_type_script = "uid://csb0fe7ebci5h"
 
-[node name="Node3D" parent="." unique_id=1610315983 instance=ExtResource("2_yhi02")]
+[node name="OfficeLayout" parent="." unique_id=1610315983 instance=ExtResource("2_yhi02")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.13)
 
 [node name="PlayerSpawner" type="Marker3D" parent="." unique_id=1723050025 groups=["PlayerSpawner"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.348)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.21799994)
 
 [node name="NPC" parent="." unique_id=778123170 instance=ExtResource("4_ae7oe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.452, 0, -2.228)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.452, 0, -6.358)
 
 [node name="NPC2" parent="." unique_id=1387476001 instance=ExtResource("4_ae7oe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.002, 0, -4.074)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.002, 0, -8.204)
 
 [node name="NPC3" parent="." unique_id=238367860 instance=ExtResource("4_ae7oe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5400571, 0, -1.9261796)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5400571, 0, -6.05618)
 
 [node name="NPC4" parent="." unique_id=1893201254 instance=ExtResource("4_ae7oe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5683182, 0, -4.0945807)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5683182, 0, -8.224581)
 
 [node name="NPC5" parent="." unique_id=1983030846 instance=ExtResource("4_ae7oe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1644615, 0, -7.8078356)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1644615, 0, -11.937836)
 
 [node name="Door" type="StaticBody3D" parent="." unique_id=1733826867]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.900698, 1.4132283, -7.1811643)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.900698, 1.4132283, -11.311165)
 visible = false
 script = ExtResource("5_foxie")
 

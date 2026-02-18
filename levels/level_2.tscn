@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ngmr7ceqer17" path="res://Assets/LevelLayout/office_layout.tscn" id="2_n46q3"]
 [ext_resource type="PackedScene" uid="uid://cq22nba13gq0u" path="res://actors/npc_boss.tscn" id="4_kx6l7"]
 
-[node name="Level0" type="Node3D" unique_id=1951831575]
+[node name="Level2" type="Node3D" unique_id=1951831575]
 script = ExtResource("1_kx6l7")
 glitch_step = 2
 starting_glitch_period_min = 9
@@ -13,32 +13,32 @@ end_glitch_period_min = 4
 end_glitch_period_max = 6
 metadata/_custom_type_script = "uid://csb0fe7ebci5h"
 
-[node name="Node3D" parent="." unique_id=1610315983 instance=ExtResource("2_n46q3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002887249, 0, 0.00018405914)
+[node name="OfficeLayout" parent="." unique_id=1610315983 instance=ExtResource("2_n46q3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002887249, 0, -4.129816)
 
 [node name="NPC-boss" parent="." unique_id=778123170 instance=ExtResource("4_kx6l7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1778116, -2.3841858e-07, 0.3388188)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1778116, -2.3841858e-07, -3.7911813)
 
 [node name="NPC-boss2" parent="." unique_id=754405672 instance=ExtResource("4_kx6l7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9257176, -2.3841858e-07, -5.23025)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9257176, -2.3841858e-07, -9.36025)
 
 [node name="NPC-boss3" parent="." unique_id=118030814 instance=ExtResource("4_kx6l7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.451729, -2.3841858e-07, 1.6341567)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.451729, -2.3841858e-07, -2.4958434)
 
 [node name="NPC-boss4" parent="." unique_id=1637891028 instance=ExtResource("4_kx6l7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041875124, -2.3841858e-07, -12.534241)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041875124, -2.3841858e-07, -16.664242)
 
 [node name="NPC-boss5" parent="." unique_id=29359765 instance=ExtResource("4_kx6l7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2840643, -2.3841858e-07, -9.048496)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2840643, -2.3841858e-07, -13.178496)
 
 [node name="NPC-boss6" parent="." unique_id=927150783 instance=ExtResource("4_kx6l7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3306737, -2.3841858e-07, -4.631233)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3306737, -2.3841858e-07, -8.761233)
 
 [node name="NPC-boss7" parent="." unique_id=1232303233 instance=ExtResource("4_kx6l7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.080406, 7.1525574e-07, -7.3945713)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.080406, 7.1525574e-07, -11.524571)
 
 [node name="NPC-boss8" parent="." unique_id=1649207844 instance=ExtResource("4_kx6l7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.659354, 7.1525574e-07, -5.2098455)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.659354, 7.1525574e-07, -9.339846)
 
 [node name="PlayerSpawner" type="Marker3D" parent="." unique_id=479209203 groups=["PlayerSpawner"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.348)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.21799994)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7hkq63m0yssf"]
 
-[ext_resource type="Script" uid="uid://csb0fe7ebci5h" path="res://scripts/level.gd" id="1_hokjj"]
+[ext_resource type="Script" uid="uid://clvnc62v01foi" path="res://scripts/basic_ending_level.gd" id="1_ng40l"]
 [ext_resource type="PackedScene" uid="uid://ngmr7ceqer17" path="res://Assets/LevelLayout/office_layout.tscn" id="2_0fd8o"]
 [ext_resource type="PackedScene" uid="uid://dpjf3forbly3j" path="res://actors/player_2.tscn" id="3_s4mq8"]
 [ext_resource type="PackedScene" uid="uid://ctgu2mirtg7f2" path="res://actors/npc.tscn" id="5_ng40l"]
@@ -225,7 +225,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(3.5, 7, 8.5, 11, 11.8, 13, 13.8, 15.5, 16.3, 16.8, 17.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 1.1169227, 4.437277), Vector3(0.6490725, 1.1169231, -4.190031), Vector3(1.9221542, 1.1169232, -6.6549764), Vector3(1.9221542, 1.1169232, -6.654976), Vector3(0.69470346, 1.1169232, -7.5540385), Vector3(0.69470346, 1.1169232, -7.554039), Vector3(-0.6532338, 1.1169232, -7.554039), Vector3(-0.6532338, 1.1169232, -7.554039), Vector3(-1.9161043, 1.1169232, -7.554039), Vector3(-1.9161043, 1.1169232, -7.554039), Vector3(-0.4114287, 1.1169232, -7.554039)]
+"values": [Vector3(0, 1.117, 0.307), Vector3(0.649, 1.117, -8.32), Vector3(1.922, 1.117, -10.785), Vector3(1.922, 1.117, -10.785), Vector3(0.695, 1.117, -11.684), Vector3(0.695, 1.117, -11.684), Vector3(-0.653, 1.117, -11.684), Vector3(-0.653, 1.117, -11.684), Vector3(-1.916, 1.117, -11.684), Vector3(-1.916, 1.117, -11.684), Vector3(-0.411, 1.117, -11.684)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -274,31 +274,31 @@ shader_parameter/glow_color = Color(0.9372549, 0, 0, 1)
 shader_parameter/flicker_intensity = 0.5
 
 [node name="Level4" type="Node3D" unique_id=1951831575]
-script = ExtResource("1_hokjj")
+script = ExtResource("1_ng40l")
 glitches = false
 metadata/_custom_type_script = "uid://csb0fe7ebci5h"
 
-[node name="Node3D" parent="." unique_id=1610315983 instance=ExtResource("2_0fd8o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002887249, 0, 0.00018405914)
+[node name="OfficeLayout" parent="." unique_id=1610315983 instance=ExtResource("2_0fd8o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002887249, 0, -4.129816)
 
 [node name="PlayerRotator" type="Node3D" parent="." unique_id=1179155766]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5421289, -4.7683716e-07, -8.79979)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5421289, -4.7683716e-07, -12.9297905)
 
 [node name="Player" parent="PlayerRotator" unique_id=757401328 groups=["Player"] instance=ExtResource("3_s4mq8")]
 transform = Transform3D(-1, 0, -1.5099577e-07, 0, 0.9999998, 0, 1.509958e-07, 0, -0.9999998, 0, 0, 0)
 no_movement = true
 
 [node name="NPC" parent="." unique_id=778123170 instance=ExtResource("5_ng40l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8633775, 0.093599975, -8.028644)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8633775, 0.093599975, -12.158644)
 
 [node name="NPC2" parent="." unique_id=471940055 instance=ExtResource("5_ng40l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9723604, 0.093599975, -8.124165)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9723604, 0.093599975, -12.254165)
 
 [node name="NPC3" parent="." unique_id=1057249204 instance=ExtResource("5_ng40l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0425267, 0.093599975, -8.789564)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0425267, 0.093599975, -12.919564)
 
 [node name="NPC4" parent="." unique_id=960073380 instance=ExtResource("5_ng40l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.78112435, 0.093599975, -8.914976)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.78112435, 0.093599975, -13.044976)
 
 [node name="Executioner" type="Sprite3D" parent="." unique_id=179171592]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1169227, 4.437277)
@@ -317,7 +317,6 @@ collision_mask = 0
 shape = SubResource("SphereShape3D_ng40l")
 
 [node name="Footstep1" type="AudioStreamPlayer3D" parent="Executioner" unique_id=1739595562]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6532338, -1.1169232, 7.554039)
 stream = ExtResource("6_dmnu2")
 
 [node name="Footstep2" type="AudioStreamPlayer3D" parent="Executioner" unique_id=434116608]

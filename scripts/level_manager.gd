@@ -2,6 +2,7 @@ extends Node
 
 @export var levels: Array[PackedScene] # maybe need resource for level instead of a scene
 @export var player_scene: PackedScene
+@export var elevator_scene: PackedScene
 @export var await_time_after_objective := 1.0
 
 var _current_level_id = 0
@@ -9,6 +10,7 @@ var _current_level_id = 0
 var _current_level: Level = null
 
 var _player_instance: Player = null
+var _elevator_instance: Elevator = null
 
 var _level_restarting = false
 
@@ -16,7 +18,8 @@ var _level_restarting = false
 func _ready() -> void:
 	GlobalUi.button_next_level.pressed.connect(_next_level)
 	GlobalUi.button_restart.pressed.connect(_restart_level)
-	pass
+	_elevator_instance = elevator_scene.instantiate()
+	get_tree().root.add_child.call_deferred(_elevator_instance)
 
 
 func _enter_tree() -> void:
@@ -47,8 +50,9 @@ func _next_level() -> void:
 
 
 func _restart_level() -> void:
-	get_tree().reload_current_scene.call_deferred()
 	_player_instance.queue_free()
+	_elevator_instance.reset()
+	get_tree().reload_current_scene.call_deferred()
 	_level_restarting = true
 
 
