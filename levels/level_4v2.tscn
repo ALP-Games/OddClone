@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://df86moepnfnxq"]
 
-[ext_resource type="Script" uid="uid://csb0fe7ebci5h" path="res://scripts/level.gd" id="1_4b0oo"]
+[ext_resource type="Script" uid="uid://cqk5w0gj07yeq" path="res://scripts/ending_level.gd" id="1_8bs3u"]
 [ext_resource type="PackedScene" uid="uid://ngmr7ceqer17" path="res://Assets/LevelLayout/office_layout.tscn" id="2_tco0s"]
 [ext_resource type="Script" uid="uid://d2xek2q8p5rqg" path="res://actors/player.gd" id="3_n701c"]
 [ext_resource type="AudioStream" uid="uid://bp1l5l2acgj2c" path="res://audio/shoot/SCIWeap_Pulserifle_V2.1_Altshot_01.wav" id="4_46ygf"]
@@ -19,7 +19,6 @@
 [ext_resource type="AudioStream" uid="uid://cpedgh2lubrwf" path="res://audio/footsteps/footstep_laminate-06.ogg" id="13_vw5sl"]
 [ext_resource type="PackedScene" uid="uid://datbdcuw2mst8" path="res://ui/gameplay_ui.tscn" id="14_dauft"]
 [ext_resource type="Shader" uid="uid://bnwmj1apwncja" path="res://shaders/viewport_fade.gdshader" id="17_46ygf"]
-[ext_resource type="Script" uid="uid://cnr6qg22ke2uh" path="res://actors/ending_script.gd" id="20_8bs3u"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_cp522"]
 
@@ -295,7 +294,7 @@ shader_parameter/glow_color = Color(0.9372549, 0, 0, 1)
 shader_parameter/flicker_intensity = 0.5
 
 [node name="Level4" type="Node3D" unique_id=1951831575]
-script = ExtResource("1_4b0oo")
+script = ExtResource("1_8bs3u")
 glitches = false
 metadata/_custom_type_script = "uid://csb0fe7ebci5h"
 
@@ -323,10 +322,10 @@ volume_db = -5.0
 size = Vector2i(1920, 1080)
 
 [node name="Body" type="Node3D" parent="PlayerRotator/Player/SubViewport2" unique_id=86580710]
-transform = Transform3D(-1, 0, -1.5099577e-07, 0, 0.9999998, 0, 1.509958e-07, 0, -0.9999998, -0.5421289, 1.6999992, -8.79979)
+transform = Transform3D(-1, 0, -1.5099576e-07, 0, 0.99999976, 0, 1.5099579e-07, 0, -0.99999976, -0.5421289, -4.7683716e-07, -12.9297905)
 
 [node name="Head" type="Node3D" parent="PlayerRotator/Player/SubViewport2/Body" unique_id=1792088025]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 1.4210855e-14, 0, 0.99999994, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 1.4210855e-14, 0, 0.99999994, 0, 1.7, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="PlayerRotator/Player/SubViewport2/Body/Head" unique_id=612811798]
 target_position = Vector3(0, 0, -100)
@@ -403,7 +402,7 @@ libraries/ = SubResource("AnimationLibrary_0fd8o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=716310597]
 libraries/ = SubResource("AnimationLibrary_04hp8")
-autoplay = &"level_animation"
+autoplay = &"RESET"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1282889527]
 
@@ -505,6 +504,3 @@ metadata/_edit_use_anchors_ = true
 
 [node name="PlayerSpawner" type="Marker3D" parent="." unique_id=175682868 groups=["PlayerSpawner"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.21799994)
-
-[node name="EndingScript" type="Node" parent="." unique_id=35093261]
-script = ExtResource("20_8bs3u")

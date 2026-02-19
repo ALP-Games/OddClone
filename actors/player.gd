@@ -123,8 +123,8 @@ func _physics_process(delta: float) -> void:
 		_process_controls()
 	else:
 		velocity = Vector3.ZERO
-
 	
+	# TODO: implement character step frames
 	var xz_plane_velocity := velocity
 	xz_plane_velocity -= xz_plane_velocity.project(Vector3.UP)
 	_elapsed_footstep += xz_plane_velocity.length() * delta
