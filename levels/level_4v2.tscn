@@ -185,7 +185,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 1.1169227, 4.437277)]
+"values": [Vector3(-0.76, 1.117, -8.136)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -214,7 +214,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_ng40l"]
 resource_name = "level_animation"
-length = 24.0
+length = 15.0
 step = 0.1
 tracks/0/type = "animation"
 tracks/0/imported = false
@@ -223,8 +223,8 @@ tracks/0/path = NodePath("Executioner/AnimationPlayer")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"clips": PackedStringArray("idle", "executioner_walk", "idle", "executioner_walk", "idle", "executioner_walk", "idle", "executioner_walk", "idle", "executioner_walk", "idle", "shoot"),
-"times": PackedFloat32Array(0, 3.5, 8.5, 11, 11.8, 13, 13.8, 15.5, 16.3, 16.8, 17.4, 18.4)
+"clips": PackedStringArray("executioner_walk", "idle", "executioner_walk", "idle", "executioner_walk", "idle", "executioner_walk", "idle", "executioner_walk", "idle", "shoot"),
+"times": PackedFloat32Array(0, 2.4, 4.9000006, 5.700001, 6.9000006, 7.7, 9.400001, 10.2, 10.7, 11.3, 12.3)
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -233,10 +233,10 @@ tracks/1/path = NodePath("Executioner:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(3.5, 7, 8.5, 11, 11.8, 13, 13.8, 15.5, 16.3, 16.8, 17.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 2.4, 4.9000006, 5.700001, 6.9000006, 7.7, 9.400001, 10.2, 10.7, 11.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 1.1169227, 4.437277), Vector3(0.6490725, 1.1169231, -4.190031), Vector3(1.9221542, 1.1169232, -6.6549764), Vector3(1.9221542, 1.1169232, -6.654976), Vector3(0.69470346, 1.1169232, -7.5540385), Vector3(0.69470346, 1.1169232, -7.554039), Vector3(-0.6532338, 1.1169232, -7.554039), Vector3(-0.6532338, 1.1169232, -7.554039), Vector3(-1.9161043, 1.1169232, -7.554039), Vector3(-1.9161043, 1.1169232, -7.554039), Vector3(-0.4114287, 1.1169232, -7.554039)]
+"values": [Vector3(-0.76, 1.117, -8.136), Vector3(1.922, 1.117, -10.785), Vector3(1.922, 1.117, -10.785), Vector3(0.695, 1.117, -11.684), Vector3(0.695, 1.117, -11.684), Vector3(-0.653, 1.117, -11.684), Vector3(-0.653, 1.117, -11.684), Vector3(-1.916, 1.117, -11.684), Vector3(-1.916, 1.117, -11.684), Vector3(-0.411, 1.117, -11.684)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -245,7 +245,7 @@ tracks/2/path = NodePath("CanvasLayer/OutroMask:material:shader_parameter/dissol
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 19.67, 20.25),
+"times": PackedFloat32Array(0, 13.570001, 14.150001),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 1.0]
@@ -257,7 +257,7 @@ tracks/3/path = NodePath("PlayerRotator:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(19.7, 20.66),
+"times": PackedFloat32Array(13.600001, 14.56),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(-1.4835298, 0, 0)]
@@ -308,9 +308,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5421289, -4.7683716e-07, -
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, -1.5099577e-07, 0, 0.9999998, 0, 1.509958e-07, 0, -0.9999998, 0, 0, 0)
 script = ExtResource("3_n701c")
-body = NodePath("SubViewport2/Body")
-head = NodePath("SubViewport2/Body/Head")
-raycast = NodePath("SubViewport2/Body/Head/RayCast3D")
+body = NodePath("SubViewport2/OtherPovBody")
+head = NodePath("SubViewport2/OtherPovBody/Head")
+raycast = NodePath("SubViewport2/OtherPovBody/Head/RayCast3D")
 no_movement = true
 shoot_sounds = Array[AudioStreamWAV]([ExtResource("4_46ygf"), ExtResource("5_8bs3u"), ExtResource("6_bsa0e"), ExtResource("8_r20gc")])
 footstep_sounds = Array[AudioStreamOggVorbis]([ExtResource("6_cp8xq"), ExtResource("7_kgfqg"), ExtResource("10_0q07u"), ExtResource("11_44jsn"), ExtResource("12_3vh4a"), ExtResource("13_vw5sl")])
@@ -321,18 +321,21 @@ volume_db = -5.0
 [node name="SubViewport2" type="SubViewport" parent="PlayerRotator/Player" unique_id=841389309]
 size = Vector2i(1920, 1080)
 
-[node name="Body" type="Node3D" parent="PlayerRotator/Player/SubViewport2" unique_id=86580710]
+[node name="OtherPovBody" type="Node3D" parent="PlayerRotator/Player/SubViewport2" unique_id=86580710]
+unique_name_in_owner = true
 transform = Transform3D(-1, 0, -1.5099576e-07, 0, 0.99999976, 0, 1.5099579e-07, 0, -0.99999976, -0.5421289, -4.7683716e-07, -12.9297905)
 
-[node name="Head" type="Node3D" parent="PlayerRotator/Player/SubViewport2/Body" unique_id=1792088025]
+[node name="Head" type="Node3D" parent="PlayerRotator/Player/SubViewport2/OtherPovBody" unique_id=1792088025]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 1.4210855e-14, 0, 0.99999994, 0, 1.7, 0)
 
-[node name="RayCast3D" type="RayCast3D" parent="PlayerRotator/Player/SubViewport2/Body/Head" unique_id=612811798]
+[node name="RayCast3D" type="RayCast3D" parent="PlayerRotator/Player/SubViewport2/OtherPovBody/Head" unique_id=612811798]
 target_position = Vector3(0, 0, -100)
 collision_mask = 2
 
-[node name="Camera3D" type="Camera3D" parent="PlayerRotator/Player/SubViewport2/Body/Head" unique_id=1581286432]
+[node name="OtherPovCamera" type="Camera3D" parent="PlayerRotator/Player/SubViewport2/OtherPovBody/Head" unique_id=1581286432]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 1.4210855e-14, 0, 1.0000001, 0, 0, 0)
+cull_mask = 1048571
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerRotator/Player" unique_id=122466643]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -350,6 +353,7 @@ visible = false
 
 [node name="Executioner2" type="Sprite3D" parent="." unique_id=104564003]
 transform = Transform3D(1, 0, -1.4210855e-14, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.5421289, 1.2109994, -12.9297905)
+layers = 4
 pixel_size = 0.0025
 billboard = 2
 alpha_cut = 1
@@ -371,7 +375,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0425267, 0.093599975, -12.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.78112435, 0.093599975, -13.044976)
 
 [node name="Executioner" type="Sprite3D" parent="." unique_id=179171592]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1169227, 4.437277)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76, 1.117, -8.136)
 visible = false
 pixel_size = 0.0025
 billboard = 2
@@ -388,10 +393,11 @@ collision_mask = 0
 shape = SubResource("SphereShape3D_ng40l")
 
 [node name="Footstep1" type="AudioStreamPlayer3D" parent="Executioner" unique_id=1739595562]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6532338, -1.1169232, 7.554039)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7941228, 0)
 stream = ExtResource("6_cp8xq")
 
 [node name="Footstep2" type="AudioStreamPlayer3D" parent="Executioner" unique_id=434116608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.78827643, 0)
 stream = ExtResource("7_kgfqg")
 
 [node name="Shoot" type="AudioStreamPlayer3D" parent="Executioner" unique_id=1417654042]
@@ -400,7 +406,8 @@ stream = ExtResource("8_r20gc")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Executioner" unique_id=2071587774]
 libraries/ = SubResource("AnimationLibrary_0fd8o")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=716310597]
+[node name="EndingAnimationPlayer" type="AnimationPlayer" parent="." unique_id=716310597]
+unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_04hp8")
 autoplay = &"RESET"
 
@@ -504,3 +511,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="PlayerSpawner" type="Marker3D" parent="." unique_id=175682868 groups=["PlayerSpawner"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.21799994)
+
+[node name="TransitionPos" type="Marker3D" parent="." unique_id=1095309784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7600973, 0, -8.135914)
