@@ -5,12 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://l60e08bayqd6" path="res://levels/level_2.tscn" id="3_ogmsl"]
 [ext_resource type="PackedScene" uid="uid://cwd4xmfjra3uk" path="res://levels/level_1.tscn" id="4_js131"]
 [ext_resource type="PackedScene" uid="uid://c72sef6yp61hp" path="res://levels/level_3.tscn" id="5_sshfd"]
-[ext_resource type="PackedScene" uid="uid://7hkq63m0yssf" path="res://levels/level_4.tscn" id="6_p325o"]
+[ext_resource type="PackedScene" uid="uid://df86moepnfnxq" path="res://levels/level_4v2.tscn" id="6_kkdxs"]
 [ext_resource type="PackedScene" uid="uid://yxhc6df3321x" path="res://actors/player.tscn" id="7_adej0"]
 [ext_resource type="PackedScene" uid="uid://75txfrbe04p0" path="res://actors/elevator.tscn" id="8_kkdxs"]
 
 [node name="LevelManager" type="Node" unique_id=439162559]
 script = ExtResource("1_m4udf")
-levels = Array[PackedScene]([ExtResource("2_e6jjw"), ExtResource("4_js131"), ExtResource("3_ogmsl"), ExtResource("5_sshfd"), ExtResource("6_p325o")])
+levels = Array[PackedScene]([ExtResource("2_e6jjw"), ExtResource("4_js131"), ExtResource("3_ogmsl"), ExtResource("5_sshfd"), ExtResource("6_kkdxs")])
 player_scene = ExtResource("7_adej0")
 elevator_scene = ExtResource("8_kkdxs")

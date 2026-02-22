@@ -1,46 +1,7 @@
-class_name Player extends CharacterBody3D
+class_name PlayerExtended extends Player
 
-@export var body: Node3D
-@export var head: Node3D
-@export var raycast: RayCast3D
-@export_range(0, 180, 0.001, "radians_as_degrees") var max_pitch_degrees: float = deg_to_rad(60)
-@export var head_max_rotation_units: Vector2 = Vector2.ZERO
-
-
-@export var no_movement: bool = false
-@export var move_speed: float = 5.0
-@export var sensitivity: float = 0.003
-@export var shot_delay: float = 1.1667
-
-@export_group("Shoot Sounds")
-@export var shoot_sounds: Array[AudioStreamWAV]
-
-@export_group("Footsteps")
-@export var footstep_interval: float = 2.0
-@export var footstep_sounds: Array[AudioStreamOggVorbis]
-
-@onready var shoot_sound: AudioStreamPlayer = $ShootSound
-@onready var gameplay_ui: GameplayUI = $CanvasLayer/GameplayUI
-@onready var footstep_player: AudioStreamPlayer3D = $FootstepPlayer
-@onready var shot_timer: Timer = $ShotTimer
-
-
-@onready var AnimP: AnimationPlayer = %GameplayUI/AnimationPlayer
-
-var controls_disabled := false:
-	set(value):
-		if value:
-			_reset_velocity.call_deferred()
-		controls_disabled = value
-var rotation_accumulation := Vector2.ZERO
-var _elapsed_footstep	: float = 0.0
-
-var disable_shoot := false
-var _interpolated_position: Vector3
-
-
-func _reset_velocity() -> void:
-	velocity = Vector3.ZERO
+@onready var executioner: Sprite3D = $Executioner
+@onready var reset_after_step: Timer = $ResetAfterStep
 
 
 func get_interpolated_pos() -> Vector3:
@@ -51,6 +12,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	raycast.enabled = false
 	shot_timer.one_shot = true
+	reset_after_step.timeout.connect(func():executioner.frame = 2)
 
 
 func level_start_init() -> void:
@@ -128,22 +90,44 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	if not controls_disabled:
+		if reset_after_step.is_stopped():
+			reset_after_step.start()
 		_process_controls()
 	
-	# TODO: implement character step frames
-	var xz_plane_velocity := velocity
-	xz_plane_velocity -= xz_plane_velocity.project(Vector3.UP)
-	_elapsed_footstep += xz_plane_velocity.length() * delta
-	if _elapsed_footstep >= footstep_interval:
-		_elapsed_footstep -= footstep_interval
+	_process_footstep(delta)
+	
+	move_and_slide()
+
+
+func _process_footstep(delta: float) -> void:
+	var play_footstep := false
+	if executioner.frame == 2 and reset_after_step.is_stopped():
+		_elapsed_footstep = 0.0
+		play_footstep = true
+	else:
+		# TODO: implement character step frames
+		var xz_plane_velocity := velocity
+		xz_plane_velocity -= xz_plane_velocity.project(Vector3.UP)
+		_elapsed_footstep += xz_plane_velocity.length() * delta
+		if _elapsed_footstep >= footstep_interval:
+			_elapsed_footstep -= footstep_interval
+			play_footstep = true
+	
+	if play_footstep:
+		match executioner.frame:
+			0:
+				executioner.frame = 1
+			1:
+				executioner.frame = 2
+			2:
+				executioner.frame = 0
+		
 		var current_footstep_sound := footstep_player.stream
 		while current_footstep_sound == footstep_player.stream:
 			var footstep_sound_index := randi_range(0, footstep_sounds.size() - 1)
 			current_footstep_sound = footstep_sounds[footstep_sound_index]
 		footstep_player.stream = current_footstep_sound
 		footstep_player.play()
-	
-	move_and_slide()
 
 
 func _process_controls() -> void:
@@ -161,6 +145,7 @@ func _process_controls() -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
+		reset_after_step.stop()
 		velocity.x = direction.x * move_speed
 		velocity.z = direction.z * move_speed
 	else:
