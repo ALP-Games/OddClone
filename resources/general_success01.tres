@@ -5,6 +5,5 @@
 [resource]
 script = ExtResource("1_5saw6")
 dialogue_text = "Fine shooting. The elevator's ready, we need you on another floor."
-characters_over_time = 20.0
-wait_before_start = 0.05
+wait_before_start = 0.5
 metadata/_custom_type_script = "uid://cesc8j6rcirsw"

@@ -59,6 +59,7 @@ func _update_npc_glitch_ranged(npc: NPC) -> void:
 
 
 func npc_shot(enemy: bool) -> void:
+	DialogueLayer.finish_dialogue()
 	if enemy:
 		# TODO: if enemy -> tell to go to the elevator to finish
 		# emit level_end in the elevator if victory

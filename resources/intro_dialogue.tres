@@ -6,6 +6,5 @@
 script = ExtResource("1_qovff")
 dialogue_text = "Officer, this is HQ. You should be arriving at ALP Inc. shortly. 
 Dispatch reports a broken replicant is hiding amongst the office employees."
-characters_over_time = 20.0
-wait_before_start = 2.0
+wait_before_start = 1.5
 metadata/_custom_type_script = "uid://cesc8j6rcirsw"

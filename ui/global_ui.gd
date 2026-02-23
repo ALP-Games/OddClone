@@ -38,11 +38,15 @@ func enable_level_won() -> void:
 	button_next_level.visible = true
 
 
+# TODO: refactor this mess
 func enable_level_lost() -> void:
 	black_rect.visible = true
 	level_end_prompt.visible = true
 	level_lost.visible = true
 	button_restart.visible = true
+	if pause_menu.visible:
+		_toggle_pause_menu()
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func _toggle_pause_menu() -> void:
@@ -50,11 +54,14 @@ func _toggle_pause_menu() -> void:
 	get_tree().paused = enabling
 	pause_menu.visible = enabling
 	if enabling:
+		print("Tree paused")
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func _physics_process(_delta: float) -> void:
+	if level_end_prompt.visible:
+		return
 	if Input.is_action_just_pressed("pause"):
 		_toggle_pause_menu()

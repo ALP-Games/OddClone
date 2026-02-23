@@ -15,20 +15,32 @@ func _ready() -> void:
 	dialogue_container.visible = false
 	dialogue_label.visible_characters = 0
 	set_process(false)
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	_char_overflow += (_current_dialogue.characters_over_time * delta)
-	var current_chars := floorf(_char_overflow)
-	_char_overflow -= current_chars
-	dialogue_label.visible_characters += (current_chars as int)
 	if dialogue_label.visible_ratio >= 1.0:
 		face_animation_player.play("FaceFinish")
 		mumble_timer.stop()
 		set_process(false)
 		await get_tree().create_timer(_current_dialogue.stay_after_finish).timeout
+		# TODO: fix this place
+		# it is buggy because await functions like a callback, and this timer does not get cleared
 		dialogue_container.visible = false
+		return
+	_char_overflow += (_current_dialogue.characters_over_time * delta)
+	var current_chars := floorf(_char_overflow)
+	_char_overflow -= current_chars
+	dialogue_label.visible_characters += (current_chars as int)
+
+
+func dialogue_in_progress() -> bool:
+	return dialogue_container.visible and dialogue_label.visible_ratio < 1.0
+
+
+func finish_dialogue() -> void:
+	dialogue_label.visible_ratio = 1.0
 
 
 func display_dialogue(dialogue: DialogueRes) -> void:
@@ -42,4 +54,5 @@ func display_dialogue(dialogue: DialogueRes) -> void:
 	face_animation_player.play("FaceTalk")
 	mumble_timer.start()
 	dialogue_label.text = dialogue.dialogue_text
+	print("Process set to true")
 	set_process(true)

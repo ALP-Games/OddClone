@@ -110,6 +110,7 @@ stream_1/stream = ExtResource("7_qygaw")
 stream_2/stream = ExtResource("8_vxuf2")
 
 [node name="DialogLayer" type="CanvasLayer" unique_id=748861057]
+process_mode = 1
 layer = 5
 script = ExtResource("1_nh54w")
 
@@ -194,6 +195,6 @@ stream = SubResource("AudioStreamRandomizer_sn182")
 volume_db = 5.0
 
 [node name="MumbleTimer" type="Timer" parent="." unique_id=727965709]
-wait_time = 0.3
+wait_time = 0.15
 
 [connection signal="timeout" from="MumbleTimer" to="MumblingNoises" method="play"]
