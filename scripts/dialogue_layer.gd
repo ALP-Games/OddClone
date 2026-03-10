@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var face_animation_player: AnimationPlayer = %FaceAnimationPlayer
 
 @onready var mumble_timer: Timer = $MumbleTimer
+@onready var after_finish: Timer = $AfterFinish
 
 
 var _current_dialogue: DialogueRes = null
@@ -24,10 +25,8 @@ func _process(delta: float) -> void:
 		face_animation_player.play("FaceFinish")
 		mumble_timer.stop()
 		set_process(false)
-		await get_tree().create_timer(_current_dialogue.stay_after_finish).timeout
-		# TODO: fix this place
-		# it is buggy because await functions like a callback, and this timer does not get cleared
-		dialogue_container.visible = false
+		after_finish.start(_current_dialogue.stay_after_finish)
+		after_finish.timeout.connect(on_dialogue_finished, CONNECT_ONE_SHOT)
 		return
 	_char_overflow += (_current_dialogue.characters_over_time * delta)
 	var current_chars := floorf(_char_overflow)
@@ -43,7 +42,13 @@ func finish_dialogue() -> void:
 	dialogue_label.visible_ratio = 1.0
 
 
+func on_dialogue_finished() -> void:
+	dialogue_container.visible = false
+
+
 func display_dialogue(dialogue: DialogueRes) -> void:
+	if after_finish.timeout.is_connected(on_dialogue_finished):
+		after_finish.timeout.disconnect(on_dialogue_finished)
 	_current_dialogue = dialogue
 	set_process(false)
 	dialogue_label.visible_characters = 0

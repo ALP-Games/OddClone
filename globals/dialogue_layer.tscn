@@ -197,4 +197,6 @@ volume_db = 5.0
 [node name="MumbleTimer" type="Timer" parent="." unique_id=727965709]
 wait_time = 0.15
 
+[node name="AfterFinish" type="Timer" parent="." unique_id=710123995]
+
 [connection signal="timeout" from="MumbleTimer" to="MumblingNoises" method="play"]

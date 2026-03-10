@@ -1,5 +1,7 @@
 extends Node
 
+signal level_loaded
+
 @export var levels: Array[PackedScene] # maybe need resource for level instead of a scene
 @export var player_scene: PackedScene
 @export var elevator_scene: PackedScene
@@ -26,6 +28,7 @@ func _enter_tree() -> void:
 	get_tree().root.child_entered_tree.connect(func(node: Node):
 		if node is Level:
 			_current_level = node
+			level_loaded.emit()
 			node.ready.connect(_level_init, CONNECT_ONE_SHOT))
 
 
