@@ -5,6 +5,5 @@
 [resource]
 script = ExtResource("1_ud2jr")
 dialogue_text = "Damn it, don't waste time shooting others! Just focus up and find the odd clone!"
-characters_over_time = 20.0
 wait_before_start = 0.05
 metadata/_custom_type_script = "uid://cesc8j6rcirsw"

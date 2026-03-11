@@ -73,7 +73,6 @@ func _level_won() -> void:
 
 
 func _level_lost() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	GlobalUi.enable_level_lost()
 	if _player_instance:
 		_player_instance.on_level_end(false)

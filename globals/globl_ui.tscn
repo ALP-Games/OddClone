@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cphvsgl0xmoaa" path="res://ui/global_ui.gd" id="1_qbms2"]
 [ext_resource type="Theme" uid="uid://bkewb5tsxb15v" path="res://Assets/UI_Style/TestTheme.tres" id="2_21ciw"]
 [ext_resource type="LabelSettings" uid="uid://cic6vrjqf8i0d" path="res://ui/level_font.tres" id="3_lkvwh"]
-[ext_resource type="Material" uid="uid://d2taim5ynxyw5" path="res://Assets/UI_Style/VignetteMaterial.tres" id="4_1scv1"]
 [ext_resource type="Script" path="res://ui/button_fx.gd" id="4_voxbq"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_85gms"]
@@ -17,6 +16,7 @@ script = ExtResource("1_qbms2")
 unpause_button = NodePath("PauseMenu/HBoxContainer/VBoxContainer/Button")
 
 [node name="PauseMenu" type="Control" parent="." unique_id=1381962239]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -76,7 +76,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="LevelEndPrompt" type="Control" parent="." unique_id=1572148619]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,7 +85,18 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("2_21ciw")
 
-[node name="BlackRect" type="TextureRect" parent="LevelEndPrompt" unique_id=279354583]
+[node name="BlackRect" type="ColorRect" parent="LevelEndPrompt" unique_id=243801057]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SeeThroughRect" type="TextureRect" parent="LevelEndPrompt" unique_id=279354583]
+unique_name_in_owner = true
 visible = false
 modulate = Color(0, 0, 0, 0.627451)
 layout_mode = 1
@@ -169,15 +179,3 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 theme = ExtResource("2_21ciw")
 text = "Restart"
 script = ExtResource("4_voxbq")
-
-[node name="TextureRect" type="TextureRect" parent="LevelEndPrompt" unique_id=193947369]
-visible = false
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-material = ExtResource("4_1scv1")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
