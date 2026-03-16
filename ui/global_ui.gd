@@ -6,7 +6,6 @@ extends CanvasLayer
 @onready var black_rect: ColorRect = %BlackRect
 @onready var seethrough_rect: TextureRect = %SeeThroughRect
 @onready var level_won_text: Label = $LevelEndPrompt/LevelWonText
-@onready var level_lost: Label = $LevelEndPrompt/LevelLost
 @onready var button_next_level: Button = $LevelEndPrompt/ButtonNextLevel
 @onready var button_restart: Button = $LevelEndPrompt/ButtonRestart
 
@@ -65,7 +64,7 @@ func enable_level_lost() -> void:
 	# This part is a little bit hacky
 	# Maybe this should be enabled from the level manager (basically game manager side)
 	# But right now it does not really matter
-	DialogueLayer.display_dialogue(GENERAL_FAILURE_03)
+	DialogueLayer.display_dialogue(GENERAL_FAILURE_03, DialogueLayer.Position.MIDDLE)
 	#var previous_layer
 	DialogueLayer.layer = layer + 1
 	DialogueLayer.mumbling_noises.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -75,7 +74,6 @@ func enable_level_lost() -> void:
 		DialogueLayer.mumbling_noises.process_mode = Node.PROCESS_MODE_INHERIT
 		, CONNECT_ONE_SHOT)
 	
-	level_lost.visible = true
 	button_restart.visible = true
 	
 	pause_menu.visible = false

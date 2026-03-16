@@ -19,7 +19,7 @@ length = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/DialogueContainer/HBoxContainer/TextureRect2/AspectRatioContainer/FaceSprite:texture:region")
+tracks/0/path = NodePath("HBoxContainer/TextureRect2/AspectRatioContainer/FaceSprite:texture:region")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -35,13 +35,13 @@ length = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/DialogueContainer/HBoxContainer/TextureRect2/AspectRatioContainer/FaceSprite:texture:region")
+tracks/0/path = NodePath("HBoxContainer/TextureRect2/AspectRatioContainer/FaceSprite:texture:region")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [Rect2(0, 0, 512, 512)]
 }
 
@@ -52,7 +52,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/DialogueContainer/HBoxContainer/TextureRect2/AspectRatioContainer/FaceSprite:texture:region")
+tracks/0/path = NodePath("HBoxContainer/TextureRect2/AspectRatioContainer/FaceSprite:texture:region")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -67,7 +67,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/DialogueContainer/HBoxContainer/TextureRect2/AspectRatioContainer/FaceSprite:texture:region")
+tracks/0/path = NodePath("HBoxContainer/TextureRect2/AspectRatioContainer/FaceSprite:texture:region")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -77,29 +77,12 @@ tracks/0/keys = {
 "values": [Rect2(0, 0, 512, 512)]
 }
 
-[sub_resource type="Animation" id="Animation_rb84v"]
-resource_name = "TextAppear"
-length = 8.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/DialogueContainer/HBoxContainer/TextureRect2/AspectRatioContainer/FaceSprite:texture:region")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05, 1.2, 1.35, 1.5, 1.65, 1.8000001, 1.95, 2.1, 2.25, 2.4, 2.55, 2.7, 2.85, 3, 3.15, 3.3, 3.4499998, 3.6, 3.75, 3.9, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Rect2(0, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(1024, 0, 512, 512), Rect2(1536, 0, 512, 512), Rect2(512, 0, 512, 512)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rhdrl"]
 _data = {
 &"FaceFinish": SubResource("Animation_wgiyw"),
 &"FaceIdle": SubResource("Animation_nh54w"),
 &"FaceTalk": SubResource("Animation_34yvx"),
-&"RESET": SubResource("Animation_do2v4"),
-&"TextAppear": SubResource("Animation_rb84v")
+&"RESET": SubResource("Animation_do2v4")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sn182"]
@@ -125,71 +108,85 @@ grow_vertical = 2
 mouse_filter = 2
 mouse_behavior_recursive = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DialogUI" unique_id=1460158601]
+[node name="DialogueMiddle" type="VBoxContainer" parent="DialogUI" unique_id=1060003451]
+unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
+offset_top = -240.0
+offset_bottom = 159.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control" type="Control" parent="DialogUI/VBoxContainer" unique_id=67892208]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.7
-
-[node name="DialogueContainer" type="MarginContainer" parent="DialogUI/VBoxContainer" unique_id=2056607363]
+[node name="DialogueContainer" type="MarginContainer" parent="DialogUI/DialogueMiddle" unique_id=2056607363]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 20
+theme_override_constants/margin_left = 120
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
+theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DialogUI/VBoxContainer/DialogueContainer" unique_id=534897450]
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogUI/DialogueMiddle/DialogueContainer" unique_id=534897450]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="TextureRect2" type="TextureRect" parent="DialogUI/VBoxContainer/DialogueContainer/HBoxContainer" unique_id=75082308]
+[node name="TextureRect2" type="TextureRect" parent="DialogUI/DialogueMiddle/DialogueContainer/HBoxContainer" unique_id=75082308]
+custom_minimum_size = Vector2(359, 359)
 layout_mode = 2
 size_flags_horizontal = 0
 texture = ExtResource("1_eajpo")
-expand_mode = 3
+expand_mode = 4
 stretch_mode = 4
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="DialogUI/VBoxContainer/DialogueContainer/HBoxContainer/TextureRect2" unique_id=21777183]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="DialogUI/DialogueMiddle/DialogueContainer/HBoxContainer/TextureRect2" unique_id=21777183]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment_horizontal = 0
 
-[node name="FaceSprite" type="TextureRect" parent="DialogUI/VBoxContainer/DialogueContainer/HBoxContainer/TextureRect2/AspectRatioContainer" unique_id=1004034865]
+[node name="FaceSprite" type="TextureRect" parent="DialogUI/DialogueMiddle/DialogueContainer/HBoxContainer/TextureRect2/AspectRatioContainer" unique_id=1004034865]
 layout_mode = 2
 texture = SubResource("AtlasTexture_r3sd3")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="DialogueLabel" type="Label" parent="DialogUI/VBoxContainer/DialogueContainer/HBoxContainer" unique_id=683565953]
+[node name="DialogueLabel" type="Label" parent="DialogUI/DialogueMiddle/DialogueContainer/HBoxContainer" unique_id=683565953]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Officer, this is HQ. You should be arriving at ALP Inc. shortly. 
 Dispatch reports a broken replicant is hiding amongst the office employees."
 label_settings = ExtResource("3_cypr3")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogUI/VBoxContainer/DialogueContainer" unique_id=1121812554]
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogUI/DialogueMiddle/DialogueContainer" unique_id=1121812554]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_tv6fg")
 text = "something very"
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="FaceAnimationPlayer" type="AnimationPlayer" parent="DialogUI" unique_id=1721141677]
+[node name="FaceAnimationPlayer" type="AnimationPlayer" parent="DialogUI/DialogueMiddle/DialogueContainer" unique_id=1721141677]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_rhdrl")
 autoplay = &"FaceIdle"
+
+[node name="DialogueBottom" type="VBoxContainer" parent="DialogUI" unique_id=1460158601]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="DialogUI/DialogueBottom" unique_id=67892208]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.7
 
 [node name="MumblingNoises" type="AudioStreamPlayer" parent="." unique_id=1206178922]
 unique_name_in_owner = true

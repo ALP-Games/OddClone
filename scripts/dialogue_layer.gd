@@ -14,12 +14,21 @@ signal transition_ended
 @onready var mumble_timer := Timer.new()
 @onready var after_finish := Timer.new()
 
+@onready var dialogue_middle: Control = %DialogueMiddle
+@onready var dialogue_bottom: Control = %DialogueBottom
+
+
 @onready var _starting_layer := layer
 
 enum TransState {
 	NONE,
 	FADE_IN,
 	FADE_OUT
+}
+
+enum Position {
+	MIDDLE,
+	BOTTOM
 }
 
 var _trans_state := TransState.NONE:
@@ -89,7 +98,7 @@ func _on_dialogue_finished() -> void:
 		)
 
 
-func display_dialogue(dialogue: DialogueRes) -> void:
+func display_dialogue(dialogue: DialogueRes, position: Position = Position.BOTTOM) -> void:
 	if _trans_state != TransState.NONE:
 		transition_ended.connect(func()->void:
 			display_dialogue(dialogue)
@@ -98,6 +107,14 @@ func display_dialogue(dialogue: DialogueRes) -> void:
 	layer = _starting_layer
 	if after_finish.timeout.is_connected(_on_dialogue_finished):
 		after_finish.timeout.disconnect(_on_dialogue_finished)
+		
+	dialogue_container.get_parent().remove_child(dialogue_container)
+	match position:
+		Position.MIDDLE:
+			dialogue_middle.add_child(dialogue_container)
+		Position.BOTTOM:
+			dialogue_bottom.add_child(dialogue_container)
+	
 	_current_dialogue = dialogue
 	set_process(false)
 	dialogue_label.visible_characters = 0

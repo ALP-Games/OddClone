@@ -126,24 +126,6 @@ label_settings = ExtResource("3_lkvwh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LevelLost" type="Label" parent="LevelEndPrompt" unique_id=2052057929]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -231.0
-offset_top = -22.5
-offset_right = 231.0
-offset_bottom = 22.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "pick only the clankers! don't mess up!"
-label_settings = ExtResource("3_lkvwh")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="ButtonNextLevel" type="Button" parent="LevelEndPrompt" unique_id=1356311010]
 visible = false
 layout_mode = 1
