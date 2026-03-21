@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_jwixq")
-dialogue_text = "Good work. Get back in the elevator, you're needed for another mission."
+dialogue_text = "Good work. Now, get back in the elevator."
 wait_before_start = 0.5
 metadata/_custom_type_script = "uid://cesc8j6rcirsw"

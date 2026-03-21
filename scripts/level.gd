@@ -16,6 +16,8 @@ signal level_end(won: bool)
 @export var end_glitch_period_max: int = 4
 
 @export var _level_intro_dialogue: DialogueRes = null
+@export var _level_success_dialogue: Array[DialogueRes]
+@export var _level_success_already_in_elevator: Array[DialogueRes]
 
 var _shown_glitches: int = 0
 
@@ -69,10 +71,12 @@ func npc_shot(enemy: bool) -> void:
 		elevator.disable_open_on_enter()
 		elevator.open_elevator()
 		if elevator.check_elevator().size() > 0:
-			# TODO: display job well done text
+			var dialogue_index := randi_range(0, _level_success_already_in_elevator.size() - 1)
+			DialogueLayer.display_dialogue(_level_success_already_in_elevator[dialogue_index])
 			_on_level_beaten()
 		else:
-			# TODO: display job done and return to elevator
+			var dialogue_index := randi_range(0, _level_success_dialogue.size() - 1)
+			DialogueLayer.display_dialogue(_level_success_dialogue[dialogue_index])
 			elevator.elevator_user_entered.connect(func(_node)->void:_on_level_beaten(), CONNECT_ONE_SHOT)
 	else:
 		# if non enemy was shot emit level_end false

@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://csb0fe7ebci5h" path="res://scripts/level.gd" id="1_bmgug"]
 [ext_resource type="PackedScene" uid="uid://ngmr7ceqer17" path="res://Assets/LevelLayout/office_layout.tscn" id="2_20opy"]
+[ext_resource type="Script" uid="uid://cesc8j6rcirsw" path="res://scripts/dialogue_res.gd" id="2_jq78i"]
+[ext_resource type="Resource" uid="uid://d4h5bb0sr2tv1" path="res://resources/general_success01.tres" id="3_lsnkt"]
 [ext_resource type="PackedScene" uid="uid://cq22nba13gq0u" path="res://actors/npc_boss.tscn" id="4_lfnxh"]
+[ext_resource type="Resource" uid="uid://dbnwphpcnp0ws" path="res://resources/general_success02.tres" id="4_wj73x"]
+[ext_resource type="Resource" uid="uid://cyku0lykh0vqn" path="res://resources/general_success_in_elevator01.tres" id="5_0unm6"]
 [ext_resource type="PackedScene" uid="uid://ctgu2mirtg7f2" path="res://actors/npc.tscn" id="5_8l0e1"]
 [ext_resource type="PackedScene" uid="uid://b2cxwvtwbjk0y" path="res://actors/npc_karen.tscn" id="5_20opy"]
 
@@ -13,6 +17,8 @@ starting_glitch_period_min = 13
 starting_glitch_period_max = 15
 end_glitch_period_min = 3
 end_glitch_period_max = 6
+_level_success_dialogue = Array[ExtResource("2_jq78i")]([ExtResource("3_lsnkt"), ExtResource("4_wj73x")])
+_level_success_already_in_elevator = Array[ExtResource("2_jq78i")]([ExtResource("5_0unm6")])
 metadata/_custom_type_script = "uid://csb0fe7ebci5h"
 
 [node name="OfficeLayout" parent="." unique_id=1610315983 instance=ExtResource("2_20opy")]

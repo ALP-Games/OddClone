@@ -3,8 +3,12 @@
 [ext_resource type="Script" uid="uid://csb0fe7ebci5h" path="res://scripts/level.gd" id="1_qq80x"]
 [ext_resource type="Resource" uid="uid://5rdojya5ett3" path="res://resources/intro_dialogue.tres" id="2_foxie"]
 [ext_resource type="PackedScene" uid="uid://ngmr7ceqer17" path="res://Assets/LevelLayout/office_layout.tscn" id="2_yhi02"]
+[ext_resource type="Script" uid="uid://cesc8j6rcirsw" path="res://scripts/dialogue_res.gd" id="3_tfamw"]
 [ext_resource type="PackedScene" uid="uid://ctgu2mirtg7f2" path="res://actors/npc.tscn" id="4_ae7oe"]
+[ext_resource type="Resource" uid="uid://d4h5bb0sr2tv1" path="res://resources/general_success01.tres" id="4_dm5o4"]
 [ext_resource type="Script" uid="uid://dnji2ykos32cr" path="res://scripts/door.gd" id="5_foxie"]
+[ext_resource type="Resource" uid="uid://dbnwphpcnp0ws" path="res://resources/general_success02.tres" id="5_obtcn"]
+[ext_resource type="Resource" uid="uid://cyku0lykh0vqn" path="res://resources/general_success_in_elevator01.tres" id="6_2ro2b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yi3jx"]
 albedo_color = Color(0.45431268, 0.26077116, 0.067287065, 1)
@@ -18,6 +22,8 @@ glitch_step = 3
 starting_glitch_period_min = 13
 starting_glitch_period_max = 15
 _level_intro_dialogue = ExtResource("2_foxie")
+_level_success_dialogue = Array[ExtResource("3_tfamw")]([ExtResource("4_dm5o4"), ExtResource("5_obtcn")])
+_level_success_already_in_elevator = Array[ExtResource("3_tfamw")]([ExtResource("6_2ro2b")])
 metadata/_custom_type_script = "uid://csb0fe7ebci5h"
 
 [node name="OfficeLayout" parent="." unique_id=1610315983 instance=ExtResource("2_yhi02")]
