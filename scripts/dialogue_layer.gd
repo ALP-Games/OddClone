@@ -80,6 +80,12 @@ func interrupt_dialogue() -> void:
 		after_finish.timeout.connect(_on_dialogue_finished, CONNECT_ONE_SHOT)
 
 
+func kill_dialogue() -> void:
+	_on_dialogue_spoken()
+	dialogue_container.visible = false
+	set_process(false)
+
+
 func _on_dialogue_spoken() -> void:
 	face_animation_player.play("FaceFinish")
 	mumble_timer.stop()
